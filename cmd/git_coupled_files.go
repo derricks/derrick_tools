@@ -113,7 +113,7 @@ func findCoupledFiles(command *cobra.Command, args []string) {
       return coupledFiles[i].coupledCount > coupledFiles[j].coupledCount
     })
 
-    fmt.Printf("Top %d coupled files", couplingsToShow)
+    fmt.Printf("Top %d coupled files\n", couplingsToShow)
     for index := 0; index < couplingsToShow; index++ {
       if len(coupledFiles) <= index {
         break
