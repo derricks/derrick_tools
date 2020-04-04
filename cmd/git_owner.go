@@ -129,7 +129,7 @@ func commitHasFile(commit *object.Commit, fileName string) (bool, error) {
 			return true, nil
 		}
 	}
-  return false, nil
+	return false, nil
 }
 
 const tableWidth = 120
@@ -194,7 +194,7 @@ func findOwners(cmd *cobra.Command, args []string) {
 					return err
 				}
 
-        // if the file wasn't in the commit, as sometimes happens
+				// if the file wasn't in the commit, as sometimes happens
 				if changeCount > 0 {
 					query.totalTouches += 1
 					query.totalChanges += changeCount
@@ -216,7 +216,7 @@ func findOwners(cmd *cobra.Command, args []string) {
 // (which must already be sorted) where N is either 3 or the length of the list
 func topScorersInTallies(tallies []*ownerTotals) []*ownerTotals {
 	// make a new slice and return it, since the slice gets resorted in various ways
-	returnTallies := make([]*ownerTotals,0,3)
+	returnTallies := make([]*ownerTotals, 0, 3)
 	for index, tallies := range tallies {
 		if index >= 3 {
 			return returnTallies
@@ -262,7 +262,7 @@ func formatNamePercentage(name string, percent float32) string {
 		return ""
 	}
 
-	return fmt.Sprintf("%s: %.0f%%", name, (percent*100))
+	return fmt.Sprintf("%s: %.0f%%", name, (percent * 100))
 }
 
 // printQueriesInTable calculates the top owners for each category and prints out the table
