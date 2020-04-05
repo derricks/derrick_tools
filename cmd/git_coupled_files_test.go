@@ -20,10 +20,10 @@ func TestTrackerCouplings(test *testing.T) {
 		test.Errorf("Expected %d items but got %d items", len(expectedCounts), len(couplings))
 	}
 
-  for _, coupling := range couplings {
-    expectedCount := expectedCounts[coupling.name]
-    if coupling.coupledCount != expectedCount {
-      test.Errorf("Expected %d couplings for %s but was %d", expectedCount, coupling.name, coupling.coupledCount)
-    }
-  }
+	for _, coupling := range couplings {
+		expectedCount := expectedCounts[coupling.name]
+		if coupling.coupledCount != expectedCount {
+			test.Errorf("Expected %d couplings for %s but was %d", expectedCount, coupling.name, coupling.coupledCount)
+		}
+	}
 }

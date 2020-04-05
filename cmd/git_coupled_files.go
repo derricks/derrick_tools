@@ -2,11 +2,11 @@ package cmd
 
 import (
 	"fmt"
-	"os"
-	"sort"
 	"github.com/spf13/cobra"
 	"gopkg.in/src-d/go-git.v4"
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
+	"os"
+	"sort"
 )
 
 var couplingsToShow int
@@ -23,7 +23,7 @@ var coupledFilesCmd = &cobra.Command{
 }
 
 func init() {
-  coupledFilesCmd.Flags().IntVarP(&couplingsToShow, "count", "c", 10, "The number of top couplings to show")
+	coupledFilesCmd.Flags().IntVarP(&couplingsToShow, "count", "c", 10, "The number of top couplings to show")
 	gitCmd.AddCommand(coupledFilesCmd)
 }
 
@@ -62,66 +62,65 @@ func newTracker(file string) *coupledFileTracker {
 }
 
 func findCoupledFiles(command *cobra.Command, args []string) {
-  repo, err := git.PlainOpen(".")
-  if err != nil {
-    fmt.Printf("Error: %v\n", err)
-    os.Exit(1)
-  }
+	repo, err := git.PlainOpen(".")
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+		os.Exit(1)
+	}
 
-  for _, file := range args {
-    tracker := newTracker(file)
-    totalCommits := 0
-    // for each file, look through all the commits and couple every file
-    // that was checked in with the given file
+	for _, file := range args {
+		tracker := newTracker(file)
+		totalCommits := 0
+		// for each file, look through all the commits and couple every file
+		// that was checked in with the given file
 
-    commits, err := repo.Log(&git.LogOptions{FileName: &file, Order: git.LogOrderCommitterTime})
-    if err != nil {
-      fmt.Printf("Error: %v\n", err)
-      os.Exit(1)
-    }
-    err = commits.ForEach(func(commit *object.Commit) error {
-      // is file even in the commit? if not, we can continue
-      fileInCommit, err := commitHasFile(commit, file)
-      if err != nil {
-        return err
-      }
-      if !fileInCommit {
-        return nil
-      }
+		commits, err := repo.Log(&git.LogOptions{FileName: &file, Order: git.LogOrderCommitterTime})
+		if err != nil {
+			fmt.Printf("Error: %v\n", err)
+			os.Exit(1)
+		}
+		err = commits.ForEach(func(commit *object.Commit) error {
+			// is file even in the commit? if not, we can continue
+			fileInCommit, err := commitHasFile(commit, file)
+			if err != nil {
+				return err
+			}
+			if !fileInCommit {
+				return nil
+			}
 
-     totalCommits += 1
+			totalCommits += 1
 
-      // get all the other files
-      stats, err := commit.Stats()
-      if err != nil {
-        return err
-      }
+			// get all the other files
+			stats, err := commit.Stats()
+			if err != nil {
+				return err
+			}
 
-      for _, fileStat := range stats {
-        // don't include this file!
-        if fileStat.Name != file {
-          tracker.coupleFile(fileStat.Name)
-        }
-      }
-      return nil
-    })
+			for _, fileStat := range stats {
+				// don't include this file!
+				if fileStat.Name != file {
+					tracker.coupleFile(fileStat.Name)
+				}
+			}
+			return nil
+		})
 
+		coupledFiles := tracker.getCoupledFiles()
+		sort.Slice(coupledFiles, func(i, j int) bool {
+			// we want the reverse sort
+			return coupledFiles[i].coupledCount > coupledFiles[j].coupledCount
+		})
 
-    coupledFiles := tracker.getCoupledFiles()
-    sort.Slice(coupledFiles, func (i, j int) bool {
-      // we want the reverse sort
-      return coupledFiles[i].coupledCount > coupledFiles[j].coupledCount
-    })
+		fmt.Printf("Top %d coupled files\n", couplingsToShow)
+		for index := 0; index < couplingsToShow; index++ {
+			if len(coupledFiles) <= index {
+				break
+			}
 
-    fmt.Printf("Top %d coupled files\n", couplingsToShow)
-    for index := 0; index < couplingsToShow; index++ {
-      if len(coupledFiles) <= index {
-        break
-      }
+			fmt.Printf("%s: %2.0f%%\n", coupledFiles[index].name, 100.0*float32(coupledFiles[index].coupledCount)/float32(totalCommits))
+		}
 
-      fmt.Printf("%s: %2.0f%%\n", coupledFiles[index].name, 100.0 * float32(coupledFiles[index].coupledCount)/ float32(totalCommits))
-    }
-
-  }
+	}
 
 }
