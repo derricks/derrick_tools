@@ -13,6 +13,7 @@ import (
 	"gopkg.in/src-d/go-git.v4/plumbing/object"
 )
 
+var ownersToShow int
 var commitsToQuery int
 
 var ownerCmd = &cobra.Command{
@@ -38,6 +39,7 @@ var ownerCmd = &cobra.Command{
 
 func init() {
 	ownerCmd.Flags().IntVarP(&commitsToQuery, "query-size", "c", 50, "The number of commits to query for recent history")
+	ownerCmd.Flags().IntVarP(&ownersToShow, "owner-count", "n", 3, "The number of owners to show in each list.")
 	gitCmd.AddCommand(ownerCmd)
 }
 
@@ -216,9 +218,9 @@ func findOwners(cmd *cobra.Command, args []string) {
 // (which must already be sorted) where N is either 3 or the length of the list
 func topScorersInTallies(tallies []*ownerTotals) []*ownerTotals {
 	// make a new slice and return it, since the slice gets resorted in various ways
-	returnTallies := make([]*ownerTotals, 0, 3)
+	returnTallies := make([]*ownerTotals, 0, ownersToShow)
 	for index, tallies := range tallies {
-		if index >= 3 {
+		if index >= ownersToShow {
 			return returnTallies
 		}
 
@@ -305,7 +307,7 @@ func printQueriesInTable(file string, queries []*fileLogQuery) {
 	printTableDividingLine()
 	printTableRow("Touches", "Changes", "Touches", "Changes")
 	printTableDividingLine()
-	for index := 0; index < 4; index++ {
+	for index := 0; index < ownersToShow; index++ {
 		value1 := formatNamePercentage(nthOwner(index, topTouchersAll), float32(nthTouches(index, topTouchersAll))/float32(queries[0].totalTouches))
 		value2 := formatNamePercentage(nthOwner(index, topChangersAll), float32(nthChanges(index, topChangersAll))/float32(queries[0].totalChanges))
 		value3 := formatNamePercentage(nthOwner(index, topTouchersRecent), float32(nthTouches(index, topTouchersRecent))/float32(queries[1].totalTouches))
