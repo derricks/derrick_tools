@@ -19,6 +19,8 @@ import (
 	"github.com/spf13/cobra"
 )
 
+var maxRepoDepth int
+
 // gitCmd represents the git command
 var gitCmd = &cobra.Command{
 	Use:   "git",
@@ -27,6 +29,7 @@ var gitCmd = &cobra.Command{
 }
 
 func init() {
+	gitCmd.PersistentFlags().IntVarP(&maxRepoDepth, "max-repo-depth", "m", 1000, "Cap the 'all' depth for dealing with very large repos")
 	gitCmd.AddCommand()
 	rootCmd.AddCommand(gitCmd)
 

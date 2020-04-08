@@ -3,7 +3,6 @@ package cmd
 import (
 	"fmt"
 	"io"
-	"math"
 	"os"
 	"sort"
 	"strings"
@@ -156,7 +155,7 @@ func findOwners(cmd *cobra.Command, args []string) {
 	}
 
 	queries := []*fileLogQuery{
-		&fileLogQuery{make(map[string]*ownerTotals), math.MaxInt32, "All commits", 0, 0},
+		&fileLogQuery{make(map[string]*ownerTotals), maxRepoDepth, fmt.Sprintf("All (up to %d) commits", maxRepoDepth), 0, 0},
 		&fileLogQuery{make(map[string]*ownerTotals), commitsToQuery, fmt.Sprintf("Last %d commits", commitsToQuery), 0, 0},
 	}
 

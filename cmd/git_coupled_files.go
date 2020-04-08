@@ -79,7 +79,12 @@ func findCoupledFiles(command *cobra.Command, args []string) {
 			fmt.Printf("Error: %v\n", err)
 			os.Exit(1)
 		}
+		commitsSeen := 0
 		err = commits.ForEach(func(commit *object.Commit) error {
+			if commitsSeen > maxRepoDepth {
+				return nil
+			}
+
 			// is file even in the commit? if not, we can continue
 			fileInCommit, err := commitHasFile(commit, file)
 			if err != nil {
