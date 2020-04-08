@@ -16,11 +16,14 @@ limitations under the License.
 package cmd
 
 import (
+	"bufio"
 	"fmt"
-	"github.com/spf13/cobra"
+	"io"
 	"os"
+	"strings"
 
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
 
@@ -88,4 +91,47 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
+}
+
+// pushFileToChannel just wraps a call to pushReaderToChannel after creating
+// a reader for the file
+func pushFileToChannel(fileName string, lines chan string) error {
+	file, err := os.Open(fileName)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+	return pushReaderToChannel(file, lines)
+}
+
+// pushStdinToChannel is a convenience method for wrapping stdin input
+// for pushReaderToChannel
+func pushStdinToChannel(lines chan string) error {
+	return pushReaderToChannel(os.Stdin, lines)
+}
+
+// fileLinesToChannel reads from a reader and sends each line to the channel.
+// This provides a central tool for reading from streams in a generic way, a common need
+// for many of these commands. Note that it closes the channel.
+func pushReaderToChannel(reader io.Reader, lines chan string) error {
+	scanner := bufio.NewScanner(reader)
+	defer close(lines)
+	for scanner.Scan() {
+		lines <- strings.TrimSpace(scanner.Text())
+
+		if scanner.Err() != nil {
+			return scanner.Err()
+		}
+	}
+	return nil
+}
+
+// isStringInSlice determines if searchString is in searchSlice. True if it is, false if not
+func isStringInSlice(searchString string, searchSlice []string) bool {
+	for _, curString := range searchSlice {
+		if curString == searchString {
+			return true
+		}
+	}
+	return false
 }
