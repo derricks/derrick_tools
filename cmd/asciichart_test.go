@@ -94,3 +94,24 @@ func TestCollectData(test *testing.T) {
 	test.Log(currentData)
 
 }
+
+type centerTest struct {
+	textToCenter    string
+	widthToCenterIn int
+	expected        string
+}
+
+func TestCenterText(test *testing.T) {
+	tests := []centerTest{
+		centerTest{"ab", 10, "    ab"},
+		centerTest{"abc", 2, "ab"},
+		centerTest{"ab", 5, " ab"},
+	}
+
+	for index, curTest := range tests {
+		returnString := centerTextInSpace(curTest.textToCenter, curTest.widthToCenterIn)
+		if returnString != curTest.expected {
+			test.Errorf("Test case %d: Expected '%s' but got '%s'", index, curTest.expected, returnString)
+		}
+	}
+}

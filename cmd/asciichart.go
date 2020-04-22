@@ -98,7 +98,8 @@ func (data dataSet) largestValue() int {
 
 func generateBarChart(command *cobra.Command, args []string) {
 	if title != "" {
-		fmt.Println(title)
+		fmt.Println(centerTextInSpace(title, screenWidth))
+		fmt.Println(centerTextInSpace(strings.Repeat("-", len(title)), screenWidth))
 	} else {
 		fmt.Println("")
 	}
@@ -137,7 +138,7 @@ func generateBarChart(command *cobra.Command, args []string) {
 			point, exists := data[label]
 			if !exists {
 				// very unlikely, but just in case
-				fmt.Printf("Unexpected error: %s should have been in data set but was not")
+				fmt.Printf("Unexpected error: %s should have been in data set but was not\n", label)
 				os.Exit(1)
 			}
 
@@ -153,6 +154,18 @@ func generateBarChart(command *cobra.Command, args []string) {
 //   dataValue = 4, maxBarValue = 8, maxBarWidth is 20, the return is 10 (4/8 * 20)
 func scaledBarWidth(dataValue, maxBarValue, maxBarWidth int) int {
 	return int(math.Round((float64(dataValue) / float64(maxBarValue)) * float64(maxBarWidth)))
+}
+
+// centerTextInSpace takes an input string, and a width, and returns a string padded with enough space to appear centered in that width
+func centerTextInSpace(text string, width int) string {
+	// truncate if necessary
+	if len(text) > width {
+		return text[0:width]
+	}
+
+	center := width/2
+	leftIndent := center - (len(text)/2)
+	return fmt.Sprintf("%s%s", strings.Repeat(" ", leftIndent), text)
 }
 
 // collectData reads from the specified stream and calls the preData and postData functions before and after the data is added, respectively
