@@ -276,7 +276,6 @@ func printQueriesInTable(file string, queries []*fileLogQuery) {
 		// want a reverse sort, so function checks greater than
 		return allTallies[i].totalTouches > allTallies[j].totalTouches
 	})
-	fmt.Println(allTallies)
 	topTouchersAll := topScorersInTallies(allTallies)
 
 	sort.Slice(allTallies, func(i, j int) bool {
