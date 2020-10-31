@@ -163,8 +163,8 @@ func centerTextInSpace(text string, width int) string {
 		return text[0:width]
 	}
 
-	center := width/2
-	leftIndent := center - (len(text)/2)
+	center := width / 2
+	leftIndent := center - (len(text) / 2)
 	return fmt.Sprintf("%s%s", strings.Repeat(" ", leftIndent), text)
 }
 
