@@ -19,8 +19,10 @@ import (
 	"bufio"
 	"fmt"
 	"io"
+	"math/rand"
 	"os"
 	"strings"
+	"time"
 
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -54,6 +56,7 @@ func Execute() {
 }
 
 func init() {
+	rand.Seed(time.Now().UnixNano())
 	cobra.OnInitialize(initConfig)
 
 	// Here you will define your flags and configuration settings.
