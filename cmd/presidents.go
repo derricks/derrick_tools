@@ -16,12 +16,9 @@ limitations under the License.
 package cmd
 
 import (
-	"bufio"
 	"fmt"
 	"math/rand"
-	"os"
 	"strconv"
-	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -102,50 +99,35 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
-	prompt := function(presidents)
-	fmt.Println(prompt.prompt)
-	scanner := bufio.NewScanner(os.Stdin)
-	if scanner.Scan() {
-		userResponse := scanner.Text()
-		if strings.TrimSpace(userResponse) == prompt.response {
-			fmt.Println("Correct!")
-		} else {
-			fmt.Printf("Incorrect. The right answer was %s\n", prompt.response)
-		}
-	}
+	promptAndCheckResponse(function(presidents))
 }
 
-type presidentPrompt struct {
-	prompt   string
-	response string
-}
+type presidentQuestion func([]president) promptAndResponse
 
-type presidentQuestion func([]president) presidentPrompt
-
-func quizIndex(presidents []president) presidentPrompt {
+func quizIndex(presidents []president) promptAndResponse {
 	president := presidents[rand.Intn(len(presidents))]
-	return presidentPrompt{fmt.Sprintf("Who was president %d?", president.number), president.name}
+	return promptAndResponse{fmt.Sprintf("Who was president %d?", president.number), president.name}
 }
 
-func quizBefore(presidents []president) presidentPrompt {
+func quizBefore(presidents []president) promptAndResponse {
 	index := 0
 	for index == 0 {
 		index = rand.Intn(len(presidents))
 	}
-	return presidentPrompt{fmt.Sprintf("Who was President before %s?", presidents[index].name), presidents[index-1].name}
+	return promptAndResponse{fmt.Sprintf("Who was President before %s?", presidents[index].name), presidents[index-1].name}
 }
 
-func quizAfter(presidents []president) presidentPrompt {
+func quizAfter(presidents []president) promptAndResponse {
 	index := len(presidents) - 1
 	for index == len(presidents)-1 {
 		index = rand.Intn(len(presidents))
 	}
-	return presidentPrompt{fmt.Sprintf("Who was President after %s?", presidents[index].name), presidents[index+1].name}
+	return promptAndResponse{fmt.Sprintf("Who was President after %s?", presidents[index].name), presidents[index+1].name}
 }
 
-func quizWhichNumber(presidents []president) presidentPrompt {
+func quizWhichNumber(presidents []president) promptAndResponse {
 	president := presidents[rand.Intn(len(presidents))]
-	return presidentPrompt{fmt.Sprintf("What number president was %s?", president.name), strconv.Itoa(president.number)}
+	return promptAndResponse{fmt.Sprintf("What number president was %s?", president.name), strconv.Itoa(president.number)}
 }
 
 func init() {

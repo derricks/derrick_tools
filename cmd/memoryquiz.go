@@ -16,8 +16,37 @@ limitations under the License.
 package cmd
 
 import (
+	"bufio"
+	"fmt"
+	"os"
+	"strings"
 	"github.com/spf13/cobra"
 )
+
+type promptAndResponse struct {
+	prompt   string
+	response string
+}
+
+// promptAndCheckResponse will use promot to pose a question to the user and wait for
+// a response. If correct, it will print Correct! and return true. Otherwise it will
+// print the user's answer and the right answer and return false
+func promptAndCheckResponse(prompt promptAndResponse) bool {
+	fmt.Println(prompt.prompt)
+	scanner := bufio.NewScanner(os.Stdin)
+	if scanner.Scan() {
+		userResponse := scanner.Text()
+		if strings.TrimSpace(userResponse) == prompt.response {
+			fmt.Println("Correct!")
+			return true
+		} else {
+			fmt.Printf("Incorrect. The right answer was %s\n", prompt.response)
+			return false
+		}
+	}
+	return false
+
+}
 
 // memoryquizCmd represents the memoryquiz command
 var memoryquizCmd = &cobra.Command{
