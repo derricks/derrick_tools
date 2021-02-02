@@ -32,10 +32,8 @@ type promptAndResponse struct {
 // a response. If correct, it will print Correct! and return true. Otherwise it will
 // print the user's answer and the right answer and return false
 func promptAndCheckResponse(prompt promptAndResponse) bool {
-	fmt.Println(prompt.prompt)
-	scanner := bufio.NewScanner(os.Stdin)
-	if scanner.Scan() {
-		userResponse := scanner.Text()
+	userResponse := responseFromPrompt(prompt)
+	if userResponse != "" {
 		if strings.TrimSpace(userResponse) == prompt.response {
 			fmt.Println("Correct!")
 			return true
@@ -45,6 +43,15 @@ func promptAndCheckResponse(prompt promptAndResponse) bool {
 		}
 	}
 	return false
+}
+
+func responseFromPrompt(prompt promptAndResponse) string {
+	fmt.Println(prompt.prompt)
+	scanner := bufio.NewScanner(os.Stdin)
+	if scanner.Scan() {
+		return scanner.Text()
+	}
+	return ""
 
 }
 

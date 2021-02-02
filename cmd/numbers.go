@@ -59,16 +59,24 @@ func quizLargeNumbers(cmd *cobra.Command, args []string) {
 	fmt.Print("\u001b[1000D")
 	endTime := time.Now()
 	fmt.Printf("You took %.2f seconds to memorize\n", endTime.Sub(startTime).Seconds())
-	fmt.Println("Enter the number and press the Enter key when you're done")
-
-	var guess string
-	fmt.Scanln(&guess)
+	guess := responseFromPrompt(promptAndResponse{"Enter the number and press the Enter key when you're done", stringToMemorize})
 
 	if guess == stringToMemorize {
 		fmt.Println("Awesome! You memorized it!")
 	} else {
 		fmt.Println("Original   : " + stringToMemorize)
 		fmt.Println("Your guess : " + guess)
+
+		// find score, which is the last correct character
+		score := 0
+		for i := 0; i < len(stringToMemorize) && i < len(guess); i++ {
+			if []byte(stringToMemorize)[i] == []byte(guess)[i] {
+				score = score + 1
+			} else {
+				break
+			}
+		}
+		fmt.Printf("Score: %d\n", score)
 	}
 }
 
