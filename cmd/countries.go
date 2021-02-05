@@ -124,7 +124,7 @@ func quizCountryCapital(countries []countryInfo) promptAndResponse {
 
 func quizCountryFromCapital(countries []countryInfo) promptAndResponse {
 	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("Which country has %s as its capital?", country.capital), country.name}
+	return promptAndResponse{fmt.Sprintf("Which country's capital is %?", country.capital), country.name}
 }
 
 func quizCountryRankInArea(countries []countryInfo) promptAndResponse {
