@@ -127,6 +127,7 @@ func quizCountries(cmd *cobra.Command, args []string) {
 		quizCountryRankInArea,
 		quizCountryFromRankInArea,
 		quizCapitalFromRankInArea,
+		quizWhichIsBigger,
 	}
 	function := quizFuncs[rand.Intn(len(quizFuncs))]
 	promptAndCheckResponse(function(countries))
@@ -160,6 +161,20 @@ func quizCountryFromRankInArea(countries []countryInfo) promptAndResponse {
 func quizCapitalFromRankInArea(countries []countryInfo) promptAndResponse {
 	country := randomCountry(countries)
 	return promptAndResponse{fmt.Sprintf("What is the capital of the country that ranks %d in area?", country.rankInArea), country.capital}
+}
+
+func quizWhichIsBigger(countries []countryInfo) promptAndResponse {
+	country1 := randomCountry(countries)
+	country2 := randomCountry(countries)
+
+	response := promptAndResponse{fmt.Sprintf("Which country is bigger: %s or %s?", country1.name, country2.name),""}
+	// rank is inverse to size: 1 means the biggest country, and 50 is bigger than 70
+	if country1.rankInArea < country2.rankInArea {
+		response.response = country1.name
+	} else {
+		response.response = country2.name
+	}
+	return response
 }
 
 func init() {
