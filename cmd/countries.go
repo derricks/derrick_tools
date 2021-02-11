@@ -167,6 +167,10 @@ func quizWhichIsBigger(countries []countryInfo) promptAndResponse {
 	country1 := randomCountry(countries)
 	country2 := randomCountry(countries)
 
+	for country1.name == country2.name {
+		country2 = randomCountry(countries)
+	}
+
 	response := promptAndResponse{fmt.Sprintf("Which country is bigger: %s or %s?", country1.name, country2.name), ""}
 	// rank is inverse to size: 1 means the biggest country, and 50 is bigger than 70
 	if country1.rankInArea < country2.rankInArea {
