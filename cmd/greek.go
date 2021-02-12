@@ -61,27 +61,27 @@ type quizGreekFunc func([]string) promptAndResponse
 
 func quizGreekAlphabet(cmd *cobra.Command, args []string) {
 	funcs := []quizGreekFunc{
-		quizPositionFromGreekLetter,
-		quizGreekLetterFromPosition,
-		quizGreekLetterBefore,
-		quizGreekLetterAfter,
+		quizPositionFromLetter,
+		quizLetterFromPosition,
+		quizLetterBefore,
+		quizLetterAfter,
 	}
 
 	function := funcs[rand.Intn(len(funcs))]
 	promptAndCheckResponse(function(greekAlphabet))
 }
 
-func quizPositionFromGreekLetter(alphabet []string) promptAndResponse {
+func quizPositionFromLetter(alphabet []string) promptAndResponse {
 	index := rand.Intn(len(alphabet))
 	return promptAndResponse{fmt.Sprintf("What position is letter %s?", alphabet[index]), strconv.Itoa(index + 1)}
 }
 
-func quizGreekLetterFromPosition(alphabet []string) promptAndResponse {
+func quizLetterFromPosition(alphabet []string) promptAndResponse {
 	index := rand.Intn(len(alphabet))
 	return promptAndResponse{fmt.Sprintf("What letter is at position %d?", index+1), alphabet[index]}
 }
 
-func quizGreekLetterBefore(alphabet []string) promptAndResponse {
+func quizLetterBefore(alphabet []string) promptAndResponse {
 	index := 0
 	for index == 0 {
 		index = rand.Intn(len(alphabet))
@@ -89,7 +89,7 @@ func quizGreekLetterBefore(alphabet []string) promptAndResponse {
 	return promptAndResponse{fmt.Sprintf("What letter comes before %s?", alphabet[index]), alphabet[index-1]}
 }
 
-func quizGreekLetterAfter(alphabet []string) promptAndResponse {
+func quizLetterAfter(alphabet []string) promptAndResponse {
 	index := rand.Intn(len(alphabet) - 1) // -1 to ensure we don't get the last item
 	return promptAndResponse{fmt.Sprintf("What letter comes after %s?", alphabet[index]), alphabet[index+1]}
 }
