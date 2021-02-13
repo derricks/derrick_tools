@@ -16,7 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-  "math/rand"
+	"math/rand"
 
 	"github.com/spf13/cobra"
 )
