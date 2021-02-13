@@ -132,7 +132,7 @@ var countries = []countryInfo{
 	countryInfo{94, "Tajikistan", "Dusharbe"},
 	countryInfo{95, "Greece", "Athens"},
 	countryInfo{96, "Nicaragua", "Managua"},
-	countryInfo{97, "North Korea", "Pyongang"},
+	countryInfo{97, "North Korea", "Pyongyang"},
 	countryInfo{98, "Malawi", "Lilongwe"},
 	countryInfo{99, "Eritrea", "Asmara"},
 	countryInfo{100, "Benin", "Porto-Novo"},
