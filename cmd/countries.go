@@ -169,7 +169,7 @@ var countries = []countryInfo{
 	countryInfo{131, "Netherlands", "Amsterdam"},
 	countryInfo{132, "Switzerland", "Bern"},
 	countryInfo{133, "Bhutan", "Thimphu"},
-	countryInfo{134, "Guinea-Bisseau", "Bisseau"},
+	countryInfo{134, "Guinea-Bissau", "Bissau"},
 	countryInfo{135, "Moldova", "Kishinev"},
 	countryInfo{136, "Belgium", "Brussels"},
 	countryInfo{137, "Lesotho", "Maseru"},
