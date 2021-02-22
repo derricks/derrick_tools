@@ -216,6 +216,20 @@ var countries = []countryInfo{
 	countryInfo{178, "Andoorra", "Andorra la Vella"},
 	countryInfo{179, "Palau", "Ngerulmud"},
 	countryInfo{180, "Seychelles", "Victoria"},
+	countryInfo{181, "Antigua and Barbuda", "St. John's"},
+	countryInfo{182, "Barbados", "Bridgetown"},
+	countryInfo{183, "Saint Vincent and the Grenadines", "Kingstown"},
+	countryInfo{184, "Grenada", "St. George's"},
+	countryInfo{185, "Malta", "Valletta"},
+	countryInfo{186, "Maldives", "Male"},
+	countryInfo{187, "Saint Kitts and Nevis", "Basseterre"},
+	countryInfo{188, "Marshall Islands", "Majuro"},
+	countryInfo{189, "Liechtenstein", "Vaduz"},
+	countryInfo{190, "San Marino", "San Marino"},
+	countryInfo{191, "Tuvala", "Funafuti"},
+	countryInfo{192, "Nauru", "Yaren"},
+	countryInfo{193, "Monaco", "Monaco"},
+	countryInfo{194, "Vatican City", "Vatican City"},
 }
 
 type countryQuery func([]countryInfo) promptAndResponse
