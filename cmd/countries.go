@@ -226,7 +226,7 @@ var countries = []countryInfo{
 	countryInfo{188, "Marshall Islands", "Majuro"},
 	countryInfo{189, "Liechtenstein", "Vaduz"},
 	countryInfo{190, "San Marino", "San Marino"},
-	countryInfo{191, "Tuvala", "Funafuti"},
+	countryInfo{191, "Tuvalu", "Funafuti"},
 	countryInfo{192, "Nauru", "Yaren"},
 	countryInfo{193, "Monaco", "Monaco"},
 	countryInfo{194, "Vatican City", "Vatican City"},
