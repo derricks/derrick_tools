@@ -213,7 +213,7 @@ var countries = []countryInfo{
 	countryInfo{175, "Singapore", "Singapore"},
 	countryInfo{176, "Federated States of Micronesia", "Palikir"},
 	countryInfo{177, "Saint Lucia", "Castries"},
-	countryInfo{178, "Andoorra", "Andorra la Vella"},
+	countryInfo{178, "Andorra", "Andorra la Vella"},
 	countryInfo{179, "Palau", "Ngerulmud"},
 	countryInfo{180, "Seychelles", "Victoria"},
 	countryInfo{181, "Antigua and Barbuda", "St. John's"},
