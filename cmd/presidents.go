@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -37,59 +38,60 @@ to quickly create a Cobra application.`,
 }
 
 type president struct {
-	number    int
-	name      string
-	startYear int
+	number         int
+	name           string
+	startYear      int
+	vicePresidents []string
 }
 
 func quizPresidents(cmd *cobra.Command, args []string) {
 	presidents := []president{
-		president{1, "George Washington", 1789},
-		president{2, "John Adams", 1797},
-		president{3, "Thomas Jefferson", 1801},
-		president{4, "James Madison", 1809},
-		president{5, "James Monroe", 1817},
-		president{6, "John Quincy Adams", 1825},
-		president{7, "Andrew Jackson", 1829},
-		president{8, "Martin Van Buren", 1837},
-		president{9, "William Henry Harrison", 1841},
-		president{10, "John Tyler", 1841},
-		president{11, "James K. Polk", 1845},
-		president{12, "Zachary Taylor", 1849},
-		president{13, "Millard Fillmore", 1850},
-		president{14, "Franklin Pierce", 1853},
-		president{15, "James Buchanan", 1857},
-		president{16, "Abraham Lincoln", 1861},
-		president{17, "Andrew Johnson", 1865},
-		president{18, "Ulysses S. Grant", 1869},
-		president{19, "Rutherford B. Hayes", 1877},
-		president{20, "James Garfield", 1881},
-		president{21, "Chester A. Arthur", 1881},
-		president{22, "Grover Cleveland (22)", 1885},
-		president{23, "Benjamin Harrison", 1889},
-		president{24, "Grover Cleveland (24)", 1893},
-		president{25, "William McKinley", 1897},
-		president{26, "Theodore Roosevelt", 1901},
-		president{27, "William Howard Taft", 1909},
-		president{28, "Woodrow Wilson", 1913},
-		president{29, "Warren G. Harding", 1921},
-		president{30, "Calvin Coolidge", 1923},
-		president{31, "Herbert Hoover", 1929},
-		president{32, "Franklin Delano Roosevelt", 1933},
-		president{33, "Harry S. Truman", 1945},
-		president{34, "Dwight D. Eisenhower", 1953},
-		president{35, "John F. Kennedy", 1961},
-		president{36, "Lyndon B. Johnson", 1963},
-		president{37, "Richard M. Nixon", 1969},
-		president{38, "Gerald Ford", 1974},
-		president{39, "Jimmy Carter", 1977},
-		president{40, "Ronald Reagan", 1981},
-		president{41, "George H. W. Bush", 1989},
-		president{42, "Bill Clinton", 1993},
-		president{43, "George W. Bush", 2001},
-		president{44, "Barack Obama", 2009},
-		president{45, "Donald Trump", 2017},
-		president{46, "Joseph R. Biden", 2021},
+		president{1, "George Washington", 1789, []string{"John Adams"}},
+		president{2, "John Adams", 1797, []string{"Thomas Jefferson"}},
+		president{3, "Thomas Jefferson", 1801, []string{"Aaron Burr", "George Clinton"}},
+		president{4, "James Madison", 1809, []string{"George Clinton", "Elbridge Gerry"}},
+		president{5, "James Monroe", 1817, []string{"Daniel Tompkins"}},
+		president{6, "John Quincy Adams", 1825, []string{"John C. Calhoun"}},
+		president{7, "Andrew Jackson", 1829, []string{"John C. Calhoun", "Martin Van Buren"}},
+		president{8, "Martin Van Buren", 1837, []string{"Richard Mentor Johnson"}},
+		president{9, "William Henry Harrison", 1841, []string{"John Tyler"}},
+		president{10, "John Tyler", 1841, []string{}},
+		president{11, "James K. Polk", 1845, []string{"George Dallas"}},
+		president{12, "Zachary Taylor", 1849, []string{"Millard Fillmore"}},
+		president{13, "Millard Fillmore", 1850, []string{}},
+		president{14, "Franklin Pierce", 1853, []string{"William R. King"}},
+		president{15, "James Buchanan", 1857, []string{"John C. Breckinridge"}},
+		president{16, "Abraham Lincoln", 1861, []string{"Hannibal Hamlin", "Andrew Johnson"}},
+		president{17, "Andrew Johnson", 1865, []string{}},
+		president{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", ""}},
+		president{19, "Rutherford B. Hayes", 1877, []string{"William Wheeler"}},
+		president{20, "James Garfield", 1881, []string{"James Garfield"}},
+		president{21, "Chester A. Arthur", 1881, []string{}},
+		president{22, "Grover Cleveland (22)", 1885, []string{"Thomas Hendricks"}},
+		president{23, "Benjamin Harrison", 1889, []string{}},
+		president{24, "Grover Cleveland (24)", 1893, []string{"Adlai Stevenson"}},
+		president{25, "William McKinley", 1897, []string{"Garret Hobart", "Theodore Roosevelt"}},
+		president{26, "Theodore Roosevelt", 1901, []string{"Charles Fairbanks"}},
+		president{27, "William Howard Taft", 1909, []string{}},
+		president{28, "Woodrow Wilson", 1913, []string{"Thomas Marshall"}},
+		president{29, "Warren G. Harding", 1921, []string{"Calvin Coolidge"}},
+		president{30, "Calvin Coolidge", 1923, []string{"Charles Dawes"}},
+		president{31, "Herbert Hoover", 1929, []string{"Charles Curtis"}},
+		president{32, "Franklin Delano Roosevelt", 1933, []string{"John Garner", "Henry Wallace", "Harry S. Truman"}},
+		president{33, "Harry S. Truman", 1945, []string{"Alben Barkley"}},
+		president{34, "Dwight D. Eisenhower", 1953, []string{"Richard Nixon"}},
+		president{35, "John F. Kennedy", 1961, []string{"Lyndon B. Johnson"}},
+		president{36, "Lyndon B. Johnson", 1963, []string{"Hubert Humphrey"}},
+		president{37, "Richard M. Nixon", 1969, []string{"Spiro Agnew", "Gerald Ford"}},
+		president{38, "Gerald Ford", 1974, []string{"Nelson Rockefeller"}},
+		president{39, "Jimmy Carter", 1977, []string{"Walter Mondale"}},
+		president{40, "Ronald Reagan", 1981, []string{"George H. W. Bush"}},
+		president{41, "George H. W. Bush", 1989, []string{"Dan Quayle"}},
+		president{42, "Bill Clinton", 1993, []string{"Al Gore"}},
+		president{43, "George W. Bush", 2001, []string{"Dick Cheney"}},
+		president{44, "Barack Obama", 2009, []string{"Joseph R. Biden"}},
+		president{45, "Donald Trump", 2017, []string{"Mike Pence"}},
+		president{46, "Joseph R. Biden", 2021, []string{"Kamala Harris"}},
 	}
 
 	promptFuncs := []presidentQuestion{
@@ -100,6 +102,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		quizWhenPresidentStarted,
 		quizWhenPresidentEnded,
 		quizWhoWasPresidentWhen,
+		quizVicePresidents,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -167,6 +170,14 @@ func quizWhoWasPresidentWhen(presidents []president) promptAndResponse {
 		offsetFromCurrentPresident = rand.Intn(president2.startYear - president1.startYear)
 	}
 	return promptAndResponse{fmt.Sprintf("Who was president in %d?", president1.startYear+offsetFromCurrentPresident), president1.name}
+}
+
+func quizVicePresidents(presidents []president) promptAndResponse {
+	president := randomPresident(presidents)
+	for len(president.vicePresidents) == 0 {
+		president = randomPresident(presidents)
+	}
+	return promptAndResponse{fmt.Sprintf("Who served as vice president under %s (separate names with commas)?", president.name), strings.Join(president.vicePresidents, ",")}
 }
 
 func randomPresident(presidents []president) president {
