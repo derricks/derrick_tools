@@ -18,7 +18,6 @@ package cmd
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -72,13 +71,11 @@ func quizGreekAlphabet(cmd *cobra.Command, args []string) {
 }
 
 func quizPositionFromLetter(alphabet []string) promptAndResponse {
-	index := rand.Intn(len(alphabet))
-	return promptAndResponse{fmt.Sprintf("What position is letter %s?", alphabet[index]), strconv.Itoa(index + 1)}
+	return quizIndexOfStringInList(alphabet)
 }
 
 func quizLetterFromPosition(alphabet []string) promptAndResponse {
-	index := rand.Intn(len(alphabet))
-	return promptAndResponse{fmt.Sprintf("What letter is at position %d?", index+1), alphabet[index]}
+	return quizStringAtIndexInList("letter", alphabet)
 }
 
 func quizLetterBefore(alphabet []string) promptAndResponse {

@@ -18,9 +18,12 @@ package cmd
 import (
 	"bufio"
 	"fmt"
-	"github.com/spf13/cobra"
+	"math/rand"
 	"os"
+	"strconv"
 	"strings"
+
+	"github.com/spf13/cobra"
 )
 
 type promptAndResponse struct {
@@ -53,6 +56,20 @@ func responseFromPrompt(prompt promptAndResponse) string {
 	}
 	return ""
 
+}
+
+// quizIndexOfStringInList will ask you to identify the index of a random item within the set of items
+// for instance, you might get a question such as "what position is greek letter eta?"
+func quizIndexOfStringInList(items []string) promptAndResponse {
+	itemIndex := rand.Intn(len(items))
+	return promptAndResponse{fmt.Sprintf("What position is %s?", items[itemIndex]), strconv.Itoa(itemIndex + 1)}
+}
+
+// quizStringAtIndexInList will ask you to identify what string is at the given position in items
+// for instance, you might get a question such as "which hebrew letter is at position 2"
+func quizStringAtIndexInList(itemName string, items []string) promptAndResponse {
+	itemIndex := rand.Intn(len(items))
+	return promptAndResponse{fmt.Sprintf("What %s is at position %d?", itemName, itemIndex + 1), items[itemIndex]}
 }
 
 // memoryquizCmd represents the memoryquiz command
