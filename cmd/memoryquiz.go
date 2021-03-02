@@ -69,7 +69,7 @@ func quizIndexOfStringInList(items []string) promptAndResponse {
 // for instance, you might get a question such as "which hebrew letter is at position 2"
 func quizStringAtIndexInList(itemName string, items []string) promptAndResponse {
 	itemIndex := rand.Intn(len(items))
-	return promptAndResponse{fmt.Sprintf("What %s is at position %d?", itemName, itemIndex + 1), items[itemIndex]}
+	return promptAndResponse{fmt.Sprintf("What %s is at position %d?", itemName, itemIndex+1), items[itemIndex]}
 }
 
 // memoryquizCmd represents the memoryquiz command
