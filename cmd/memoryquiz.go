@@ -22,6 +22,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -35,7 +36,9 @@ type promptAndResponse struct {
 // a response. If correct, it will print Correct! and return true. Otherwise it will
 // print the user's answer and the right answer and return false
 func promptAndCheckResponse(prompt promptAndResponse) bool {
+	start := time.Now()
 	userResponse := responseFromPrompt(prompt)
+	fmt.Printf("You took %v to answer\n", time.Now().Sub(start))
 	if userResponse != "" {
 		if strings.TrimSpace(userResponse) == prompt.response {
 			fmt.Println("Correct!")
