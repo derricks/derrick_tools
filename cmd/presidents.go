@@ -103,6 +103,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		quizWhenPresidentEnded,
 		quizWhoWasPresidentWhen,
 		quizVicePresidents,
+		quizPresidentsForVicePresident,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -178,6 +179,29 @@ func quizVicePresidents(presidents []president) promptAndResponse {
 		president = randomPresident(presidents)
 	}
 	return promptAndResponse{fmt.Sprintf("Who served as vice president under %s (separate names with commas)?", president.name), strings.Join(president.vicePresidents, ",")}
+}
+
+// the complicated logic here is because some vice presidents served under more than one president
+func quizPresidentsForVicePresident(presidents []president) promptAndResponse {
+	p := randomPresident(presidents)
+	vp := p.vicePresidents[rand.Intn(len(p.vicePresidents))]
+	presList := make([]string, 0)
+
+	for _, president := range presidents {
+		if vpServedUnderPres(vp, president) {
+			presList = append(presList, president.name)
+		}
+	}
+	return promptAndResponse{fmt.Sprintf("Which Presidents did %s serve under as Vice President? (Separate names with commas)", vp), strings.Join(presList, ",")}
+}
+
+func vpServedUnderPres(vp string, pres president) bool {
+	for _, curVp := range pres.vicePresidents {
+		if curVp == vp {
+			return true
+		}
+	}
+	return false
 }
 
 func randomPresident(presidents []president) president {
