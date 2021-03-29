@@ -184,6 +184,11 @@ func quizVicePresidents(presidents []president) promptAndResponse {
 // the complicated logic here is because some vice presidents served under more than one president
 func quizPresidentsForVicePresident(presidents []president) promptAndResponse {
 	p := randomPresident(presidents)
+	// not all presidents had vice presidents
+	for len(p.vicePresidents) == 0 {
+		p = randomPresident(presidents)
+	}
+
 	vp := p.vicePresidents[rand.Intn(len(p.vicePresidents))]
 	presList := make([]string, 0)
 
