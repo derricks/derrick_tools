@@ -75,7 +75,7 @@ func quizPositionFromLetter(alphabet []string) promptAndResponse {
 }
 
 func quizLetterFromPosition(alphabet []string) promptAndResponse {
-	return quizStringAtIndexInList("letter", alphabet)
+	return quizStringAtIndexInList("greek letter", alphabet)
 }
 
 func quizLetterBefore(alphabet []string) promptAndResponse {

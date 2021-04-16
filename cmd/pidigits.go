@@ -84,7 +84,7 @@ func quizPiDigitByIndex(chunks []string) promptAndResponse {
 	chunkIndex := rand.Intn(len(piChunks))
 	digits := strings.Split(chunks[chunkIndex], "")
 	indexInChunk := rand.Intn(len(digits))
-	return promptAndResponse{fmt.Sprintf("What digit is at position %d?", (chunkIndex*4)+indexInChunk+1), digits[indexInChunk]}
+	return promptAndResponse{fmt.Sprintf("What pi digit is at position %d?", (chunkIndex*4)+indexInChunk+1), digits[indexInChunk]}
 }
 
 func init() {

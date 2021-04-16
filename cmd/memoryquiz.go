@@ -79,6 +79,21 @@ func quizStringAtIndexInList(itemName string, items []string) promptAndResponse 
 var memoryquizCmd = &cobra.Command{
 	Use:   "memoryquiz",
 	Short: "Fire up various memory quizzes",
+	Run: func(cmd *cobra.Command, args []string) {
+		// select an arbitrary memory quiz to run
+		quizFuncs := []func(*cobra.Command, []string){
+			quizPresidents,
+			quizCountries,
+			quizPiDigts,
+			quizGreekAlphabet,
+			quizHebrewAlphabet,
+			quizCranialNerves,
+			quizShakespeare,
+		}
+
+		quizFunc := quizFuncs[rand.Intn(len(quizFuncs))]
+		quizFunc(cmd, args)
+	},
 }
 
 func init() {
