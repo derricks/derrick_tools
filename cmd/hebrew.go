@@ -58,13 +58,17 @@ type quizHebrewFunc func([]string) promptAndResponse
 func quizHebrewAlphabet(cmd *cobra.Command, args []string) {
 	funcs := []quizHebrewFunc{
 		quizPositionFromLetter,
-		quizLetterFromPosition,
+		quizHebrewLetterFromPosition,
 		quizLetterBefore,
 		quizLetterAfter,
 	}
 
 	function := funcs[rand.Intn(len(funcs))]
 	promptAndCheckResponse(function(hebrewAlphabet))
+}
+
+func quizHebrewLetterFromPosition(alphabet []string) promptAndResponse {
+	return quizStringAtIndexInList("hebrew letter", alphabet)
 }
 
 func init() {
