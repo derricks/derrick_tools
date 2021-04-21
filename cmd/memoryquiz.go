@@ -89,6 +89,7 @@ var memoryquizCmd = &cobra.Command{
 			quizHebrewAlphabet,
 			quizCranialNerves,
 			quizShakespeare,
+			quizPowersOfTwo,
 		}
 
 		quizFunc := quizFuncs[rand.Intn(len(quizFuncs))]
