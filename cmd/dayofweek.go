@@ -27,7 +27,43 @@ import (
 var dayofweekCmd = &cobra.Command{
 	Use:   "dayofweek",
 	Short: "Tests the ability to figure out the day of week for a given date",
-	Run:   quizDayOfWeekCalculation,
+	Long: `
+Conway's method for finding the day of week for any given year
+
+1. Figure out the modifier for the given century (the four centuries repeat, so 1700-1799 = 2100-2199):
+	- 1800 - 1899: 5
+	- 1900 - 1999: 3
+	- 2000 - 2099: 2
+	- 2100 - 2199: 0
+
+2. Divide the year (without the century) by 12
+3. Figure out the remainder from step 2
+4. Divide the answer from step 3 by 4 and ignore the remainder
+5. Add the results from steps 1, 2, 3, 4.
+6. Mod the result of step 5 by 7
+7. The answer from step 6 gives the day of the week that Doomsday falls on
+	- 0 = Sunday
+	- 1 = Monday
+	- 2 = Tuesday
+	- 3 = Wednesday
+	- 4 = Thursday
+	- 5 = Friday
+	- 6 = Saturday
+
+ 8. Find the date you want relative to the doomsday in a given month
+ 	- January = 3 or 4 (leap year)
+ 	- February = the last day of February
+	- March 7th
+ 	- April 4th
+ 	- May 9th
+ 	- June 6th
+ 	- July 11th
+ 	- August 8th
+ 	- September 5th
+ 	- October 10th
+ 	- November 7th
+ 	- December 12th`,
+	Run: quizDayOfWeekCalculation,
 }
 
 func quizDayOfWeekCalculation(cmd *cobra.Command, args []string) {
@@ -45,5 +81,4 @@ func quizDayOfWeekCalculation(cmd *cobra.Command, args []string) {
 
 func init() {
 	speedmathCmd.AddCommand(dayofweekCmd)
-
 }
