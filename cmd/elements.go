@@ -52,6 +52,11 @@ var elements = []elementInfo{
 	elementInfo{13, "Aluminum", false},
 	elementInfo{14, "Silcon", false},
 	elementInfo{15, "Phosphorous", false},
+	elementInfo{16, "Sulfur", false},
+	elementInfo{17, "Chlorine", false},
+	elementInfo{18, "Argon", true},
+	elementInfo{19, "Potassium", false},
+	elementInfo{20, "Calcium", false},
 }
 
 func quizElements(cmd *cobra.Command, args []string) {
