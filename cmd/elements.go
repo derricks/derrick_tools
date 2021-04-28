@@ -63,6 +63,7 @@ func quizElements(cmd *cobra.Command, args []string) {
 	funcs := []func([]elementInfo) promptAndResponse{
 		quizElementNameFromNumber,
 		quizElementNumberFromName,
+		quizIsNobleGas,
 	}
 
 	quizFunc := funcs[rand.Intn(len(funcs))]
@@ -77,6 +78,16 @@ func quizElementNameFromNumber(elements []elementInfo) promptAndResponse {
 func quizElementNumberFromName(elements []elementInfo) promptAndResponse {
 	element := elements[rand.Intn(len(elements))]
 	return promptAndResponse{fmt.Sprintf("What is the atomic number of %s?", element.name), strconv.Itoa(element.atomicNumber)}
+}
+
+func quizIsNobleGas(elements []elementInfo) promptAndResponse {
+	element := elements[rand.Intn(len(elements))]
+	expectedResponse := "no"
+	if element.nobleGas {
+		expectedResponse = "yes"
+	}
+
+	return promptAndResponse{fmt.Sprintf("Is %s a noble gas? (yes or no)", element.name), expectedResponse}
 }
 
 func init() {
