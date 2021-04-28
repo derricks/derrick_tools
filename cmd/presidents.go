@@ -94,21 +94,32 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		president{46, "Joseph R. Biden", 2021, []string{"Kamala Harris"}},
 	}
 
-	promptFuncs := []presidentQuestion{
-		quizIndex,
-		quizBefore,
-		quizAfter,
-		quizWhichNumber,
-		quizWhenPresidentStarted,
-		quizWhenPresidentEnded,
-		quizWhoWasPresidentWhen,
-		quizVicePresidents,
-		quizPresidentsForVicePresident,
+	var promptFuncs []presidentQuestion
+
+	if vicePresidentsOnly {
+		promptFuncs = []presidentQuestion{
+			quizVicePresidents,
+			quizPresidentsForVicePresident,
+		}
+	} else {
+		promptFuncs = []presidentQuestion{
+			quizIndex,
+			quizBefore,
+			quizAfter,
+			quizWhichNumber,
+			quizWhenPresidentStarted,
+			quizWhenPresidentEnded,
+			quizWhoWasPresidentWhen,
+			quizVicePresidents,
+			quizPresidentsForVicePresident,
+		}
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
 	promptAndCheckResponse(function(presidents))
 }
+
+var vicePresidentsOnly bool
 
 type presidentQuestion func([]president) promptAndResponse
 
@@ -214,5 +225,6 @@ func randomPresident(presidents []president) president {
 }
 
 func init() {
+	presidentsCmd.Flags().BoolVarP(&vicePresidentsOnly, "vicepresidents", "", false, "If set, only ask questions about vice presidents")
 	memoryquizCmd.AddCommand(presidentsCmd)
 }
