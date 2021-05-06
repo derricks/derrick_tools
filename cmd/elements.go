@@ -50,7 +50,7 @@ var elements = []elementInfo{
 	elementInfo{11, "Sodium", false},
 	elementInfo{12, "Magnesium", false},
 	elementInfo{13, "Aluminum", false},
-	elementInfo{14, "Silcon", false},
+	elementInfo{14, "Silicon", false},
 	elementInfo{15, "Phosphorous", false},
 	elementInfo{16, "Sulfur", false},
 	elementInfo{17, "Chlorine", false},
