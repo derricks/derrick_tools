@@ -58,7 +58,7 @@ var elements = []elementInfo{
 	elementInfo{19, "Potassium", false},
 	elementInfo{20, "Calcium", false},
 	elementInfo{21, "Scandium", false},
-	elementInfo{22, "Titaniam", false},
+	elementInfo{22, "Titanium", false},
 	elementInfo{23, "Vanadium", false},
 	elementInfo{24, "Chromium", false},
 	elementInfo{25, "Manganese", false},
