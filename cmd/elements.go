@@ -121,6 +121,16 @@ var elements = []elementInfo{
 	elementInfo{83, "Bismuth"},
 	elementInfo{84, "Polonium"},
 	elementInfo{85, "Astatine"},
+	elementInfo{86, "Radon"},
+	elementInfo{87, "Francium"},
+	elementInfo{88, "Radium"},
+	elementInfo{89, "Actinium"},
+	elementInfo{90, "Thorium"},
+	elementInfo{91, "Protactinium"},
+	elementInfo{92, "Uranium"},
+	elementInfo{93, "Neptunium"},
+	elementInfo{94, "Plutonium"},
+	elementInfo{95, "Americium"},
 }
 
 func quizElements(cmd *cobra.Command, args []string) {
