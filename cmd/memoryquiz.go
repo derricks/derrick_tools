@@ -91,6 +91,7 @@ var memoryquizCmd = &cobra.Command{
 			quizShakespeare,
 			quizPowersOfTwo,
 			quizElements,
+			quizStates,
 		}
 
 		quizFunc := quizFuncs[rand.Intn(len(quizFuncs))]
@@ -100,5 +101,4 @@ var memoryquizCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(memoryquizCmd)
-
 }
