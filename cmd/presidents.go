@@ -65,7 +65,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		president{17, "Andrew Johnson", 1865, []string{}},
 		president{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", ""}},
 		president{19, "Rutherford B. Hayes", 1877, []string{"William Wheeler"}},
-		president{20, "James Garfield", 1881, []string{"James Garfield"}},
+		president{20, "James Garfield", 1881, []string{"Chester A. Arthur"}},
 		president{21, "Chester A. Arthur", 1881, []string{}},
 		president{22, "Grover Cleveland (22)", 1885, []string{"Thomas Hendricks"}},
 		president{23, "Benjamin Harrison", 1889, []string{}},
