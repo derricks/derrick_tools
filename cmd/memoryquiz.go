@@ -75,27 +75,33 @@ func quizStringAtIndexInList(itemName string, items []string) promptAndResponse 
 	return promptAndResponse{fmt.Sprintf("What %s is at position %d?", itemName, itemIndex+1), items[itemIndex]}
 }
 
+type areaToQuizFunction struct {
+	area     string
+	quizFunc func(*cobra.Command, []string)
+}
+
 // memoryquizCmd represents the memoryquiz command
 var memoryquizCmd = &cobra.Command{
 	Use:   "memoryquiz",
 	Short: "Fire up various memory quizzes",
 	Run: func(cmd *cobra.Command, args []string) {
 		// select an arbitrary memory quiz to run
-		quizFuncs := []func(*cobra.Command, []string){
-			quizPresidents,
-			quizCountries,
-			quizPiDigts,
-			quizGreekAlphabet,
-			quizHebrewAlphabet,
-			quizCranialNerves,
-			quizShakespeare,
-			quizPowersOfTwo,
-			quizElements,
-			quizStates,
+		areaToQuizFuncs := []areaToQuizFunction{
+			areaToQuizFunction{"presidents", quizPresidents},
+			areaToQuizFunction{"countries", quizCountries},
+			areaToQuizFunction{"digits of pi", quizPiDigts},
+			areaToQuizFunction{"greek alphabet", quizGreekAlphabet},
+			areaToQuizFunction{"hebrew alphabet", quizHebrewAlphabet},
+			areaToQuizFunction{"cranial nerves", quizCranialNerves},
+			areaToQuizFunction{"shakespeare", quizShakespeare},
+			areaToQuizFunction{"powers of two", quizPowersOfTwo},
+			areaToQuizFunction{"elements", quizElements},
+			areaToQuizFunction{"states", quizStates},
 		}
 
-		quizFunc := quizFuncs[rand.Intn(len(quizFuncs))]
-		quizFunc(cmd, args)
+		areaToQuiz := areaToQuizFuncs[rand.Intn(len(areaToQuizFuncs))]
+		fmt.Printf("[%s]\n", areaToQuiz.area)
+		areaToQuiz.quizFunc(cmd, args)
 	},
 }
 
