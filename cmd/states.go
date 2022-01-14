@@ -97,6 +97,7 @@ func quizStates(cmd *cobra.Command, args []string) {
 		quizNameToOrder,
 		quizStateToCapital,
 		quizCapitalToState,
+		quizStateJoinedEarliest,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -121,6 +122,21 @@ func quizStateToCapital(states []state) promptAndResponse {
 func quizCapitalToState(states []state) promptAndResponse {
 	foundState := randomState(states)
 	return promptAndResponse{fmt.Sprintf("%s is the capital of which state?", foundState.capital), foundState.name}
+}
+
+func quizStateJoinedEarliest(states []state) promptAndResponse {
+	state1 := randomState(states)
+	state2 := randomState(states)
+	for state1.name == state2.name {
+		state2 = randomState(states)
+	}
+
+	prompt := fmt.Sprintf("Which state joined first? %s or %s?", state1.name, state2.name)
+	if state1.orderInUnion < state2.orderInUnion {
+		return promptAndResponse{prompt, state1.name}
+	} else {
+		return promptAndResponse{prompt, state2.name}
+	}
 }
 
 func randomState(states []state) state {
