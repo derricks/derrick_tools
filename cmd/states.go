@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"math/rand"
 	"strconv"
+	"time"
 
 	"github.com/spf13/cobra"
 )
@@ -33,59 +34,60 @@ type state struct {
 	orderInUnion int
 	name         string
 	capital      string
+	yearJoined   int
 }
 
 var states = []state{
-	state{1, "Delaware", "Dover"},
-	state{2, "Pennsylvania", "Harrisburg"},
-	state{3, "New Jersey", "Trenton"},
-	state{4, "Georgia", "Atlanta"},
-	state{5, "Connecticut", "Hartford"},
-	state{6, "Massachusetts", "Boston"},
-	state{7, "Maryland", "Annapolis"},
-	state{8, "South Carolina", "Columbia"},
-	state{9, "New Hampshire", "Concord"},
-	state{10, "Virginia", "Richmond"},
-	state{11, "New York", "Albany"},
-	state{12, "North Carolina", "Raleigh"},
-	state{13, "Rhode Island", "Providence"},
-	state{14, "Vermont", "Montpelier"},
-	state{15, "Kentucky", "Frankfort"},
-	state{16, "Tennessee", "Nashville"},
-	state{17, "Ohio", "Columbus"},
-	state{18, "Louisiana", "Baton Rouge"},
-	state{19, "Indiana", "Indianapolis"},
-	state{20, "Mississippi", "Jackson"},
-	state{21, "Illinois", "Springfield"},
-	state{22, "Alabama", "Montgomery"},
-	state{23, "Maine", "Augusta"},
-	state{24, "Missouri", "Jefferson City"},
-	state{25, "Arkansas", "Little Rock"},
-	state{26, "Michigan", "Lansing"},
-	state{27, "Florida", "Tallahassee"},
-	state{28, "Texas", "Austin"},
-	state{29, "Iowa", "Des Moines"},
-	state{30, "Wisconsin", "Madison"},
-	state{31, "California", "Sacramento"},
-	state{32, "Minnesota", "Saint Paul"},
-	state{33, "Oregon", "Salem"},
-	state{34, "Kansas", "Topeka"},
-	state{35, "West Virginia", "Charleston"},
-	state{36, "Nevada", "Carson City"},
-	state{37, "Nebraska", "Lincoln"},
-	state{38, "Colorado", "Denver"},
-	state{39, "North Dakota", "Bismarck"},
-	state{40, "South Dakota", "Pierre"},
-	state{41, "Montana", "Helena"},
-	state{42, "Washington", "Ølympia"},
-	state{43, "Idaho", "Boise"},
-	state{44, "Wyoming", "Cheyenne"},
-	state{45, "Utah", "Salt Lake City"},
-	state{46, "Oklahoma", "Oklahoma City"},
-	state{47, "New Mexico", "Santa Fe"},
-	state{48, "Arizona", "Phoenix"},
-	state{49, "Alaska", "Juneau"},
-	state{50, "Hawaii", "Honolulu"},
+	state{1, "Delaware", "Dover", 1787},
+	state{2, "Pennsylvania", "Harrisburg", 1787},
+	state{3, "New Jersey", "Trenton", 1787},
+	state{4, "Georgia", "Atlanta", 1788},
+	state{5, "Connecticut", "Hartford", 1788},
+	state{6, "Massachusetts", "Boston", 1788},
+	state{7, "Maryland", "Annapolis", 1788},
+	state{8, "South Carolina", "Columbia", 1788},
+	state{9, "New Hampshire", "Concord", 1788},
+	state{10, "Virginia", "Richmond", 1788},
+	state{11, "New York", "Albany", 1788},
+	state{12, "North Carolina", "Raleigh", 1789},
+	state{13, "Rhode Island", "Providence", 1790},
+	state{14, "Vermont", "Montpelier", 1791},
+	state{15, "Kentucky", "Frankfort", 1792},
+	state{16, "Tennessee", "Nashville", 1796},
+	state{17, "Ohio", "Columbus", 1803},
+	state{18, "Louisiana", "Baton Rouge", 1812},
+	state{19, "Indiana", "Indianapolis", 1816},
+	state{20, "Mississippi", "Jackson", 1817},
+	state{21, "Illinois", "Springfield", 1818},
+	state{22, "Alabama", "Montgomery", 1819},
+	state{23, "Maine", "Augusta", 1820},
+	state{24, "Missouri", "Jefferson City", 1821},
+	state{25, "Arkansas", "Little Rock", 1836},
+	state{26, "Michigan", "Lansing", 1837},
+	state{27, "Florida", "Tallahassee", 1845},
+	state{28, "Texas", "Austin", 1845},
+	state{29, "Iowa", "Des Moines", 1846},
+	state{30, "Wisconsin", "Madison", 1848},
+	state{31, "California", "Sacramento", 1850},
+	state{32, "Minnesota", "Saint Paul", 1853},
+	state{33, "Oregon", "Salem", 1859},
+	state{34, "Kansas", "Topeka", 1861},
+	state{35, "West Virginia", "Charleston", 1863},
+	state{36, "Nevada", "Carson City", 1864},
+	state{37, "Nebraska", "Lincoln", 1867},
+	state{38, "Colorado", "Denver", 1876},
+	state{39, "North Dakota", "Bismarck", 1889},
+	state{40, "South Dakota", "Pierre", 1889},
+	state{41, "Montana", "Helena", 1889},
+	state{42, "Washington", "Ølympia", 1889},
+	state{43, "Idaho", "Boise", 1890},
+	state{44, "Wyoming", "Cheyenne", 1890},
+	state{45, "Utah", "Salt Lake City", 1896},
+	state{46, "Oklahoma", "Oklahoma City", 1907},
+	state{47, "New Mexico", "Santa Fe", 1912},
+	state{48, "Arizona", "Phoenix", 1912},
+	state{49, "Alaska", "Juneau", 1959},
+	state{50, "Hawaii", "Honolulu", 1959},
 }
 
 type statesQuestion func([]state) promptAndResponse
@@ -98,6 +100,8 @@ func quizStates(cmd *cobra.Command, args []string) {
 		quizStateToCapital,
 		quizCapitalToState,
 		quizStateJoinedEarliest,
+		quizWhenStateJoined,
+		quizHowManyStatesInYear,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -137,6 +141,25 @@ func quizStateJoinedEarliest(states []state) promptAndResponse {
 	} else {
 		return promptAndResponse{prompt, state2.name}
 	}
+}
+
+func quizWhenStateJoined(states []state) promptAndResponse {
+	state := randomState(states)
+	return promptAndResponse{fmt.Sprintf("When did %s join the United States?", state.name), strconv.Itoa(state.yearJoined)}
+}
+
+func quizHowManyStatesInYear(states []state) promptAndResponse {
+	today := time.Now()
+	thisYear := today.Year()
+  firstYear := states[0].yearJoined
+	possibleDelta := rand.Intn(thisYear - states[0].yearJoined)
+	targetYear := firstYear + possibleDelta
+
+	countOfStates := 0
+	for stateIndex := 0; states[stateIndex].yearJoined <= targetYear && stateIndex < len(states); stateIndex++ {
+		countOfStates++
+	}
+	return promptAndResponse{fmt.Sprintf("How many states were in the Union by the end of %d?", targetYear), strconv.Itoa(countOfStates)}
 }
 
 func randomState(states []state) state {
