@@ -36,6 +36,7 @@ func quizPowersOfTwo(cmd *cobra.Command, args []string) {
 	funcs := []func(int) promptAndResponse{
 		quizExponentForPowerOfTwo,
 		quizPowerOfTwoFromExponent,
+		quizPowerOfTwoOrderOfMagnitude,
 	}
 	quizFunc := funcs[rand.Intn(len(funcs))]
 	promptAndCheckResponse(quizFunc(exponent))
@@ -47,8 +48,20 @@ func quizExponentForPowerOfTwo(exponent int) promptAndResponse {
 }
 
 func quizPowerOfTwoFromExponent(exponent int) promptAndResponse {
-	twoToExponent := int(math.Exp2(float64(exponent)))
+	twoToExponent := powerOfTwoFromExponent(exponent)
 	return promptAndResponse{fmt.Sprintf("What is 2^%d?", exponent), strconv.Itoa(twoToExponent)}
+}
+
+// quiz the order of magnitude (1, 10, 10000, etc) for a given power of two
+func quizPowerOfTwoOrderOfMagnitude(exponent int) promptAndResponse {
+
+	twoToExponent := powerOfTwoFromExponent(exponent)
+	log := int(math.Log10(float64(twoToExponent)))
+	return promptAndResponse{fmt.Sprintf("What is the order of magnitude of 2^%d", exponent), strconv.Itoa(int(math.Pow10(log)))}
+}
+
+func powerOfTwoFromExponent(exponent int) int {
+	return int(math.Exp2(float64(exponent)))
 }
 
 func init() {
