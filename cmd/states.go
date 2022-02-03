@@ -151,7 +151,7 @@ func quizWhenStateJoined(states []state) promptAndResponse {
 func quizHowManyStatesInYear(states []state) promptAndResponse {
 	today := time.Now()
 	thisYear := today.Year()
-  firstYear := states[0].yearJoined
+	firstYear := states[0].yearJoined
 	possibleDelta := rand.Intn(thisYear - states[0].yearJoined)
 	targetYear := firstYear + possibleDelta
 
