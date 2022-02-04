@@ -102,7 +102,7 @@ var elements = []elementInfo{
 	elementInfo{64, "Gadolinium"},
 	elementInfo{65, "Terbium"},
 	elementInfo{66, "Dysprosium"},
-	elementInfo{67, "Holium"},
+	elementInfo{67, "Holmium"},
 	elementInfo{68, "Erbium"},
 	elementInfo{69, "Thulium"},
 	elementInfo{70, "Ytterbium"},
