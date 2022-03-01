@@ -156,7 +156,7 @@ func quizHowManyStatesInYear(states []state) promptAndResponse {
 	targetYear := firstYear + possibleDelta
 
 	countOfStates := 0
-	for stateIndex := 0; states[stateIndex].yearJoined <= targetYear && stateIndex < len(states); stateIndex++ {
+	for stateIndex := 0; stateIndex < len(states) && states[stateIndex].yearJoined <= targetYear; stateIndex++ {
 		countOfStates++
 	}
 	return promptAndResponse{fmt.Sprintf("How many states were in the Union by the end of %d?", targetYear), strconv.Itoa(countOfStates)}
