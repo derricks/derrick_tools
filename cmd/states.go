@@ -18,7 +18,9 @@ package cmd
 import (
 	"fmt"
 	"math/rand"
+	"sort"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/spf13/cobra"
@@ -35,59 +37,60 @@ type state struct {
 	name         string
 	capital      string
 	yearJoined   int
+	nicknames    []string
 }
 
 var states = []state{
-	state{1, "Delaware", "Dover", 1787},
-	state{2, "Pennsylvania", "Harrisburg", 1787},
-	state{3, "New Jersey", "Trenton", 1787},
-	state{4, "Georgia", "Atlanta", 1788},
-	state{5, "Connecticut", "Hartford", 1788},
-	state{6, "Massachusetts", "Boston", 1788},
-	state{7, "Maryland", "Annapolis", 1788},
-	state{8, "South Carolina", "Columbia", 1788},
-	state{9, "New Hampshire", "Concord", 1788},
-	state{10, "Virginia", "Richmond", 1788},
-	state{11, "New York", "Albany", 1788},
-	state{12, "North Carolina", "Raleigh", 1789},
-	state{13, "Rhode Island", "Providence", 1790},
-	state{14, "Vermont", "Montpelier", 1791},
-	state{15, "Kentucky", "Frankfort", 1792},
-	state{16, "Tennessee", "Nashville", 1796},
-	state{17, "Ohio", "Columbus", 1803},
-	state{18, "Louisiana", "Baton Rouge", 1812},
-	state{19, "Indiana", "Indianapolis", 1816},
-	state{20, "Mississippi", "Jackson", 1817},
-	state{21, "Illinois", "Springfield", 1818},
-	state{22, "Alabama", "Montgomery", 1819},
-	state{23, "Maine", "Augusta", 1820},
-	state{24, "Missouri", "Jefferson City", 1821},
-	state{25, "Arkansas", "Little Rock", 1836},
-	state{26, "Michigan", "Lansing", 1837},
-	state{27, "Florida", "Tallahassee", 1845},
-	state{28, "Texas", "Austin", 1845},
-	state{29, "Iowa", "Des Moines", 1846},
-	state{30, "Wisconsin", "Madison", 1848},
-	state{31, "California", "Sacramento", 1850},
-	state{32, "Minnesota", "Saint Paul", 1853},
-	state{33, "Oregon", "Salem", 1859},
-	state{34, "Kansas", "Topeka", 1861},
-	state{35, "West Virginia", "Charleston", 1863},
-	state{36, "Nevada", "Carson City", 1864},
-	state{37, "Nebraska", "Lincoln", 1867},
-	state{38, "Colorado", "Denver", 1876},
-	state{39, "North Dakota", "Bismarck", 1889},
-	state{40, "South Dakota", "Pierre", 1889},
-	state{41, "Montana", "Helena", 1889},
-	state{42, "Washington", "Ølympia", 1889},
-	state{43, "Idaho", "Boise", 1890},
-	state{44, "Wyoming", "Cheyenne", 1890},
-	state{45, "Utah", "Salt Lake City", 1896},
-	state{46, "Oklahoma", "Oklahoma City", 1907},
-	state{47, "New Mexico", "Santa Fe", 1912},
-	state{48, "Arizona", "Phoenix", 1912},
-	state{49, "Alaska", "Juneau", 1959},
-	state{50, "Hawaii", "Honolulu", 1959},
+	state{1, "Delaware", "Dover", 1787, []string{"First State"}},
+	state{2, "Pennsylvania", "Harrisburg", 1787, []string{"Keystone State"}},
+	state{3, "New Jersey", "Trenton", 1787, []string{"Garden State"}},
+	state{4, "Georgia", "Atlanta", 1788, []string{"Peach State"}},
+	state{5, "Connecticut", "Hartford", 1788, []string{"Constitution State"}},
+	state{6, "Massachusetts", "Boston", 1788, []string{"Bay State"}},
+	state{7, "Maryland", "Annapolis", 1788, []string{"Free State", "Old Line State"}},
+	state{8, "South Carolina", "Columbia", 1788, []string{"Palmetto State"}},
+	state{9, "New Hampshire", "Concord", 1788, []string{"Granite State"}},
+	state{10, "Virginia", "Richmond", 1788, []string{"Old Dominion"}},
+	state{11, "New York", "Albany", 1788, []string{"Empire State"}},
+	state{12, "North Carolina", "Raleigh", 1789, []string{"Tarheel State"}},
+	state{13, "Rhode Island", "Providence", 1790, []string{"Ocean State"}},
+	state{14, "Vermont", "Montpelier", 1791, []string{"Green Mountain State"}},
+	state{15, "Kentucky", "Frankfort", 1792, []string{"Bluegrass State"}},
+	state{16, "Tennessee", "Nashville", 1796, []string{"Volunteer State"}},
+	state{17, "Ohio", "Columbus", 1803, []string{"Buckeye State"}},
+	state{18, "Louisiana", "Baton Rouge", 1812, []string{"Pelican State"}},
+	state{19, "Indiana", "Indianapolis", 1816, []string{"Hoosier State"}},
+	state{20, "Mississippi", "Jackson", 1817, []string{"Magnolia State"}},
+	state{21, "Illinois", "Springfield", 1818, []string{"Prairie State"}},
+	state{22, "Alabama", "Montgomery", 1819, []string{"Heart of Dixie"}},
+	state{23, "Maine", "Augusta", 1820, []string{"Pine Tree State", "Vacationland"}},
+	state{24, "Missouri", "Jefferson City", 1821, []string{"Show Me State"}},
+	state{25, "Arkansas", "Little Rock", 1836, []string{"Natural State"}},
+	state{26, "Michigan", "Lansing", 1837, []string{"Wolverine State", "Great Lakes State"}},
+	state{27, "Florida", "Tallahassee", 1845, []string{"Sunshine State"}},
+	state{28, "Texas", "Austin", 1845, []string{"Lone Star State"}},
+	state{29, "Iowa", "Des Moines", 1846, []string{"Hawkeye State"}},
+	state{30, "Wisconsin", "Madison", 1848, []string{"America's Dairyland"}},
+	state{31, "California", "Sacramento", 1850, []string{"Golden State"}},
+	state{32, "Minnesota", "Saint Paul", 1853, []string{"Land of 10,000 Lakes"}},
+	state{33, "Oregon", "Salem", 1859, []string{"Beaver State"}},
+	state{34, "Kansas", "Topeka", 1861, []string{"Sunflower State"}},
+	state{35, "West Virginia", "Charleston", 1863, []string{"Mountain State"}},
+	state{36, "Nevada", "Carson City", 1864, []string{"Silver State"}},
+	state{37, "Nebraska", "Lincoln", 1867, []string{"Cornhusker State"}},
+	state{38, "Colorado", "Denver", 1876, []string{"Centennial State"}},
+	state{39, "North Dakota", "Bismarck", 1889, []string{"Peace Garden State"}},
+	state{40, "South Dakota", "Pierre", 1889, []string{"Mount Rushmore State"}},
+	state{41, "Montana", "Helena", 1889, []string{"Treasure State"}},
+	state{42, "Washington", "Olympia", 1889, []string{"Evergreen State"}},
+	state{43, "Idaho", "Boise", 1890, []string{"Gem State"}},
+	state{44, "Wyoming", "Cheyenne", 1890, []string{"Equality State"}},
+	state{45, "Utah", "Salt Lake City", 1896, []string{"Beehive State"}},
+	state{46, "Oklahoma", "Oklahoma City", 1907, []string{"Sooner State"}},
+	state{47, "New Mexico", "Santa Fe", 1912, []string{"Land of Enchantment"}},
+	state{48, "Arizona", "Phoenix", 1912, []string{"Grand Canyon State"}},
+	state{49, "Alaska", "Juneau", 1959, []string{"Last Frontier"}},
+	state{50, "Hawaii", "Honolulu", 1959, []string{"Aloha State"}},
 }
 
 type statesQuestion func([]state) promptAndResponse
@@ -102,6 +105,8 @@ func quizStates(cmd *cobra.Command, args []string) {
 		quizStateJoinedEarliest,
 		quizWhenStateJoined,
 		quizHowManyStatesInYear,
+		quizStateByNickname,
+		quizNicknamesForState,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -160,6 +165,19 @@ func quizHowManyStatesInYear(states []state) promptAndResponse {
 		countOfStates++
 	}
 	return promptAndResponse{fmt.Sprintf("How many states were in the Union by the end of %d?", targetYear), strconv.Itoa(countOfStates)}
+}
+
+func quizStateByNickname(states []state) promptAndResponse {
+	state := randomState(states)
+	nickname := state.nicknames[rand.Intn(len(state.nicknames))]
+	return promptAndResponse{fmt.Sprintf("What state has the nickname %s?", nickname), state.name}
+}
+
+func quizNicknamesForState(states []state) promptAndResponse {
+	state := randomState(states)
+	sort.Strings(state.nicknames)
+	nicknames := strings.Join(state.nicknames, ",")
+	return promptAndResponse{fmt.Sprintf("What are the nicknames of %s?", state.name), nicknames}
 }
 
 func randomState(states []state) state {
