@@ -42,56 +42,57 @@ type president struct {
 	name           string
 	startYear      int
 	vicePresidents []string
+	firstLadies    []string
 }
 
 func quizPresidents(cmd *cobra.Command, args []string) {
 	presidents := []president{
-		president{1, "George Washington", 1789, []string{"John Adams"}},
-		president{2, "John Adams", 1797, []string{"Thomas Jefferson"}},
-		president{3, "Thomas Jefferson", 1801, []string{"Aaron Burr", "George Clinton"}},
-		president{4, "James Madison", 1809, []string{"George Clinton", "Elbridge Gerry"}},
-		president{5, "James Monroe", 1817, []string{"Daniel Tompkins"}},
-		president{6, "John Quincy Adams", 1825, []string{"John C. Calhoun"}},
-		president{7, "Andrew Jackson", 1829, []string{"John C. Calhoun", "Martin Van Buren"}},
-		president{8, "Martin Van Buren", 1837, []string{"Richard Mentor Johnson"}},
-		president{9, "William Henry Harrison", 1841, []string{"John Tyler"}},
-		president{10, "John Tyler", 1841, []string{}},
-		president{11, "James K. Polk", 1845, []string{"George Dallas"}},
-		president{12, "Zachary Taylor", 1849, []string{"Millard Fillmore"}},
-		president{13, "Millard Fillmore", 1850, []string{}},
-		president{14, "Franklin Pierce", 1853, []string{"William R. King"}},
-		president{15, "James Buchanan", 1857, []string{"John C. Breckinridge"}},
-		president{16, "Abraham Lincoln", 1861, []string{"Hannibal Hamlin", "Andrew Johnson"}},
-		president{17, "Andrew Johnson", 1865, []string{}},
-		president{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", ""}},
-		president{19, "Rutherford B. Hayes", 1877, []string{"William Wheeler"}},
-		president{20, "James Garfield", 1881, []string{"Chester A. Arthur"}},
-		president{21, "Chester A. Arthur", 1881, []string{}},
-		president{22, "Grover Cleveland (22)", 1885, []string{"Thomas Hendricks"}},
-		president{23, "Benjamin Harrison", 1889, []string{}},
-		president{24, "Grover Cleveland (24)", 1893, []string{"Adlai Stevenson"}},
-		president{25, "William McKinley", 1897, []string{"Garret Hobart", "Theodore Roosevelt"}},
-		president{26, "Theodore Roosevelt", 1901, []string{"Charles Fairbanks"}},
-		president{27, "William Howard Taft", 1909, []string{}},
-		president{28, "Woodrow Wilson", 1913, []string{"Thomas Marshall"}},
-		president{29, "Warren G. Harding", 1921, []string{"Calvin Coolidge"}},
-		president{30, "Calvin Coolidge", 1923, []string{"Charles Dawes"}},
-		president{31, "Herbert Hoover", 1929, []string{"Charles Curtis"}},
-		president{32, "Franklin Delano Roosevelt", 1933, []string{"John Garner", "Henry Wallace", "Harry S. Truman"}},
-		president{33, "Harry S. Truman", 1945, []string{"Alben Barkley"}},
-		president{34, "Dwight D. Eisenhower", 1953, []string{"Richard Nixon"}},
-		president{35, "John F. Kennedy", 1961, []string{"Lyndon B. Johnson"}},
-		president{36, "Lyndon B. Johnson", 1963, []string{"Hubert Humphrey"}},
-		president{37, "Richard M. Nixon", 1969, []string{"Spiro Agnew", "Gerald Ford"}},
-		president{38, "Gerald Ford", 1974, []string{"Nelson Rockefeller"}},
-		president{39, "Jimmy Carter", 1977, []string{"Walter Mondale"}},
-		president{40, "Ronald Reagan", 1981, []string{"George H. W. Bush"}},
-		president{41, "George H. W. Bush", 1989, []string{"Dan Quayle"}},
-		president{42, "Bill Clinton", 1993, []string{"Al Gore"}},
-		president{43, "George W. Bush", 2001, []string{"Dick Cheney"}},
-		president{44, "Barack Obama", 2009, []string{"Joseph R. Biden"}},
-		president{45, "Donald Trump", 2017, []string{"Mike Pence"}},
-		president{46, "Joseph R. Biden", 2021, []string{"Kamala Harris"}},
+		president{1, "George Washington", 1789, []string{"John Adams"}, []string{"Martha Washington"}},
+		president{2, "John Adams", 1797, []string{"Thomas Jefferson"}, []string{"Abigail Adams"}},
+		president{3, "Thomas Jefferson", 1801, []string{"Aaron Burr", "George Clinton"}, []string{"Martha Jefferson"}},
+		president{4, "James Madison", 1809, []string{"George Clinton", "Elbridge Gerry"}, []string{"Dolley Madison"}},
+		president{5, "James Monroe", 1817, []string{"Daniel Tompkins"}, []string{"Eliizabeth Monroe"}},
+		president{6, "John Quincy Adams", 1825, []string{"John C. Calhoun"}, []string{"Louisa Adams"}},
+		president{7, "Andrew Jackson", 1829, []string{"John C. Calhoun", "Martin Van Buren"}, []string{"Rachel Jackson", "Emily Donelson"}},
+		president{8, "Martin Van Buren", 1837, []string{"Richard Mentor Johnson"}, []string{"Hannah Van Buren", "Angelica Van Buren"}},
+		president{9, "William Henry Harrison", 1841, []string{"John Tyler"}, []string{"Anna Harrison", "Jane Harrison"}},
+		president{10, "John Tyler", 1841, []string{}, []string{"Letitia Tyler", "Julia Tyler"}},
+		president{11, "James K. Polk", 1845, []string{"George Dallas"}, []string{"Sarah Polk"}},
+		president{12, "Zachary Taylor", 1849, []string{"Millard Fillmore"}, []string{"Margaret Taylor"}},
+		president{13, "Millard Fillmore", 1850, []string{}, []string{"Abigail Powers Fillmore"}},
+		president{14, "Franklin Pierce", 1853, []string{"William R. King"}, []string{"Jane Pierce"}},
+		president{15, "James Buchanan", 1857, []string{"John C. Breckinridge"}, []string{"Harriet Lane"}},
+		president{16, "Abraham Lincoln", 1861, []string{"Hannibal Hamlin", "Andrew Johnson"}, []string{"Mary Lincoln"}},
+		president{17, "Andrew Johnson", 1865, []string{}, []string{"Eliza Johnson", "Martha Johnson Patterson"}},
+		president{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", ""}, []string{"Julia Grant"}},
+		president{19, "Rutherford B. Hayes", 1877, []string{"William Wheeler"}, []string{"Lucy Hayes"}},
+		president{20, "James Garfield", 1881, []string{"Chester A. Arthur"}, []string{"Lucretia Garfield"}},
+		president{21, "Chester A. Arthur", 1881, []string{}, []string{"Ellen Arthur", "Mary Arthur McElroy"}},
+		president{22, "Grover Cleveland (22)", 1885, []string{"Thomas Hendricks"}, []string{"Rose Cleveland", "Frances Cleveland"}},
+		president{23, "Benjamin Harrison", 1889, []string{}, []string{"Caroline Harrison"}},
+		president{24, "Grover Cleveland (24)", 1893, []string{"Adlai Stevenson"}, []string{"Frances Cleveland"}},
+		president{25, "William McKinley", 1897, []string{"Garret Hobart", "Theodore Roosevelt"}, []string{"Ida McKinley"}},
+		president{26, "Theodore Roosevelt", 1901, []string{"Charles Fairbanks"}, []string{"Edith Roosevelt"}},
+		president{27, "William Howard Taft", 1909, []string{"James Sherman"}, []string{"Helen Taft"}},
+		president{28, "Woodrow Wilson", 1913, []string{"Thomas Marshall"}, []string{"Ellen Wilson", "Edith Wilson"}},
+		president{29, "Warren G. Harding", 1921, []string{"Calvin Coolidge"}, []string{"Florence Harding"}},
+		president{30, "Calvin Coolidge", 1923, []string{"Charles Dawes"}, []string{"Grace Coolidge"}},
+		president{31, "Herbert Hoover", 1929, []string{"Charles Curtis"}, []string{"Lou Hoover"}},
+		president{32, "Franklin Delano Roosevelt", 1933, []string{"John Garner", "Henry Wallace", "Harry S. Truman"}, []string{"Eleanor Roosevelt"}},
+		president{33, "Harry S. Truman", 1945, []string{"Alben Barkley"}, []string{"Elizabeth 'Bess' Truman"}},
+		president{34, "Dwight D. Eisenhower", 1953, []string{"Richard Nixon"}, []string{"Mamie Eisenhower"}},
+		president{35, "John F. Kennedy", 1961, []string{"Lyndon B. Johnson"}, []string{"Jacqueline Kennedy"}},
+		president{36, "Lyndon B. Johnson", 1963, []string{"Hubert Humphrey"}, []string{"Claudia 'Ladybird' Truman"}},
+		president{37, "Richard M. Nixon", 1969, []string{"Spiro Agnew", "Gerald Ford"}, []string{"Patricia Nixon"}},
+		president{38, "Gerald Ford", 1974, []string{"Nelson Rockefeller"}, []string{"Betty Ford"}},
+		president{39, "Jimmy Carter", 1977, []string{"Walter Mondale"}, []string{"Rosalynn Carter"}},
+		president{40, "Ronald Reagan", 1981, []string{"George H. W. Bush"}, []string{"Nancy Reagan"}},
+		president{41, "George H. W. Bush", 1989, []string{"Dan Quayle"}, []string{"Barbara Bush"}},
+		president{42, "Bill Clinton", 1993, []string{"Al Gore"}, []string{"Hillary Clinton"}},
+		president{43, "George W. Bush", 2001, []string{"Dick Cheney"}, []string{"Laura Bush"}},
+		president{44, "Barack Obama", 2009, []string{"Joseph R. Biden"}, []string{"Michelle Obama"}},
+		president{45, "Donald Trump", 2017, []string{"Mike Pence"}, []string{"Melania Trump"}},
+		president{46, "Joseph R. Biden", 2021, []string{"Kamala Harris"}, []string{"Dr. Jill Biden"}},
 	}
 
 	var promptFuncs []presidentQuestion
@@ -112,6 +113,8 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 			quizWhoWasPresidentWhen,
 			quizVicePresidents,
 			quizPresidentsForVicePresident,
+			quizFirstLadiesFromPresident,
+			quizPresidentFromFirstLady,
 		}
 	}
 
@@ -209,6 +212,21 @@ func quizPresidentsForVicePresident(presidents []president) promptAndResponse {
 		}
 	}
 	return promptAndResponse{fmt.Sprintf("Which Presidents did %s serve under as Vice President? (Separate names with commas)", vp), strings.Join(presList, ",")}
+}
+
+func quizFirstLadiesFromPresident(presidents []president) promptAndResponse {
+	p := randomPresident(presidents)
+	for len(p.firstLadies) == 0 {
+		// not a necessity now, but future-proofing
+		p = randomPresident(presidents)
+	}
+	return promptAndResponse{fmt.Sprintf("Who were %s's First Ladies (join with commas)?", p.name), strings.Join(p.firstLadies, ",")}
+}
+
+func quizPresidentFromFirstLady(presidents []president) promptAndResponse {
+	p := randomPresident(presidents)
+	fl := p.firstLadies[rand.Intn(len(p.firstLadies))]
+	return promptAndResponse{fmt.Sprintf("Who did %s serve as First Lady?", fl), p.name}
 }
 
 func vpServedUnderPres(vp string, pres president) bool {
