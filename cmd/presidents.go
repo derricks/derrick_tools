@@ -82,7 +82,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		president{33, "Harry S. Truman", 1945, []string{"Alben Barkley"}, []string{"Elizabeth 'Bess' Truman"}},
 		president{34, "Dwight D. Eisenhower", 1953, []string{"Richard Nixon"}, []string{"Mamie Eisenhower"}},
 		president{35, "John F. Kennedy", 1961, []string{"Lyndon B. Johnson"}, []string{"Jacqueline Kennedy"}},
-		president{36, "Lyndon B. Johnson", 1963, []string{"Hubert Humphrey"}, []string{"Claudia 'Ladybird' Truman"}},
+		president{36, "Lyndon B. Johnson", 1963, []string{"Hubert Humphrey"}, []string{"Claudia 'Ladybird' Johnson"}},
 		president{37, "Richard M. Nixon", 1969, []string{"Spiro Agnew", "Gerald Ford"}, []string{"Patricia Nixon"}},
 		president{38, "Gerald Ford", 1974, []string{"Nelson Rockefeller"}, []string{"Betty Ford"}},
 		president{39, "Jimmy Carter", 1977, []string{"Walter Mondale"}, []string{"Rosalynn Carter"}},
