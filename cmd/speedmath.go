@@ -17,6 +17,8 @@ package cmd
 
 import (
 	"fmt"
+	"math/rand"
+	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -25,9 +27,39 @@ import (
 var speedmathCmd = &cobra.Command{
 	Use:   "speedmath",
 	Short: "Quizzes to test speed math abilities",
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("speedmath called")
-	},
+	Run:   speedMathTesting,
+}
+
+type speedMathFunc func() promptAndResponse
+
+func speedMathTesting(cmd *cobra.Command, args []string) {
+	speedMathFuncs := []speedMathFunc{
+		speedMathAddition,
+		speedMathSubtraction,
+		speedMath1xNMultiplication,
+	}
+
+	mathFunc := speedMathFuncs[rand.Intn(len(speedMathFuncs))]
+	promptAndCheckResponse(mathFunc())
+}
+
+func speedMathAddition() promptAndResponse {
+	addend1 := rand.Intn(10000)
+	addend2 := rand.Intn(10000)
+	return promptAndResponse{fmt.Sprintf("%d + %d = ", addend1, addend2), strconv.Itoa(addend1 + addend2)}
+}
+
+func speedMathSubtraction() promptAndResponse {
+	minuend := rand.Intn(9900)
+	minuend += 100                   // ensure that minuend is always a reasonably sized number
+	subtrahend := rand.Intn(minuend) // ensure that subtrahend is always smaller
+	return promptAndResponse{fmt.Sprintf("%d - %d = ", minuend, subtrahend), strconv.Itoa(minuend - subtrahend)}
+}
+
+func speedMath1xNMultiplication() promptAndResponse {
+	factor1 := rand.Intn(1000)
+	factor2 := rand.Intn(10)
+	return promptAndResponse{fmt.Sprintf("%d * %d = ", factor1, factor2), strconv.Itoa(factor1 * factor2)}
 }
 
 func init() {
