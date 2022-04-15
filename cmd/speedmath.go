@@ -37,6 +37,7 @@ func speedMathTesting(cmd *cobra.Command, args []string) {
 		speedMathAddition,
 		speedMathSubtraction,
 		speedMath1xNMultiplication,
+		speedMathSquareTwoDigits,
 	}
 
 	mathFunc := speedMathFuncs[rand.Intn(len(speedMathFuncs))]
@@ -60,6 +61,11 @@ func speedMath1xNMultiplication() promptAndResponse {
 	factor1 := rand.Intn(1000)
 	factor2 := rand.Intn(10)
 	return promptAndResponse{fmt.Sprintf("%d * %d = ", factor1, factor2), strconv.Itoa(factor1 * factor2)}
+}
+
+func speedMathSquareTwoDigits() promptAndResponse {
+	base := rand.Intn(90) + 10
+	return promptAndResponse{fmt.Sprintf("%d^2 = ", base), strconv.Itoa(base * base)}
 }
 
 func init() {
