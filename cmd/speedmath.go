@@ -38,6 +38,8 @@ func speedMathTesting(cmd *cobra.Command, args []string) {
 		speedMathSubtraction,
 		speedMath1xNMultiplication,
 		speedMathSquareTwoDigits,
+		speedMath2x2Multiplication,
+		speedMathSquareThreeDigits,
 	}
 
 	mathFunc := speedMathFuncs[rand.Intn(len(speedMathFuncs))]
@@ -64,8 +66,32 @@ func speedMath1xNMultiplication() promptAndResponse {
 }
 
 func speedMathSquareTwoDigits() promptAndResponse {
-	base := rand.Intn(90) + 10
+	base := randNumberBetween(10, 100)
 	return promptAndResponse{fmt.Sprintf("%d^2 = ", base), strconv.Itoa(base * base)}
+}
+
+func speedMath2x2Multiplication() promptAndResponse {
+	factor1 := randNumberBetween(10, 100)
+	factor2 := randNumberBetween(10, 100)
+	return promptAndResponse{fmt.Sprintf("%d * %d =", factor1, factor2), strconv.Itoa(factor1 * factor2)}
+}
+
+func speedMathSquareThreeDigits() promptAndResponse {
+	base := randNumberBetween(100, 1000)
+	return promptAndResponse{fmt.Sprintf("%d^2 = ", base), strconv.Itoa(base * base)}
+}
+
+// return a random number between the lower number (inclusive) and the upper nuumber (exclusive)
+func randNumberBetween(lower, upper int) int {
+	if lower == upper {
+		return lower
+	}
+
+	if lower > upper {
+		return rand.Intn(lower-upper) + upper
+	} else {
+		return rand.Intn(upper-lower) + lower
+	}
 }
 
 func init() {
