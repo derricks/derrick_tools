@@ -67,13 +67,13 @@ func speedMath1xNMultiplication() promptAndResponse {
 }
 
 func speedMathSquareTwoDigits() promptAndResponse {
-	base := randNumberBetween(10, 100)
+	base := twoDigitNumber()
 	return promptAndResponse{fmt.Sprintf("%d^2 = ", base), strconv.Itoa(base * base)}
 }
 
 func speedMath2x2Multiplication() promptAndResponse {
-	factor1 := randNumberBetween(10, 100)
-	factor2 := randNumberBetween(10, 100)
+	factor1 := twoDigitNumber()
+	factor2 := twoDigitNumber()
 	return promptAndResponse{fmt.Sprintf("%d * %d =", factor1, factor2), strconv.Itoa(factor1 * factor2)}
 }
 
@@ -83,8 +83,12 @@ func speedMathSquareThreeDigits() promptAndResponse {
 }
 
 func speedMathCubeTwoDigits() promptAndResponse {
-	base := randNumberBetween(10, 100)
+	base := twoDigitNumber()
 	return promptAndResponse{fmt.Sprintf("%d^3 = ", base), strconv.Itoa(base * base * base)}
+}
+
+func twoDigitNumber() int {
+	return randNumberBetween(10, 100)
 }
 
 // return a random number between the lower number (inclusive) and the upper nuumber (exclusive)
