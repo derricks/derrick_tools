@@ -41,6 +41,8 @@ func speedMathTesting(cmd *cobra.Command, args []string) {
 		speedMath2x2Multiplication,
 		speedMathSquareThreeDigits,
 		speedMathCubeTwoDigits,
+		speedMathDivideBySingleDight,
+		speedMathDivideByTwoDigits,
 	}
 
 	mathFunc := speedMathFuncs[rand.Intn(len(speedMathFuncs))]
@@ -85,6 +87,22 @@ func speedMathSquareThreeDigits() promptAndResponse {
 func speedMathCubeTwoDigits() promptAndResponse {
 	base := twoDigitNumber()
 	return promptAndResponse{fmt.Sprintf("%d^3 = ", base), strconv.Itoa(base * base * base)}
+}
+
+func speedMathDivideBySingleDight() promptAndResponse {
+	dividend := randNumberBetween(100, 10000)
+	divisor := randNumberBetween(1, 10)
+	quotient := dividend / divisor
+	remainder := dividend % divisor
+	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)"), fmt.Sprintf("%dR%d", quotient, remainder)}
+}
+
+func speedMathDivideByTwoDigits() promptAndResponse {
+	dividend := randNumberBetween(100, 10000)
+	divisor := twoDigitNumber()
+	quotient := dividend / divisor
+	remainder := dividend % divisor
+	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)"), fmt.Sprintf("%dR%d", quotient, remainder)}
 }
 
 func twoDigitNumber() int {
