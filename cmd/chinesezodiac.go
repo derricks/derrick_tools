@@ -25,7 +25,7 @@ import (
 // shakespeareCmd represents the shakespeare command
 var chineseZodiacCmd = &cobra.Command{
 	Use:   "chinesezodiac",
-	Short: "Test recall of the names and areas of the nine muses",
+	Short: "Test recall of the Chinese zodiac",
 	Run:   quizChineseZodiacs,
 }
 
