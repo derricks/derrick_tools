@@ -64,7 +64,7 @@ var lakes = []lakeInfo{
 	lakeInfo{24, "Issyk-Kul", true, []string{"Kyrgyzstan"}},
 	lakeInfo{25, "Urmia", true, []string{"Iran"}},
 	lakeInfo{26, "Vanern", false, []string{"Sweden"}},
-	lakeInfo{27, "Winnpegosis", false, []string{"Canada"}},
+	lakeInfo{27, "Winnipegosis", false, []string{"Canada"}},
 	lakeInfo{28, "Albert", false, []string{"Uganda", "Democratic Republic of the Congo"}},
 	lakeInfo{29, "Mweru", false, []string{"Zambia"}},
 	lakeInfo{30, "Nettilling", false, []string{"Canada"}},
