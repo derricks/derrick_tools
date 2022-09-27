@@ -18,6 +18,8 @@ package cmd
 import (
 	"fmt"
 	"math/rand"
+	"strconv"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -130,6 +132,8 @@ type constellationQuiz func([]constellation) promptAndResponse
 func quizConstellations(cmd *cobra.Command, args []string) {
 	quizzes := []constellationQuiz{
 		quizConstellationByOrder,
+		quizConstellationFromDescription,
+		quizConstellationCountByLetter,
 	}
 
 	quiz := quizzes[rand.Intn(len(quizzes))]
@@ -145,6 +149,19 @@ func quizConstellationByOrder(constellations []constellation) promptAndResponse 
 func quizConstellationFromDescription(constellations []constellation) promptAndResponse {
 	constellation := randomConstellation(constellations)
 	return promptAndResponse{fmt.Sprintf("What's the official name of the %s constellation?", constellation.description), constellation.name}
+}
+
+func quizConstellationCountByLetter(constellations []constellation) promptAndResponse {
+	// pick a letter
+	letterAscii := 65 + rand.Intn(26)
+	letter := string(letterAscii)
+	count := 0
+	for _, constellation := range constellations {
+		if strings.HasPrefix(constellation.name, letter) {
+			count++
+		}
+	}
+	return promptAndResponse{fmt.Sprintf("How many constellations start with %s?", letter), strconv.Itoa(count)}
 }
 
 func randomConstellation(constellations []constellation) constellation {
