@@ -86,7 +86,7 @@ var constellations = []constellation{
 	constellation{"Leo Minor", "Little Lion"},
 	constellation{"Lepus", "Hare"},
 	constellation{"Libra", "Balance"},
-	constellation{"Lupos", "Wolf"},
+	constellation{"Lupus", "Wolf"},
 	constellation{"Lynx", "Lynx"},
 	constellation{"Lyra", "Lyre"},
 	constellation{"Mensa", "Tabletop Mountain"},
