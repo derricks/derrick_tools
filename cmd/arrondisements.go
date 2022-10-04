@@ -46,6 +46,7 @@ var arrondisements = []string{
 	"Passy",
 	"Batignolles-Montant",
 	"Butte-Montmartre",
+	"Buttes-Chaumont",
 	"Ménilmontant",
 }
 
