@@ -107,6 +107,7 @@ func quizStates(cmd *cobra.Command, args []string) {
 		quizHowManyStatesInYear,
 		quizStateByNickname,
 		quizNicknamesForState,
+		quizStatesThatJoinedInAYear,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -178,6 +179,17 @@ func quizNicknamesForState(states []state) promptAndResponse {
 	sort.Strings(state.nicknames)
 	nicknames := strings.Join(state.nicknames, ",")
 	return promptAndResponse{fmt.Sprintf("What are the nicknames of %s?", state.name), nicknames}
+}
+
+func quizStatesThatJoinedInAYear(states []state) promptAndResponse {
+	state := randomState(states)
+	statesThatJoinedThatYear := 0
+	for _, stateToCheck := range states {
+		if stateToCheck.yearJoined == state.yearJoined {
+			statesThatJoinedThatYear++
+		}
+	}
+	return promptAndResponse{fmt.Sprintf("How many states joined in %d?", state.yearJoined), strconv.Itoa(statesThatJoinedThatYear)}
 }
 
 func randomState(states []state) state {
