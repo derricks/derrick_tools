@@ -78,9 +78,11 @@ func quizSpellingBee(cmd *cobra.Command, args []string) {
 
 	enteredWords := strings.Split(inputSet, ",")
 
+	error := false
 	// verify that entered words doesn't have entries not in the list
 	for _, enteredWord := range enteredWords {
 		if !isStringInSlice(enteredWord, wordSet) {
+			error = true
 			fmt.Printf("%s is not in the list of words for %s\n", enteredWord, word)
 		}
 	}
@@ -88,8 +90,13 @@ func quizSpellingBee(cmd *cobra.Command, args []string) {
 	// and now verify that the list isn't missing any words
 	for _, validWord := range wordSet {
 		if !isStringInSlice(validWord, enteredWords) && validWord != word {
+			error = true
 			fmt.Printf("You missed %s\n", validWord)
 		}
+	}
+
+	if !error {
+		fmt.Println("You got them all!")
 	}
 }
 
