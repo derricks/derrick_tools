@@ -69,7 +69,8 @@ var spellingBeeSets = [][]string{
 	{"ACID", "ACIDIC", "CICADA"},
 	{"INTEL", "LENTIL", "LINTEL", "LINNET", "INLET", "ENTITLE", "LENIENT"},
 	{"LAIC", "LAICAL", "LILAC", "ILIAC"},
-	{"DANCE", "CANED", "CANNED", "DECADENCE", "DANCED"},
+	{"DANCE", "CANED", "CANNED", "DECADENCE", "DANCED", "CADENCE"},
+	{"LAMA", "LLAMA", "MAMMAL", "MALL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
