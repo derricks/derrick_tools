@@ -51,7 +51,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		president{2, "John Adams", 1797, []string{"Thomas Jefferson"}, []string{"Abigail Adams"}},
 		president{3, "Thomas Jefferson", 1801, []string{"Aaron Burr", "George Clinton"}, []string{"Martha Jefferson"}},
 		president{4, "James Madison", 1809, []string{"George Clinton", "Elbridge Gerry"}, []string{"Dolley Madison"}},
-		president{5, "James Monroe", 1817, []string{"Daniel Tompkins"}, []string{"Eliizabeth Monroe"}},
+		president{5, "James Monroe", 1817, []string{"Daniel Tompkins"}, []string{"Elizabeth Monroe"}},
 		president{6, "John Quincy Adams", 1825, []string{"John C. Calhoun"}, []string{"Louisa Adams"}},
 		president{7, "Andrew Jackson", 1829, []string{"John C. Calhoun", "Martin Van Buren"}, []string{"Rachel Jackson", "Emily Donelson"}},
 		president{8, "Martin Van Buren", 1837, []string{"Richard Mentor Johnson"}, []string{"Hannah Van Buren", "Angelica Van Buren"}},
