@@ -69,7 +69,7 @@ var monopolyBoard = []monopolySquare{
 	monopolySquare{16, "Pennsylvania Railroad", NO_COLOR, 200},
 	monopolySquare{17, "St. James Place", ORANGE, 180},
 	monopolySquare{18, "Community Chest (2)", NO_COLOR, 0},
-	monopolySquare{19, "Tennesse Avenue", ORANGE, 180},
+	monopolySquare{19, "Tennessee Avenue", ORANGE, 180},
 	monopolySquare{20, "New York Avenue", ORANGE, 200},
 	monopolySquare{21, "Free Parking", NO_COLOR, 0},
 	monopolySquare{22, "Kentucky Avenue", RED, 220},
