@@ -44,7 +44,7 @@ var arrondisements = []string{
 	"Observatoire",
 	"Vaugirard",
 	"Passy",
-	"Batignolles-Montant",
+	"Batignolles-Monceau",
 	"Butte-Montmartre",
 	"Buttes-Chaumont",
 	"Ménilmontant",
