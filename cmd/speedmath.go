@@ -94,7 +94,7 @@ func speedMathDivideBySingleDight() promptAndResponse {
 	divisor := randNumberBetween(1, 10)
 	quotient := dividend / divisor
 	remainder := dividend % divisor
-	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)"), fmt.Sprintf("%dR%d", quotient, remainder)}
+	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)", dividend, divisor), fmt.Sprintf("%dR%d", quotient, remainder)}
 }
 
 func speedMathDivideByTwoDigits() promptAndResponse {
@@ -102,7 +102,7 @@ func speedMathDivideByTwoDigits() promptAndResponse {
 	divisor := twoDigitNumber()
 	quotient := dividend / divisor
 	remainder := dividend % divisor
-	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)"), fmt.Sprintf("%dR%d", quotient, remainder)}
+	return promptAndResponse{fmt.Sprintf("%d/%d = (separate quotient and remainder with R)", dividend, divisor), fmt.Sprintf("%dR%d", quotient, remainder)}
 }
 
 func twoDigitNumber() int {
