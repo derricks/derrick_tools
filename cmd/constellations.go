@@ -173,7 +173,7 @@ func quizStarInConstellation(constellations []constellation) promptAndResponse {
 	withStars := constellationsWithStars(constellations)
 	constellation := randomConstellation(withStars)
 	starIndex := rand.Intn(len(constellation.stars))
-	return promptAndResponse{fmt.Sprintf("What is named star number %d in %s?", starIndex, constellation.name), constellation.stars[starIndex]}
+	return promptAndResponse{fmt.Sprintf("What is named star number %d in %s?", starIndex + 1, constellation.name), constellation.stars[starIndex]}
 }
 
 func quizConstellationByStar(constellations []constellation) promptAndResponse {
