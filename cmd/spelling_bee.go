@@ -74,6 +74,7 @@ var spellingBeeSets = [][]string{
 	{"ABLE", "BALE", "LABEL", "BABBLE", "BABEL"},
 	{"BILE", "BIBLE", "BELIE", "LIBEL", "LIBELEE"},
 	{"PAINT", "PATINA", "PINATA", "INAPT"},
+	{"LOOT", "LOTTO", "TOOL", "TOLL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
