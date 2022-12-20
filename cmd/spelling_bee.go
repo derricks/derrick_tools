@@ -56,7 +56,7 @@ var spellingBeeSets = [][]string{
 	{"MEAN", "NAME", "ENEMA", "MANE", "AMEN"},
 	{"TEAM", "TEAMMATE", "MATTE", "MEAT", "META", "MATE"},
 	{"TRAP", "APPARAT", "RAPT", "APART", "PART", "TARP", "RATTRAP"},
-	{"PEND", "PENDED", "DEPEND", "DEPENDED", "DEEPEN", "DEEPENED"},
+	{"PEND", "PENDED", "DEPEND", "DEPENDED", "DEEPEN", "DEEPENED", "PENNED"},
 	{"PACE", "APACE", "PEACE", "CAPE"},
 	{"PEAL", "APPLE", "PALE", "LAPEL", "LEAP", "APPEAL", "PAELLA", "APPELLEE", "PLEA"},
 	{"HOLE", "HELLO", "HELLHOLE"},
