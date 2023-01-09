@@ -41,9 +41,9 @@ type constellation struct {
 var constellations = []constellation{
 	constellation{"Andromeda", "Princess of Ethiopia", []string{"Alpheratz", "Mirach", "Almach", "Sadiradra", "Nembus", "Titawin", "Keff al Salsalat", "Adhil", "Veritate"}},
 	constellation{"Antlia", "Air Pump", []string{"Macondo"}},
-	constellation{"Apus", "Bird of Paradise", []string{"Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla", "Lionrock", "Bosona", "Marohu"}},
-	constellation{"Aquarius", "Water Bearer", []string{}},
-	constellation{"Aquila", "Eagle", []string{}},
+	constellation{"Apus", "Bird of Paradise", []string{"Karaka"}},
+	constellation{"Aquarius", "Water Bearer", []string{"Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla", "Lionrock", "Bosona", "Marohu"}},
+	constellation{"Aquila", "Eagle", []string{"Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla", "Lionrock", "Bosona", "Marohu"}},
 	constellation{"Ara", "Altar", []string{}},
 	constellation{"Aries", "Ram", []string{}},
 	constellation{"Auriga", "Charioteer", []string{}},
