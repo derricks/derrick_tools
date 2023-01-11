@@ -43,7 +43,7 @@ var constellations = []constellation{
 	constellation{"Antlia", "Air Pump", []string{"Macondo"}},
 	constellation{"Apus", "Bird of Paradise", []string{"Karaka"}},
 	constellation{"Aquarius", "Water Bearer", []string{"Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla", "Lionrock", "Bosona", "Marohu"}},
-	constellation{"Aquila", "Eagle", []string{"Sadalsuud", "Sadalmelik", "Skat", "Albali", "Sadachbia", "Ancha", "Bunda", "Situla", "Lionrock", "Bosona", "Marohu"}},
+	constellation{"Aquila", "Eagle", []string{"Altair", "Tarazed", "Okab", "Alshain", "Libertas", "Chechia", "Phoenicia", "Petra"}},
 	constellation{"Ara", "Altar", []string{"Cervantes", "Inquill"}},
 	constellation{"Aries", "Ram", []string{}},
 	constellation{"Auriga", "Charioteer", []string{}},
