@@ -79,6 +79,7 @@ var spellingBeeSets = [][]string{
 	{"VIAL", "AVAIL", "VILLA"},
 	{"ANVIL", "VILLAIN", "VANILLA", "VANILLIN"},
 	{"LUNA", "ULNA", "ANNUL", "ANNUAL"},
+	{"GAVE", "AGAVE", "GAVAGE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
