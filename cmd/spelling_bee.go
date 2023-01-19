@@ -78,7 +78,7 @@ var spellingBeeSets = [][]string{
 	{"PALL", "APPALL", "PAPAL", "PALAPA"},
 	{"VIAL", "AVAIL", "VILLA"},
 	{"ANVIL", "VILLAIN", "VANILLA", "VANILLIN"},
-	{"LUNA", "ULNA", "ANNUL", "ANNUAL"},
+	{"LUNA", "ULNA", "ANNUL", "ANNUAL", "LUNULA"},
 	{"GAVE", "AGAVE", "GAVAGE"},
 }
 
