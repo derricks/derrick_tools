@@ -80,6 +80,7 @@ var spellingBeeSets = [][]string{
 	{"ANVIL", "VILLAIN", "VANILLA", "VANILLIN"},
 	{"LUNA", "ULNA", "ANNUL", "ANNUAL", "LUNULA"},
 	{"GAVE", "AGAVE", "GAVAGE"},
+	{"OUGHT", "OUTTHOUGHT", "TOUGH", "THOUGHT"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
