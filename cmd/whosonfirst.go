@@ -40,7 +40,7 @@ var whosOnFirstPlayers = []whosonfirst{
 	whosonfirst{"Who", "First Base"},
 	whosonfirst{"What", "Second Base"},
 	whosonfirst{"Because", "Center Field"},
-	whosonfirst{"Shortstop", "I Don't Care"},
+	whosonfirst{"I Don't Care", "Shortstop"},
 	whosonfirst{"I Don't Know", "Third Base"},
 	whosonfirst{"Why", "Left Field"},
 }
