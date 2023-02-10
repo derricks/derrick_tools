@@ -82,6 +82,7 @@ var spellingBeeSets = [][]string{
 	{"GAVE", "AGAVE", "GAVAGE"},
 	{"OUGHT", "OUTTHOUGHT", "TOUGH", "THOUGHT"},
 	{"RANT", "RATTAN", "TARTAN", "TANTRA", "TANTARA"},
+	{"GAIN", "AGAIN", "AGING", "GAINING", "NAGGING", "ANGINA", "GAGGING", "GANGING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
