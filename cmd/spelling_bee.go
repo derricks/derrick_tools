@@ -84,6 +84,8 @@ var spellingBeeSets = [][]string{
 	{"RANT", "RATTAN", "TARTAN", "TANTRA", "TANTARA"},
 	{"GAIN", "AGAIN", "AGING", "GAINING", "NAGGING", "ANGINA", "GAGGING", "GANGING"},
 	{"DOGE", "GEODE", "DODGE", "DOGGED", "DODGED"},
+	{"DUNE", "DUNNED", "UNNEEDED", "NUDE", "ENDUED", "ENDUE", "DENUDE", "DENUDED"},
+	{"DUEL", "DELUDED", "ELUDE", "DULLED", "ELUDED", "DELUDE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
