@@ -19,7 +19,6 @@ import (
 	"fmt"
 	"github.com/spf13/cobra"
 	"math/rand"
-	"strconv"
 )
 
 // countriesCmd represents the countries command
@@ -30,11 +29,11 @@ var countriesCmd = &cobra.Command{
 }
 
 type countryInfo struct {
-	rankInArea  int
-	name        string
-	capital     string
+	rankInArea  int `crossquery:"all"`
+	name        string `crossquery:"all"`
+	capital     string `crossquery:"all"`
 	region      []string
-	currency    string
+	currency    string `crossquery:"guess"`
 	countryCode string
 }
 
@@ -258,14 +257,16 @@ type countryQuery func([]countryInfo) promptAndResponse
 
 func quizCountries(cmd *cobra.Command, args []string) {
 	quizFuncs := []countryQuery{
-		quizCountryCapital,
-		quizCountryFromCapital,
-		quizCountryRankInArea,
-		quizCountryFromRankInArea,
-		quizCapitalFromRankInArea,
+		// add a bunch of these to bias the randomizer
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
+		crossQueryCountryInfo,
 		quizWhichIsBigger,
 		quizWhichIsSmaller,
-		quizCurrencyFromCountry,
 		quizCountryFromFlag,
 	}
 	function := quizFuncs[rand.Intn(len(quizFuncs))]
@@ -277,29 +278,9 @@ func randomCountry(countries []countryInfo) countryInfo {
 	return countries[rand.Intn(len(countries))]
 }
 
-func quizCountryCapital(countries []countryInfo) promptAndResponse {
+func crossQueryCountryInfo(countries []countryInfo) promptAndResponse {
 	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("What is the capital of %s?", country.name), country.capital}
-}
-
-func quizCountryFromCapital(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("Which country's capital is %s?", country.capital), country.name}
-}
-
-func quizCountryRankInArea(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("Where does %s rank in terms of area?", country.name), strconv.Itoa(country.rankInArea)}
-}
-
-func quizCountryFromRankInArea(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("What country ranks number %d in area?", country.rankInArea), country.name}
-}
-
-func quizCapitalFromRankInArea(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("What is the capital of the country that ranks %d in area?", country.rankInArea), country.capital}
+	return constructCrossQuery("country", country)
 }
 
 func quizWhichIsBigger(countries []countryInfo) promptAndResponse {
@@ -336,11 +317,6 @@ func quizWhichIsSmaller(countries []countryInfo) promptAndResponse {
 		response.response = country2.name
 	}
 	return response
-}
-
-func quizCurrencyFromCountry(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
-	return promptAndResponse{fmt.Sprintf("What is the currency of %s?", country.name), country.currency}
 }
 
 func quizCountryFromFlag(countries []countryInfo) promptAndResponse {
