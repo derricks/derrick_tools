@@ -29,7 +29,7 @@ var countriesCmd = &cobra.Command{
 }
 
 type countryInfo struct {
-	rankInArea  int `crossquery:"all"`
+	rankInArea  int    `crossquery:"all"`
 	name        string `crossquery:"all"`
 	capital     string `crossquery:"all"`
 	region      []string
