@@ -107,7 +107,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 			crossQueryPresidentInfo,
 			crossQueryPresidentInfo,
 			crossQueryPresidentInfo,
-                        crossQueryPresidentInfo,
+			crossQueryPresidentInfo,
 			quizBefore,
 			quizAfter,
 			quizWhenPresidentEnded,
