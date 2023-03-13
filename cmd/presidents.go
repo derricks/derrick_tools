@@ -38,11 +38,11 @@ to quickly create a Cobra application.`,
 }
 
 type president struct {
-	number         int
-	name           string
-	startYear      int
+	number         int    `crossquery:"all"`
+	name           string `crossquery:"all"`
+	startYear      int    `crossquery:"all"`
 	vicePresidents []string
-	firstLadies    []string
+	firstLadies    []string `crossquery:"given"`
 }
 
 func quizPresidents(cmd *cobra.Command, args []string) {
@@ -104,17 +104,17 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		}
 	} else {
 		promptFuncs = []presidentQuestion{
-			quizIndex,
+			crossQueryPresidentInfo,
+			crossQueryPresidentInfo,
+			crossQueryPresidentInfo,
+                        crossQueryPresidentInfo,
 			quizBefore,
 			quizAfter,
-			quizWhichNumber,
-			quizWhenPresidentStarted,
 			quizWhenPresidentEnded,
 			quizWhoWasPresidentWhen,
 			quizVicePresidents,
 			quizPresidentsForVicePresident,
 			quizFirstLadiesFromPresident,
-			quizPresidentFromFirstLady,
 		}
 	}
 
@@ -126,9 +126,9 @@ var vicePresidentsOnly bool
 
 type presidentQuestion func([]president) promptAndResponse
 
-func quizIndex(presidents []president) promptAndResponse {
+func crossQueryPresidentInfo(presidents []president) promptAndResponse {
 	president := randomPresident(presidents)
-	return promptAndResponse{fmt.Sprintf("Who was president %d?", president.number), president.name}
+	return constructCrossQuery("president", president)
 }
 
 func quizBefore(presidents []president) promptAndResponse {
@@ -145,16 +145,6 @@ func quizAfter(presidents []president) promptAndResponse {
 		index = rand.Intn(len(presidents))
 	}
 	return promptAndResponse{fmt.Sprintf("Who was President after %s?", presidents[index].name), presidents[index+1].name}
-}
-
-func quizWhichNumber(presidents []president) promptAndResponse {
-	president := randomPresident(presidents)
-	return promptAndResponse{fmt.Sprintf("What number president was %s?", president.name), strconv.Itoa(president.number)}
-}
-
-func quizWhenPresidentStarted(presidents []president) promptAndResponse {
-	president := randomPresident(presidents)
-	return promptAndResponse{fmt.Sprintf("What was the first year of %s's presidency?", president.name), strconv.Itoa(president.startYear)}
 }
 
 func quizWhenPresidentEnded(presidents []president) promptAndResponse {
@@ -221,12 +211,6 @@ func quizFirstLadiesFromPresident(presidents []president) promptAndResponse {
 		p = randomPresident(presidents)
 	}
 	return promptAndResponse{fmt.Sprintf("Who were %s's First Ladies (join with commas)?", p.name), strings.Join(p.firstLadies, ",")}
-}
-
-func quizPresidentFromFirstLady(presidents []president) promptAndResponse {
-	p := randomPresident(presidents)
-	fl := p.firstLadies[rand.Intn(len(p.firstLadies))]
-	return promptAndResponse{fmt.Sprintf("Who did %s serve as First Lady?", fl), p.name}
 }
 
 func vpServedUnderPres(vp string, pres president) bool {
