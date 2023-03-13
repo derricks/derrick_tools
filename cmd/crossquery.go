@@ -85,6 +85,9 @@ func reflectValueToString(v reflect.Value) string {
 		return v.String()
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		return strconv.Itoa(int(v.Int()))
+	case reflect.Slice:
+		// grab an item at random from the slice. Note that what you get back from Index is a value
+		return reflectValueToString(v.Index(rand.Intn(v.Len())))
 	default:
 		return v.String()
 	}

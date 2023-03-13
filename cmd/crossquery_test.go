@@ -60,3 +60,20 @@ func TestCrossQueryAll(test *testing.T) {
 		test.Errorf("Invalid response. Was \"%s\"\n", result.response)
 	}
 }
+
+type crossQuery3 struct {
+	givens  []string `crossquery:"given"`
+	guesses []string `crossquery:"guess"`
+}
+
+func TestCrossQuerySlice(test *testing.T) {
+	s := crossQuery3{[]string{"givenslice"}, []string{"guessslice"}}
+	result := constructCrossQuery("test3", s)
+	if result.prompt != "What is the guesses of test3 with givens of givenslice?" {
+		test.Errorf("Invalid prompt. Was %s", result.prompt)
+	}
+
+	if result.response != "guessslice" {
+		test.Errorf("Invalid response. Was %s", result.response)
+	}
+}
