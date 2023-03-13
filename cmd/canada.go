@@ -16,9 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"math/rand"
-	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -30,9 +28,9 @@ var canadaCmd = &cobra.Command{
 }
 
 type canadaRegion struct {
-	orderBySize int
-	name        string
-	capital     string
+	orderBySize int    `crossquery:"all"`
+	name        string `crossquery:"all"`
+	capital     string `crossquery:"all"`
 }
 
 var canadianRegions = []canadaRegion{
@@ -56,28 +54,16 @@ type canadaQuestion func([]canadaRegion) promptAndResponse
 func quizCanada(cmd *cobra.Command, args []string) {
 
 	var promptFuncs = []canadaQuestion{
-		quizCanadianRegionByCapital,
-		quizCapitalFromCanadianRegion,
-		quizSizeOfCanadianRegion,
+		crossQueryCanadaInfo,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
 	promptAndCheckResponse(function(canadianRegions))
 }
 
-func quizCanadianRegionByCapital(regions []canadaRegion) promptAndResponse {
+func crossQueryCanadaInfo(regions []canadaRegion) promptAndResponse {
 	region := randomCanadianRegion(regions)
-	return promptAndResponse{fmt.Sprintf("What Canadian region has %s as its capital?", region.capital), region.name}
-}
-
-func quizCapitalFromCanadianRegion(regions []canadaRegion) promptAndResponse {
-	region := randomCanadianRegion(regions)
-	return promptAndResponse{fmt.Sprintf("What is the capital of %s?", region.name), region.capital}
-}
-
-func quizSizeOfCanadianRegion(regions []canadaRegion) promptAndResponse {
-	region := randomCanadianRegion(regions)
-	return promptAndResponse{fmt.Sprintf("Where does %s fall in terms of size?", region.name), strconv.Itoa(region.orderBySize)}
+	return constructCrossQuery("Canadian region", region)
 }
 
 func randomCanadianRegion(regions []canadaRegion) canadaRegion {
