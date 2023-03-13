@@ -30,12 +30,12 @@ var statesCmd = &cobra.Command{
 }
 
 type state struct {
-	orderInUnion int
-	name         string
-	capital      string
-	yearJoined   int
-	nicknames    []string
-	flowers      []string
+	orderInUnion int      `crossquery:"all"`
+	name         string   `crossquery:"all"`
+	capital      string   `crossquery:"all"`
+	yearJoined   int      `crossquery:"guess"`
+	nicknames    []string `crossquery:"given"`
+	flowers      []string `crossquery:"guess"`
 }
 
 var states = []state{
@@ -96,46 +96,27 @@ type statesQuestion func([]state) promptAndResponse
 func quizStates(cmd *cobra.Command, args []string) {
 
 	var promptFuncs = []statesQuestion{
-		quizOrderToName,
-		quizNameToOrder,
-		quizStateToCapital,
-		quizCapitalToState,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
+		crossQueryStateInfo,
 		quizStateJoinedEarliest,
-		quizWhenStateJoined,
 		quizHowManyStatesInYear,
-		quizStateByNickname,
 		quizNicknamesForState,
 		quizStatesThatJoinedInAYear,
-		quizStateFlowerForState,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
 	promptAndCheckResponse(function(states))
 }
 
-func quizStateFlowerForState(states []state) promptAndResponse {
+func crossQueryStateInfo(states []state) promptAndResponse {
 	foundState := randomState(states)
-	return promptAndResponse{fmt.Sprintf("What is the state flower of %s?", foundState.name), foundState.flowers[0]}
-}
-
-func quizOrderToName(states []state) promptAndResponse {
-	foundState := randomState(states)
-	return promptAndResponse{fmt.Sprintf("Which state was added to the United States at position %d?", foundState.orderInUnion), foundState.name}
-}
-
-func quizNameToOrder(states []state) promptAndResponse {
-	foundState := randomState(states)
-	return promptAndResponse{fmt.Sprintf("What order was %s added to the Union?", foundState.name), strconv.Itoa(foundState.orderInUnion)}
-}
-
-func quizStateToCapital(states []state) promptAndResponse {
-	foundState := randomState(states)
-	return promptAndResponse{fmt.Sprintf("What is the capital of %s?", foundState.name), foundState.capital}
-}
-
-func quizCapitalToState(states []state) promptAndResponse {
-	foundState := randomState(states)
-	return promptAndResponse{fmt.Sprintf("%s is the capital of which state?", foundState.capital), foundState.name}
+	return constructCrossQuery("state", foundState)
 }
 
 func quizStateJoinedEarliest(states []state) promptAndResponse {
@@ -153,11 +134,6 @@ func quizStateJoinedEarliest(states []state) promptAndResponse {
 	}
 }
 
-func quizWhenStateJoined(states []state) promptAndResponse {
-	state := randomState(states)
-	return promptAndResponse{fmt.Sprintf("When did %s join the United States?", state.name), strconv.Itoa(state.yearJoined)}
-}
-
 func quizHowManyStatesInYear(states []state) promptAndResponse {
 	today := time.Now()
 	thisYear := today.Year()
@@ -170,12 +146,6 @@ func quizHowManyStatesInYear(states []state) promptAndResponse {
 		countOfStates++
 	}
 	return promptAndResponse{fmt.Sprintf("How many states were in the Union by the end of %d?", targetYear), strconv.Itoa(countOfStates)}
-}
-
-func quizStateByNickname(states []state) promptAndResponse {
-	state := randomState(states)
-	nickname := state.nicknames[rand.Intn(len(state.nicknames))]
-	return promptAndResponse{fmt.Sprintf("What state has the nickname %s?", nickname), state.name}
 }
 
 func quizNicknamesForState(states []state) promptAndResponse {
