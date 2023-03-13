@@ -76,7 +76,7 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 	// convert to strings if need be
 	givenValue := reflectValueToString(givenValueRaw)
 	guessValue := reflectValueToString(guessValueRaw)
-	return promptAndResponse{fmt.Sprintf("What is the %s of %s with %s of %v?", guess.Name, entityType, given.Name, givenValue), guessValue}
+	return promptAndResponse{fmt.Sprintf("What is the %s of the %s with %s of %v?", guess.Name, entityType, given.Name, givenValue), guessValue}
 }
 
 func reflectValueToString(v reflect.Value) string {

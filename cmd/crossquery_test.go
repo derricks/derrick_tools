@@ -31,7 +31,7 @@ func TestCrossQueryOneGivenOneGuess(test *testing.T) {
 	rand.Seed(time.Now().UnixNano())
 	s := crossQuery1{"abc", "def"}
 	result := constructCrossQuery("test1", s)
-	if result.prompt != "What is the value2 of test1 with value1 of abc?" {
+	if result.prompt != "What is the value2 of the test1 with value1 of abc?" {
 		test.Errorf("Incorrect prompt. Was \"%s\"", result.prompt)
 	}
 
@@ -51,8 +51,8 @@ func TestCrossQueryAll(test *testing.T) {
 	result := constructCrossQuery("test2", s)
 
 	// can be one of two
-	if result.prompt != "What is the v2 of test2 with v1 of xyz?" &&
-		result.prompt != "What is the v1 of test2 with v2 of 34?" {
+	if result.prompt != "What is the v2 of the test2 with v1 of xyz?" &&
+		result.prompt != "What is the v1 of the test2 with v2 of 34?" {
 		test.Errorf("Invalid prompt. Was %s\n", result.prompt)
 	}
 
@@ -69,7 +69,7 @@ type crossQuery3 struct {
 func TestCrossQuerySlice(test *testing.T) {
 	s := crossQuery3{[]string{"givenslice"}, []string{"guessslice"}}
 	result := constructCrossQuery("test3", s)
-	if result.prompt != "What is the guesses of test3 with givens of givenslice?" {
+	if result.prompt != "What is the guesses of the test3 with givens of givenslice?" {
 		test.Errorf("Invalid prompt. Was %s", result.prompt)
 	}
 
