@@ -16,13 +16,11 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"math/rand"
 
 	"github.com/spf13/cobra"
 )
 
-// shakespeareCmd represents the shakespeare command
 var whosonfirstCmd = &cobra.Command{
 	Use:   "whosonfirst",
 	Short: "Test recall of the players in Who's On First",
@@ -30,8 +28,8 @@ var whosonfirstCmd = &cobra.Command{
 }
 
 type whosonfirst struct {
-	name     string
-	position string
+	name     string `crossquery:"all"`
+	position string `crossquery:"all"`
 }
 
 var whosOnFirstPlayers = []whosonfirst{
@@ -48,23 +46,8 @@ var whosOnFirstPlayers = []whosonfirst{
 type whosonfirstQuiz func([]whosonfirst) promptAndResponse
 
 func quizWhosonfirst(cmd *cobra.Command, args []string) {
-	quizzes := []whosonfirstQuiz{
-		quizPlayerByPosition,
-		quizPositionByPlayer,
-	}
-
-	quiz := quizzes[rand.Intn(len(quizzes))]
-	promptAndCheckResponse(quiz(whosOnFirstPlayers))
-}
-
-func quizPlayerByPosition(players []whosonfirst) promptAndResponse {
-	player := randomPlayer(players)
-	return promptAndResponse{fmt.Sprintf("Name the player at %s", player.position), player.name}
-}
-
-func quizPositionByPlayer(players []whosonfirst) promptAndResponse {
-	player := randomPlayer(players)
-	return promptAndResponse{fmt.Sprintf("What position does %s play?", player.name), player.position}
+	player := randomPlayer(whosOnFirstPlayers)
+	promptAndCheckResponse(constructCrossQuery("who's on first player", player))
 }
 
 func randomPlayer(players []whosonfirst) whosonfirst {
