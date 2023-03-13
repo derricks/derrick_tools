@@ -32,8 +32,8 @@ var constellationCmd = &cobra.Command{
 }
 
 type constellation struct {
-	name        string
-	description string
+	name        string `crossquery:"all"`
+	description string `crossquery:"all"`
 	// named stars in decreasing order of brightness
 	stars []string
 }
@@ -134,7 +134,8 @@ type constellationQuiz func([]constellation) promptAndResponse
 func quizConstellations(cmd *cobra.Command, args []string) {
 	quizzes := []constellationQuiz{
 		quizConstellationByOrder,
-		quizConstellationFromDescription,
+		crossQueryConstellationInfo,
+		crossQueryConstellationInfo,
 		quizConstellationCountByLetter,
 		quizStarInConstellation,
 		quizConstellationByStar,
@@ -144,15 +145,15 @@ func quizConstellations(cmd *cobra.Command, args []string) {
 	promptAndCheckResponse(quiz(constellations))
 }
 
+func crossQueryConstellationInfo(constellations []constellation) promptAndResponse {
+	constellation := randomConstellation(constellations)
+	return constructCrossQuery("constellation", constellation)
+}
+
 func quizConstellationByOrder(constellations []constellation) promptAndResponse {
 	index := rand.Intn(len(constellations))
 	constellation := constellations[index]
 	return promptAndResponse{fmt.Sprintf("Which constellation is position %d?", index+1), constellation.name}
-}
-
-func quizConstellationFromDescription(constellations []constellation) promptAndResponse {
-	constellation := randomConstellation(constellations)
-	return promptAndResponse{fmt.Sprintf("What's the official name of the %s constellation?", constellation.description), constellation.name}
 }
 
 func quizConstellationCountByLetter(constellations []constellation) promptAndResponse {
