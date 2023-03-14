@@ -77,3 +77,21 @@ func TestCrossQuerySlice(test *testing.T) {
 		test.Errorf("Invalid response. Was %s", result.response)
 	}
 }
+
+type crossQuery4 struct {
+	value1 string `crossquery:"given" crossqueryname:"new value 1"`
+	value2 string `crossquery:"guess" crossqueryname:"new value 2"`
+}
+
+func TestCrossQueryHumanReadable(test *testing.T) {
+	rand.Seed(time.Now().UnixNano())
+	s := crossQuery4{"abc", "def"}
+	result := constructCrossQuery("test1", s)
+	if result.prompt != "What is the new value 2 of the test1 with new value 1 of abc?" {
+		test.Errorf("Incorrect prompt. Was \"%s\"", result.prompt)
+	}
+
+	if result.response != "def" {
+		test.Errorf("Incorrect response. Was \"%s\"", result.response)
+	}
+}

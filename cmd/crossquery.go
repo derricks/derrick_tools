@@ -69,6 +69,8 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 	for given.Name == guess.Name {
 		guess = guesses[rand.Intn(len(guesses))]
 	}
+	givenHumanReadable := humanReadableFieldName(given)
+	guessHumanReadable := humanReadableFieldName(guess)
 
 	givenValueRaw := reflectEntity.FieldByName(given.Name)
 	guessValueRaw := reflectEntity.FieldByName(guess.Name)
@@ -76,7 +78,7 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 	// convert to strings if need be
 	givenValue := reflectValueToString(givenValueRaw)
 	guessValue := reflectValueToString(guessValueRaw)
-	return promptAndResponse{fmt.Sprintf("What is the %s of the %s with %s of %v?", guess.Name, entityType, given.Name, givenValue), guessValue}
+	return promptAndResponse{fmt.Sprintf("What is the %s of the %s with %s of %v?", guessHumanReadable, entityType, givenHumanReadable, givenValue), guessValue}
 }
 
 func reflectValueToString(v reflect.Value) string {
@@ -91,4 +93,13 @@ func reflectValueToString(v reflect.Value) string {
 	default:
 		return v.String()
 	}
+}
+
+func humanReadableFieldName(f reflect.StructField) string {
+	if crossQueryName, ok := f.Tag.Lookup("crossqueryname"); ok {
+		if crossQueryName != "" {
+			return crossQueryName
+		}
+	}
+	return f.Name
 }
