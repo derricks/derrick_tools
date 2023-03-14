@@ -16,9 +16,7 @@ limitations under the License.
 package cmd
 
 import (
-	"fmt"
 	"math/rand"
-	"strconv"
 
 	"github.com/spf13/cobra"
 )
@@ -31,8 +29,8 @@ var elementsCmd = &cobra.Command{
 }
 
 type elementInfo struct {
-	atomicNumber int
-	name         string
+	atomicNumber int    `crossquery:"all"`
+	name         string `crossquery:"all"`
 }
 
 var elements = []elementInfo{
@@ -157,23 +155,9 @@ var elements = []elementInfo{
 }
 
 func quizElements(cmd *cobra.Command, args []string) {
-	funcs := []func([]elementInfo) promptAndResponse{
-		quizElementNameFromNumber,
-		quizElementNumberFromName,
-	}
-
-	quizFunc := funcs[rand.Intn(len(funcs))]
-	promptAndCheckResponse(quizFunc(elements))
-}
-
-func quizElementNameFromNumber(elements []elementInfo) promptAndResponse {
 	element := elements[rand.Intn(len(elements))]
-	return promptAndResponse{fmt.Sprintf("What is the name of element %d?", element.atomicNumber), element.name}
-}
-
-func quizElementNumberFromName(elements []elementInfo) promptAndResponse {
-	element := elements[rand.Intn(len(elements))]
-	return promptAndResponse{fmt.Sprintf("What is the atomic number of %s?", element.name), strconv.Itoa(element.atomicNumber)}
+	prompt := constructCrossQuery("atomic element", element)
+	promptAndCheckResponse(prompt)
 }
 
 func init() {
