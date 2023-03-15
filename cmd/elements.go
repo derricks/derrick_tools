@@ -29,7 +29,7 @@ var elementsCmd = &cobra.Command{
 }
 
 type elementInfo struct {
-	atomicNumber int    `crossquery:"all"`
+	atomicNumber int    `crossquery:"all" crossqueryname:"atomic number"`
 	name         string `crossquery:"all"`
 }
 

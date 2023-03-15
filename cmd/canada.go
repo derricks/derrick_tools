@@ -28,7 +28,7 @@ var canadaCmd = &cobra.Command{
 }
 
 type canadaRegion struct {
-	orderBySize int    `crossquery:"all"`
+	orderBySize int    `crossquery:"all" crossqueryname:"size rank"`
 	name        string `crossquery:"all"`
 	capital     string `crossquery:"all"`
 }

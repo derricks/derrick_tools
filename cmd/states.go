@@ -30,12 +30,12 @@ var statesCmd = &cobra.Command{
 }
 
 type state struct {
-	orderInUnion int      `crossquery:"all"`
+	orderInUnion int      `crossquery:"all" crossqueryname:"order"`
 	name         string   `crossquery:"all"`
 	capital      string   `crossquery:"all"`
-	yearJoined   int      `crossquery:"guess"`
+	yearJoined   int      `crossquery:"guess" crossqueryname:"year of joining"`
 	nicknames    []string `crossquery:"given"`
-	flowers      []string `crossquery:"guess"`
+	flowers      []string `crossquery:"guess" crossqueryname:"flower"`
 }
 
 var states = []state{

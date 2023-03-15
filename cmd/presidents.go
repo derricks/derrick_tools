@@ -42,7 +42,7 @@ type president struct {
 	name           string `crossquery:"all"`
 	startYear      int    `crossquery:"all"`
 	vicePresidents []string
-	firstLadies    []string `crossquery:"given"`
+	firstLadies    []string `crossquery:"given" crossqueryname:"First Lady"`
 }
 
 func quizPresidents(cmd *cobra.Command, args []string) {
