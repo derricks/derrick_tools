@@ -40,7 +40,7 @@ to quickly create a Cobra application.`,
 type president struct {
 	number         int    `crossquery:"all"`
 	name           string `crossquery:"all"`
-	startYear      int    `crossquery:"all"`
+	startYear      int    `crossquery:"all" crossqueryname:"first year of Presidency"`
 	vicePresidents []string
 	firstLadies    []string `crossquery:"given" crossqueryname:"First Lady"`
 }
