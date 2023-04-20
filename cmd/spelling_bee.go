@@ -86,6 +86,7 @@ var spellingBeeSets = [][]string{
 	{"DOGE", "GEODE", "DODGE", "DOGGED", "DODGED"},
 	{"DUNE", "DUNNED", "UNNEEDED", "NUDE", "ENDUED", "ENDUE", "DENUDE", "DENUDED"},
 	{"DUEL", "DELUDED", "ELUDE", "DULLED", "ELUDED", "DELUDE"},
+	{"APNEA", "PANE", "NEAP", "PAEAN", "NAPE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
