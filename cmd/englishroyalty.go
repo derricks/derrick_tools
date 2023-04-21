@@ -89,7 +89,7 @@ var royals = []englishRoyal{
 	englishRoyal{55, "George IV", ""},
 	englishRoyal{56, "William IV", ""},
 	englishRoyal{57, "Victoria", ""},
-	englishRoyal{58, "Edward VII"},
+	englishRoyal{58, "Edward VII", ""},
 	englishRoyal{59, "George V", ""},
 	englishRoyal{60, "Edward VIII", ""},
 	englishRoyal{61, "George VI", ""},
