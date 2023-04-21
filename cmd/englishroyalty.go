@@ -89,11 +89,12 @@ var royals = []englishRoyal{
 	englishRoyal{55, "George IV", ""},
 	englishRoyal{56, "William IV", ""},
 	englishRoyal{57, "Victoria", ""},
-	englishRoyal{58, "George V", ""},
-	englishRoyal{59, "Edward VIII", ""},
-	englishRoyal{60, "George VI", ""},
-	englishRoyal{61, "Elizabeth II", ""},
-	englishRoyal{62, "Charles III", ""},
+	englishRoyal{58, "Edward VII"},
+	englishRoyal{59, "George V", ""},
+	englishRoyal{60, "Edward VIII", ""},
+	englishRoyal{61, "George VI", ""},
+	englishRoyal{62, "Elizabeth II", ""},
+	englishRoyal{63, "Charles III", ""},
 }
 
 type englishRoyalQuestion func([]englishRoyal) promptAndResponse
@@ -113,7 +114,7 @@ func quizEnglishRoyalty(cmd *cobra.Command, args []string) {
 }
 
 func crossQueryEnglishRoyal(royals []englishRoyal) promptAndResponse {
-  royal := randomRoyal(royals)
+	royal := randomRoyal(royals)
 	return constructCrossQuery("English royal", royal)
 
 }
