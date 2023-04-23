@@ -106,7 +106,11 @@ func quizEnglishRoyalty(cmd *cobra.Command, args []string) {
 		crossQueryEnglishRoyal,
 		crossQueryEnglishRoyal,
 		crossQueryEnglishRoyal,
+		crossQueryEnglishRoyal,
+		crossQueryEnglishRoyal,
 		quizRoyalBySobriquet,
+		quizRoyalBeforeAnother,
+		quizRoyalAfterAnother,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -134,6 +138,18 @@ func quizRoyalBySobriquet(royals []englishRoyal) promptAndResponse {
 
 	quizRoyal := randomRoyal(sobriquetRoyals)
 	return promptAndResponse{fmt.Sprintf("Which English royal had the sobriquet %s?", quizRoyal.sobriquet), quizRoyal.name}
+}
+
+func quizRoyalBeforeAnother(royals []englishRoyal) promptAndResponse {
+	// exclude the first ruler, who doesn't have a predecessory	royalsWithBefore := royals[1:]
+	index := rand.Intn(len(royals)-1) + 1
+	return promptAndResponse{fmt.Sprintf("Who ruled England before %s?", royals[index].name), royals[index-1].name}
+}
+
+func quizRoyalAfterAnother(royals []englishRoyal) promptAndResponse {
+	// exclude the last ruler, who doesn't have a successor (yet)
+	index := rand.Intn(len(royals) - 1)
+	return promptAndResponse{fmt.Sprintf("Who ruled England after %s?", royals[index].name), royals[index+1].name}
 }
 
 func init() {
