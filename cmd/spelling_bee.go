@@ -89,6 +89,7 @@ var spellingBeeSets = [][]string{
 	{"APNEA", "PANE", "NEAP", "PAEAN", "NAPE"},
 	{"TOME", "TOTEM", "EMOTE", "MOTE", "MOTE"},
 	{"OWNED", "WOODEN", "ENDOWED", "ENDOW", "DOWNED"},
+	{"LEWD", "WELLED", "WELDED", "WELD", "DWELLED", "DWELL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
