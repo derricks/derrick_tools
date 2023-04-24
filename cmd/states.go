@@ -36,59 +36,60 @@ type state struct {
 	yearJoined   int      `crossquery:"guess" crossqueryname:"year of joining"`
 	nicknames    []string `crossquery:"given"`
 	flowers      []string `crossquery:"guess" crossqueryname:"flower"`
+	stateBird    string   `crossquery:"guess" crossqueryname:"state bird"`
 }
 
 var states = []state{
-	state{1, "Delaware", "Dover", 1787, []string{"First State"}, []string{"Peach Blossom"}},
-	state{2, "Pennsylvania", "Harrisburg", 1787, []string{"Keystone State"}, []string{"Mountain Laurel"}},
-	state{3, "New Jersey", "Trenton", 1787, []string{"Garden State"}, []string{"Violet"}},
-	state{4, "Georgia", "Atlanta", 1788, []string{"Peach State"}, []string{"Cherokee Rose"}},
-	state{5, "Connecticut", "Hartford", 1788, []string{"Constitution State"}, []string{"Mountain Laurel"}},
-	state{6, "Massachusetts", "Boston", 1788, []string{"Bay State"}, []string{"Mayflower"}},
-	state{7, "Maryland", "Annapolis", 1788, []string{"Free State", "Old Line State"}, []string{"Black-eyed Susan"}},
-	state{8, "South Carolina", "Columbia", 1788, []string{"Palmetto State"}, []string{"Yellow Jessamine"}},
-	state{9, "New Hampshire", "Concord", 1788, []string{"Granite State"}, []string{"Purple Lilac"}},
-	state{10, "Virginia", "Richmond", 1788, []string{"Old Dominion"}, []string{"American Dogwood"}},
-	state{11, "New York", "Albany", 1788, []string{"Empire State"}, []string{"Rose"}},
-	state{12, "North Carolina", "Raleigh", 1789, []string{"Tarheel State"}, []string{"Flowering Dogwood"}},
-	state{13, "Rhode Island", "Providence", 1790, []string{"Ocean State"}, []string{"Violet"}},
-	state{14, "Vermont", "Montpelier", 1791, []string{"Green Mountain State"}, []string{"Red Clover"}},
-	state{15, "Kentucky", "Frankfort", 1792, []string{"Bluegrass State"}, []string{"Gooldenrod"}},
-	state{16, "Tennessee", "Nashville", 1796, []string{"Volunteer State"}, []string{"Iris"}},
-	state{17, "Ohio", "Columbus", 1803, []string{"Buckeye State"}, []string{"Scarlet Carnation"}},
-	state{18, "Louisiana", "Baton Rouge", 1812, []string{"Pelican State"}, []string{"Magnolia"}},
-	state{19, "Indiana", "Indianapolis", 1816, []string{"Hoosier State"}, []string{"Peony"}},
-	state{20, "Mississippi", "Jackson", 1817, []string{"Magnolia State"}, []string{"Magnolia"}},
-	state{21, "Illinois", "Springfield", 1818, []string{"Prairie State"}, []string{"Violet"}},
-	state{22, "Alabama", "Montgomery", 1819, []string{"Heart of Dixie"}, []string{"Camellia"}},
-	state{23, "Maine", "Augusta", 1820, []string{"Pine Tree State", "Vacationland"}, []string{"White Pine Cone and Tassel"}},
-	state{24, "Missouri", "Jefferson City", 1821, []string{"Show Me State"}, []string{"Hawthorn"}},
-	state{25, "Arkansas", "Little Rock", 1836, []string{"Natural State"}, []string{"Apple Blossom"}},
-	state{26, "Michigan", "Lansing", 1837, []string{"Wolverine State", "Great Lakes State"}, []string{"Apple Blossom"}},
-	state{27, "Florida", "Tallahassee", 1845, []string{"Sunshine State"}, []string{"Orange Blossom"}},
-	state{28, "Texas", "Austin", 1845, []string{"Lone Star State"}, []string{"Bluebonnet"}},
-	state{29, "Iowa", "Des Moines", 1846, []string{"Hawkeye State"}, []string{"Wild Rose"}},
-	state{30, "Wisconsin", "Madison", 1848, []string{"America's Dairyland"}, []string{"Wood Violet"}},
-	state{31, "California", "Sacramento", 1850, []string{"Golden State"}, []string{"California Poppy"}},
-	state{32, "Minnesota", "Saint Paul", 1853, []string{"Land of 10,000 Lakes"}, []string{"Pink and White Lady's Slipper"}},
-	state{33, "Oregon", "Salem", 1859, []string{"Beaver State"}, []string{"Oregon Rose"}},
-	state{34, "Kansas", "Topeka", 1861, []string{"Sunflower State"}, []string{"Sunflower"}},
-	state{35, "West Virginia", "Charleston", 1863, []string{"Mountain State"}, []string{"Rhododendron"}},
-	state{36, "Nevada", "Carson City", 1864, []string{"Silver State"}, []string{"Sagebrush"}},
-	state{37, "Nebraska", "Lincoln", 1867, []string{"Cornhusker State"}, []string{"Goldenrod"}},
-	state{38, "Colorado", "Denver", 1876, []string{"Centennial State"}, []string{"Colorado blue columbine"}},
-	state{39, "North Dakota", "Bismarck", 1889, []string{"Peace Garden State"}, []string{"Wild Prairie Rose"}},
-	state{40, "South Dakota", "Pierre", 1889, []string{"Mount Rushmore State"}, []string{"Pasque Flower"}},
-	state{41, "Montana", "Helena", 1889, []string{"Treasure State"}, []string{"Bitterroot"}},
-	state{42, "Washington", "Olympia", 1889, []string{"Evergreen State"}, []string{"Coast rhododendron"}},
-	state{43, "Idaho", "Boise", 1890, []string{"Gem State"}, []string{"Syringa"}},
-	state{44, "Wyoming", "Cheyenne", 1890, []string{"Equality State"}, []string{"Indian Paintbrush"}},
-	state{45, "Utah", "Salt Lake City", 1896, []string{"Beehive State"}, []string{"Sego Lily"}},
-	state{46, "Oklahoma", "Oklahoma City", 1907, []string{"Sooner State"}, []string{"Oklahoma Rose"}},
-	state{47, "New Mexico", "Santa Fe", 1912, []string{"Land of Enchantment"}, []string{"Yucca Flower"}},
-	state{48, "Arizona", "Phoenix", 1912, []string{"Grand Canyon State"}, []string{"Saguaro Cactus Blossom"}},
-	state{49, "Alaska", "Juneau", 1959, []string{"Last Frontier"}, []string{"Forget-me-not"}},
-	state{50, "Hawaii", "Honolulu", 1959, []string{"Aloha State"}, []string{"Hawaiian Hibiscus"}},
+	state{1, "Delaware", "Dover", 1787, []string{"First State"}, []string{"Peach Blossom"}, "Delaware Blue Hen"},
+	state{2, "Pennsylvania", "Harrisburg", 1787, []string{"Keystone State"}, []string{"Mountain Laurel"}, "None"},
+	state{3, "New Jersey", "Trenton", 1787, []string{"Garden State"}, []string{"Violet"}, "Eastern Goldfinch"},
+	state{4, "Georgia", "Atlanta", 1788, []string{"Peach State"}, []string{"Cherokee Rose"}, "Brown Thrasher"},
+	state{5, "Connecticut", "Hartford", 1788, []string{"Constitution State"}, []string{"Mountain Laurel"}, "American Robin"},
+	state{6, "Massachusetts", "Boston", 1788, []string{"Bay State"}, []string{"Mayflower"}, "Black-capped Chickadee"},
+	state{7, "Maryland", "Annapolis", 1788, []string{"Free State", "Old Line State"}, []string{"Black-eyed Susan"}, "Baltimore Oriole"},
+	state{8, "South Carolina", "Columbia", 1788, []string{"Palmetto State"}, []string{"Yellow Jessamine"}, "Carolina Wren"},
+	state{9, "New Hampshire", "Concord", 1788, []string{"Granite State"}, []string{"Purple Lilac"}, "Purple Finch"},
+	state{10, "Virginia", "Richmond", 1788, []string{"Old Dominion"}, []string{"American Dogwood"}, "Northern Cardinal"},
+	state{11, "New York", "Albany", 1788, []string{"Empire State"}, []string{"Rose"}, "Eastern Bluebird"},
+	state{12, "North Carolina", "Raleigh", 1789, []string{"Tarheel State"}, []string{"Flowering Dogwood"}, "Northern Cardinal"},
+	state{13, "Rhode Island", "Providence", 1790, []string{"Ocean State"}, []string{"Violet"}, "Rhode Island Red"},
+	state{14, "Vermont", "Montpelier", 1791, []string{"Green Mountain State"}, []string{"Red Clover"}, "Hermit Thrush"},
+	state{15, "Kentucky", "Frankfort", 1792, []string{"Bluegrass State"}, []string{"Goldenrod"}, "Northern Cardinal"},
+	state{16, "Tennessee", "Nashville", 1796, []string{"Volunteer State"}, []string{"Iris"}, "Northern Mockingbird"},
+	state{17, "Ohio", "Columbus", 1803, []string{"Buckeye State"}, []string{"Scarlet Carnation"}, "Northern Cardinal"},
+	state{18, "Louisiana", "Baton Rouge", 1812, []string{"Pelican State"}, []string{"Magnolia"}, "Brown Pelican"},
+	state{19, "Indiana", "Indianapolis", 1816, []string{"Hoosier State"}, []string{"Peony"}, "Northern Cardinal"},
+	state{20, "Mississippi", "Jackson", 1817, []string{"Magnolia State"}, []string{"Magnolia"}, "Northern Mockingbird"},
+	state{21, "Illinois", "Springfield", 1818, []string{"Prairie State"}, []string{"Violet"}, "Northern Cardinal"},
+	state{22, "Alabama", "Montgomery", 1819, []string{"Heart of Dixie"}, []string{"Camellia"}, "Yellowhammer"},
+	state{23, "Maine", "Augusta", 1820, []string{"Pine Tree State", "Vacationland"}, []string{"White Pine Cone and Tassel"}, "Chickadee"},
+	state{24, "Missouri", "Jefferson City", 1821, []string{"Show Me State"}, []string{"Hawthorn"}, "Eastern Bluebird"},
+	state{25, "Arkansas", "Little Rock", 1836, []string{"Natural State"}, []string{"Apple Blossom"}, "Northern Mockingbird"},
+	state{26, "Michigan", "Lansing", 1837, []string{"Wolverine State", "Great Lakes State"}, []string{"Apple Blossom"}, "American Robin"},
+	state{27, "Florida", "Tallahassee", 1845, []string{"Sunshine State"}, []string{"Orange Blossom"}, "Northern Mockingbird"},
+	state{28, "Texas", "Austin", 1845, []string{"Lone Star State"}, []string{"Bluebonnet"}, "Northern Mockingbird"},
+	state{29, "Iowa", "Des Moines", 1846, []string{"Hawkeye State"}, []string{"Wild Rose"}, "Eastern Goldfinch"},
+	state{30, "Wisconsin", "Madison", 1848, []string{"America's Dairyland"}, []string{"Wood Violet"}, "American Robin"},
+	state{31, "California", "Sacramento", 1850, []string{"Golden State"}, []string{"California Poppy"}, "California Quail"},
+	state{32, "Minnesota", "Saint Paul", 1853, []string{"Land of 10,000 Lakes"}, []string{"Pink and White Lady's Slipper"}, "Common Loon"},
+	state{33, "Oregon", "Salem", 1859, []string{"Beaver State"}, []string{"Oregon Rose"}, "Western Meadowlark"},
+	state{34, "Kansas", "Topeka", 1861, []string{"Sunflower State"}, []string{"Sunflower"}, "Western Meadowlark"},
+	state{35, "West Virginia", "Charleston", 1863, []string{"Mountain State"}, []string{"Rhododendron"}, "Northern Cardinal"},
+	state{36, "Nevada", "Carson City", 1864, []string{"Silver State"}, []string{"Sagebrush"}, "Mountain Bluebird"},
+	state{37, "Nebraska", "Lincoln", 1867, []string{"Cornhusker State"}, []string{"Goldenrod"}, "Western Meadowlark"},
+	state{38, "Colorado", "Denver", 1876, []string{"Centennial State"}, []string{"Colorado blue columbine"}, "Lark Bunting"},
+	state{39, "North Dakota", "Bismarck", 1889, []string{"Peace Garden State"}, []string{"Wild Prairie Rose"}, "Western Meadowlark"},
+	state{40, "South Dakota", "Pierre", 1889, []string{"Mount Rushmore State"}, []string{"Pasque Flower"}, "Ring-necked Pheasant"},
+	state{41, "Montana", "Helena", 1889, []string{"Treasure State"}, []string{"Bitterroot"}, "Western Meadowlark"},
+	state{42, "Washington", "Olympia", 1889, []string{"Evergreen State"}, []string{"Coast rhododendron"}, "Willow Goldfinch"},
+	state{43, "Idaho", "Boise", 1890, []string{"Gem State"}, []string{"Syringa"}, "Mountain Bluebird"},
+	state{44, "Wyoming", "Cheyenne", 1890, []string{"Equality State"}, []string{"Indian Paintbrush"}, "Western Meadowlark"},
+	state{45, "Utah", "Salt Lake City", 1896, []string{"Beehive State"}, []string{"Sego Lily"}, "California Gull"},
+	state{46, "Oklahoma", "Oklahoma City", 1907, []string{"Sooner State"}, []string{"Oklahoma Rose"}, "Scissor-tailed Flycatcher"},
+	state{47, "New Mexico", "Santa Fe", 1912, []string{"Land of Enchantment"}, []string{"Yucca Flower"}, "Greater Roadrunner"},
+	state{48, "Arizona", "Phoenix", 1912, []string{"Grand Canyon State"}, []string{"Saguaro Cactus Blossom"}, "Cactus Wren"},
+	state{49, "Alaska", "Juneau", 1959, []string{"Last Frontier"}, []string{"Forget-me-not"}, "Willow Ptarmigan"},
+	state{50, "Hawaii", "Honolulu", 1959, []string{"Aloha State"}, []string{"Hawaiian Hibiscus"}, "Nene"},
 }
 
 type statesQuestion func([]state) promptAndResponse
@@ -108,6 +109,7 @@ func quizStates(cmd *cobra.Command, args []string) {
 		quizHowManyStatesInYear,
 		quizNicknamesForState,
 		quizStatesThatJoinedInAYear,
+		quizStatesWithBird,
 	}
 
 	function := promptFuncs[rand.Intn(len(promptFuncs))]
@@ -164,6 +166,17 @@ func quizStatesThatJoinedInAYear(states []state) promptAndResponse {
 		}
 	}
 	return promptAndResponse{fmt.Sprintf("How many states joined in %d?", state.yearJoined), strconv.Itoa(statesThatJoinedThatYear)}
+}
+
+func quizStatesWithBird(states []state) promptAndResponse {
+	bird := randomState(states).stateBird
+	statesWithBird := 0
+	for _, state := range states {
+		if state.stateBird == bird {
+			statesWithBird++
+		}
+	}
+	return promptAndResponse{fmt.Sprintf("How many states have %s as the state bird?", bird), strconv.Itoa(statesWithBird)}
 }
 
 func randomState(states []state) state {
