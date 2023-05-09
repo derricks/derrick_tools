@@ -49,7 +49,7 @@ var constellations = []constellation{
 	constellation{"Auriga", "Charioteer", []string{"Capella", "Menkalinan", "Mahasim", "Hasseleh", "Almaaz", "Haedus", "Saclatini", "Lucilinburhuc", "Nervia", "Tevel"}},
 	constellation{"Bootes", "Herdsman", []string{"Arcturus", "Izar", "Muphrid", "Seginus", "Nekkar", "Xuange", "Alkalurops", "Merga", "Nikiwiy", "Arcalis"}},
 	constellation{"Caelum", "Graving Tool", []string{}},
-	constellation{"Camelopardalis", "Giraffe", []string{}},
+	constellation{"Camelopardalis", "Giraffe", []string{"Tonatiuh", "Mago"}},
 	constellation{"Cancer", "Crab", []string{}},
 	constellation{"Canes Venatici", "Hunting Dogs", []string{}},
 	constellation{"Canis Major", "Big Dog", []string{}},
