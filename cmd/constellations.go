@@ -50,7 +50,7 @@ var constellations = []constellation{
 	constellation{"Bootes", "Herdsman", []string{"Arcturus", "Izar", "Muphrid", "Seginus", "Nekkar", "Xuange", "Alkalurops", "Merga", "Nikiwiy", "Arcalis"}},
 	constellation{"Caelum", "Graving Tool", []string{}},
 	constellation{"Camelopardalis", "Giraffe", []string{"Tonatiuh", "Mago"}},
-	constellation{"Cancer", "Crab", []string{}},
+	constellation{"Cancer", "Crab", []string{"Tarf", "Asellus Australis", "Acubens", "Asellus Borealis", "Tegmine", "Nahn", "Piautos", "Copernicus", "Meleph", "Gakyid"}},
 	constellation{"Canes Venatici", "Hunting Dogs", []string{}},
 	constellation{"Canis Major", "Big Dog", []string{}},
 	constellation{"Canis Minor", "Little Dog", []string{}},
