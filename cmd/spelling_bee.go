@@ -92,6 +92,7 @@ var spellingBeeSets = [][]string{
 	{"LEWD", "WELLED", "WELDED", "WELD", "DWELLED", "DWELL"},
 	{"TACTICIAN", "CANTINA", "INCANT", "INTACT", "ANTIC", "TITANIC", "TANNIC"},
 	{"INTENT", "NINETEEN", "TINE", "NITE"},
+	{"OPTED", "DEPOT", "TOPPED", "POTTED"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
