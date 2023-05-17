@@ -16,7 +16,10 @@ limitations under the License.
 package cmd
 
 import (
+	"fmt"
 	"math/rand"
+	"strconv"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -157,8 +160,25 @@ var elements = []elementInfo{
 
 func quizElements(cmd *cobra.Command, args []string) {
 	element := elements[rand.Intn(len(elements))]
-	prompt := constructCrossQuery("atomic element", element)
+	var prompt promptAndResponse
+	if rand.Intn(10) < 8 {
+		prompt = constructCrossQuery("atomic element", element)
+	} else {
+		prompt = quizElementsThatStartWithLetter(cmd, args)
+	}
 	promptAndCheckResponse(prompt)
+}
+
+func quizElementsThatStartWithLetter(cmd *cobra.Command, args []string) promptAndResponse {
+	letterAscii := rune(65 + rand.Intn(26))
+	letter := string(letterAscii)
+	count := 0
+	for _, element := range elements {
+		if strings.HasPrefix(element.name, letter) {
+			count++
+		}
+	}
+	return promptAndResponse{fmt.Sprintf("How many elements start with %s?", letter), strconv.Itoa(count)}
 }
 
 func init() {
