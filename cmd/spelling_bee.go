@@ -93,6 +93,9 @@ var spellingBeeSets = [][]string{
 	{"TACTICIAN", "CANTINA", "INCANT", "INTACT", "ANTIC", "TITANIC", "TANNIC"},
 	{"INTENT", "NINETEEN", "TINE", "NITE"},
 	{"OPTED", "DEPOT", "TOPPED", "POTTED"},
+	{"PAIN", "APIAN", "PANINI"},
+	{"PANED", "PANNED", "DEADPAN", "DEADPANNED", "NAPPED", "APPEND", "APPENDED"},
+	{"PINNED", "PINED", "PINNIPED", "NIPPED"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
