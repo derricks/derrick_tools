@@ -54,7 +54,7 @@ var constellations = []constellation{
 	constellation{"Canes Venatici", "Hunting Dogs", []string{"Cor Caroli", "Chara", "La Superba", "Tuiren"}},
 	constellation{"Canis Major", "Big Dog", []string{"Sirius", "Adhara", "Wezen", "Mirzam", "Aludra", "Furud", "Unurgunite", "Muliphein", "Amadioha", "Atakoraka"}},
 	constellation{"Canis Minor", "Little Dog", []string{"Procyon", "Gomeisa"}},
-	constellation{"Capricornus", "Sea Goat", []string{}},
+	constellation{"Capricornus", "Sea Goat", []string{"Deneb Algedi", "Dabih", "Algedi", "Nashira", "Alshat"}},
 	constellation{"Carina", "Keel of Argonauts' Ship", []string{}},
 	constellation{"Cassiopeia", "Queen of Ethiopia", []string{}},
 	constellation{"Centaurus", "Centaur", []string{}},
