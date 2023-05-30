@@ -97,6 +97,9 @@ var spellingBeeSets = [][]string{
 	{"PANED", "PANNED", "DEADPAN", "DEADPANNED", "NAPPED", "APPEND", "APPENDED"},
 	{"PINNED", "PINED", "PINNIPED", "NIPPED"},
 	{"CHAT", "CATCH", "ATTACH", "HATCH", "THATCH"},
+	{"CODE", "COOED", "DECODED", "DECODE", "COED", "DECO", "CODED"},
+	{"ALONG", "LAGOON", "GALLON", "NONAGONAL", "ANALOG", "LONAGAN"},
+	{"GLOAT", "GALOOT", "GLOTTAL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
