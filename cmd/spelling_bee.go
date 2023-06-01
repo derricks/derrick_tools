@@ -100,6 +100,7 @@ var spellingBeeSets = [][]string{
 	{"CODE", "COOED", "DECODED", "DECODE", "COED", "DECO", "CODED"},
 	{"ALONG", "LAGOON", "GALLON", "NONAGONAL", "ANALOG", "LONAGAN"},
 	{"GLOAT", "GALOOT", "GLOTTAL"},
+	{"IDLY", "DIDDLY", "IDYL", "IDYLL", "DILLY"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
