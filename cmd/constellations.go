@@ -56,7 +56,7 @@ var constellations = []constellation{
 	constellation{"Canis Minor", "Little Dog", []string{"Procyon", "Gomeisa"}},
 	constellation{"Capricornus", "Sea Goat", []string{"Deneb Algedi", "Dabih", "Algedi", "Nashira", "Alshat"}},
 	constellation{"Carina", "Keel of Argonauts' Ship", []string{"Canopus", "Miaplacidus", "Avior", "Aspidiske", "Tapecue"}},
-	constellation{"Cassiopeia", "Queen of Ethiopia", []string{}},
+	constellation{"Cassiopeia", "Queen of Ethiopia", []string{"Schedar", "Caph", "Ruchbah", "Segin", "Achird", "Fulu", "Castula", "Nushagak"}},
 	constellation{"Centaurus", "Centaur", []string{}},
 	constellation{"Cepheus", "King of Ethiopia", []string{}},
 	constellation{"Cetus", "Whale", []string{}},
