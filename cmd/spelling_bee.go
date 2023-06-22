@@ -104,6 +104,9 @@ var spellingBeeSets = [][]string{
 	{"AIRMAN", "MARINA", "MARINARA"},
 	{"DEBATE", "DEBATED", "ABATED", "BATED", "TABBED", "DEADBEAT", "ABETTED", "BATTED"},
 	{"MAIN", "ANIMA", "MANIA", "MINIMA"},
+	{"MODE", "DEMOED", "MODEM", "DOOMED", "DOMED", "DOME", "DEMO", "MOOED"},
+	{"OMIT", "TOMTIT"},
+	{"THEE", "TEETH", "TEETHE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
