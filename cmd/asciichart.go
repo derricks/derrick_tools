@@ -5,7 +5,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+	http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -150,8 +150,9 @@ func generateBarChart(command *cobra.Command, args []string) {
 
 // scaledBarWidth maps dataValue to maxBarWidth by comparing it to maxBarValue and returns the new length of the bar
 // Examples:
-//   dataValue == maxBarValue, maxBarWidth is returned
-//   dataValue = 4, maxBarValue = 8, maxBarWidth is 20, the return is 10 (4/8 * 20)
+//
+//	dataValue == maxBarValue, maxBarWidth is returned
+//	dataValue = 4, maxBarValue = 8, maxBarWidth is 20, the return is 10 (4/8 * 20)
 func scaledBarWidth(dataValue, maxBarValue, maxBarWidth int) int {
 	return int(math.Round((float64(dataValue) / float64(maxBarValue)) * float64(maxBarWidth)))
 }
