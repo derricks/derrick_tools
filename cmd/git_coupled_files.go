@@ -3,8 +3,8 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"gopkg.in/src-d/go-git.v4"
-	"gopkg.in/src-d/go-git.v4/plumbing/object"
+	"ggithub.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing/object"
 	"os"
 	"sort"
 )
