@@ -110,6 +110,7 @@ var spellingBeeSets = [][]string{
 	{"INCLINE", "LENIENCE"},
 	{"LANE", "LEAN", "ANNEAL", "ELAN"},
 	{"LEAVE", "VALE", "LAVE", "VALVE", "VEAL"},
+	{"ROAD", "ARDOR", "DORADO"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
