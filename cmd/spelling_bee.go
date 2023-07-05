@@ -111,6 +111,9 @@ var spellingBeeSets = [][]string{
 	{"LANE", "LEAN", "ANNEAL", "ELAN"},
 	{"LEAVE", "VALE", "LAVE", "VALVE", "VEAL"},
 	{"ROAD", "ARDOR", "DORADO"},
+	{"ACTOR", "CARROT", "TRACTOR"},
+	{"LORD", "DROLL", "DOLOR", "DROOL"},
+	{"ORATOR", "ROTATOR", "TARO", "AORTA", "TAROT"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
