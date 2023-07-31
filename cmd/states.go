@@ -43,7 +43,7 @@ type state struct {
 
 var states = []state{
 	state{1, "Delaware", "Dover", 1787, []string{"First State"}, []string{"Peach Blossom"}, "Delaware Blue Hen"},
-	state{2, "Pennsylvania", "Harrisburg", 1787, []string{"Keystone State"}, []string{"Mountain Laurel"}, "None"},
+	state{2, "Pennsylvania", "Harrisburg", 1787, []string{"Keystone State"}, []string{"Mountain Laurel"}, ""},
 	state{3, "New Jersey", "Trenton", 1787, []string{"Garden State"}, []string{"Violet"}, "Eastern Goldfinch"},
 	state{4, "Georgia", "Atlanta", 1788, []string{"Peach State"}, []string{"Cherokee Rose"}, "Brown Thrasher"},
 	state{5, "Connecticut", "Hartford", 1788, []string{"Constitution State"}, []string{"Mountain Laurel"}, "American Robin"},
