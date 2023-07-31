@@ -43,9 +43,13 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 	// these are fields annotated with crossquery:all or crossquery:given
 	guesses := []reflect.StructField{}
 
+	reflectEntity := reflect.ValueOf(entity)
 	reflectStruct := reflect.TypeOf(entity)
 	for i := 0; i < reflectStruct.NumField(); i++ {
 		field := reflectStruct.Field(i)
+		if reflectValueToString(reflectEntity.FieldByName(field.Name)) == "" {
+			continue
+		}
 		if crossQuery, ok := field.Tag.Lookup("crossquery"); ok {
 			if crossQuery == "" || crossQuery == "all" {
 				givens = append(givens, field)
@@ -61,7 +65,9 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 		}
 	}
 
-	reflectEntity := reflect.ValueOf(entity)
+	if len(givens) == 0 || len(guesses) == 0 {
+		panic(fmt.Sprintf("No givens or guesses for %v", entity))
+	}
 
 	//get a given and figure out a non-equal guess
 	given := givens[rand.Intn(len(givens))]

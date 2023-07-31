@@ -95,3 +95,17 @@ func TestCrossQueryHumanReadable(test *testing.T) {
 		test.Errorf("Incorrect response. Was \"%s\"", result.response)
 	}
 }
+
+type crossQuery5 struct {
+	labledButEmpty string `crossquery:"any"`
+	neverEmpty     string `crossquery:"given"`
+	alsoNeverEmpty string `crossquery:"guess"`
+}
+
+func TestSkipEmptyFields(t *testing.T) {
+	test := crossQuery5{"", "a", "b"}
+	result := constructCrossQuery("test", test)
+	if result.prompt != "What is the alsoNeverEmpty of the test with neverEmpty of a?" {
+		t.Errorf("Incorrect prompt. Was \"%s\"", result.prompt)
+	}
+}
