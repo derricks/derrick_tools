@@ -36,7 +36,7 @@ type countryInfo struct {
 	region      []string
 	currency    string `crossquery:"guess"`
 	countryCode string
-	ivrCode     string `crossquery:"all"`
+	ivrCode     string `crossquery:"all" crossqueryname:"IVR code"`
 }
 
 const (
