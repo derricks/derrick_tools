@@ -47,10 +47,15 @@ func constructCrossQuery(entityType string, entity interface{}) promptAndRespons
 	reflectStruct := reflect.TypeOf(entity)
 	for i := 0; i < reflectStruct.NumField(); i++ {
 		field := reflectStruct.Field(i)
-		if reflectValueToString(reflectEntity.FieldByName(field.Name)) == "" {
-			continue
-		}
 		if crossQuery, ok := field.Tag.Lookup("crossquery"); ok {
+			// if this is a crossquery field but the value of the field is empty, skip
+			// this will usually be because not all the values for the given category's field have
+			// been set up yet, as when we add something like "ivr code" to countries and don't
+			// fill them all in right away.
+			if reflectValueToString(reflectEntity.FieldByName(field.Name)) == "" {
+				continue
+			}
+
 			if crossQuery == "" || crossQuery == "all" {
 				givens = append(givens, field)
 				guesses = append(guesses, field)
