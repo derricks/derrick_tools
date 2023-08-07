@@ -97,9 +97,10 @@ func TestCrossQueryHumanReadable(test *testing.T) {
 }
 
 type crossQuery5 struct {
-	labledButEmpty string `crossquery:"any"`
-	neverEmpty     string `crossquery:"given"`
-	alsoNeverEmpty string `crossquery:"guess"`
+	labledButEmpty    string `crossquery:"any"`
+	neverEmpty        string `crossquery:"given"`
+	alsoNeverEmpty    string `crossquery:"guess"`
+	skippedEmptySlice []string
 }
 
 func TestSkipEmptyFields(t *testing.T) {
