@@ -104,7 +104,7 @@ type crossQuery5 struct {
 }
 
 func TestSkipEmptyFields(t *testing.T) {
-	test := crossQuery5{"", "a", "b"}
+	test := crossQuery5{"", "a", "b", []string{}}
 	result := constructCrossQuery("test", test)
 	if result.prompt != "What is the alsoNeverEmpty of the test with neverEmpty of a?" {
 		t.Errorf("Incorrect prompt. Was \"%s\"", result.prompt)
