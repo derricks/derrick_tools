@@ -124,6 +124,10 @@ var spellingBeeSets = [][]string{
 	{"MARTIN", "MARTIAN", "MARTINI", "TAMARIN", "TRIMARAN"},
 	{"CLEAT", "CATTLE", "ECLAT"},
 	{"LADLING", "LADING", "DIALING", "ADDLING"},
+	{"MONEY", "YEOMEN"},
+	{"GNOME", "GENOME"},
+	{"GONE", "EGGNOG"},
+	{"THEY", "EYETEETH"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
