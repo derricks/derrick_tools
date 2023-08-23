@@ -131,6 +131,9 @@ var spellingBeeSets = [][]string{
 	{"MADE", "MADAME", "DAME", "DAMMED", "EDEMA", "EDAMAME", "MEAD"},
 	{"LEMMA", "MALE", "LAME", "MEAL"},
 	{"MEDIA", "MAIMED", "AIMED", "DIADEM"},
+	{"FELLA", "FALAFEL", "FLEA", "LEAF"},
+	{"ELFIN", "FELINE", "LIFELINE"},
+	{"FALL", "ALFALFA"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
