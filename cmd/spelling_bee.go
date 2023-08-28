@@ -134,6 +134,11 @@ var spellingBeeSets = [][]string{
 	{"FELLA", "FALAFEL", "FLEA", "LEAF"},
 	{"ELFIN", "FELINE", "LIFELINE"},
 	{"FALL", "ALFALFA"},
+	{"FEAT", "FATE", "FETA", "TAFFETA"},
+	{"LEAFLET", "FLATFEET", "FELLATE", "FETAL"},
+	{"FETE", "EFFETE", "FEET", "TEFF"},
+	{"FLAT", "FATAL"},
+	{"BEING", "BEGGING", "BEGIN", "BINGEING", "BENIGN", "BINGE", "BEGINNING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
