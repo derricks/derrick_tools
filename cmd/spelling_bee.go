@@ -139,6 +139,7 @@ var spellingBeeSets = [][]string{
 	{"FETE", "EFFETE", "FEET", "TEFF"},
 	{"FLAT", "FATAL"},
 	{"BEING", "BEGGING", "BEGIN", "BINGEING", "BENIGN", "BINGE", "BEGINNING"},
+	{"TIDIED", "DIET", "TIDE", "TIED", "EDITED", "TIDED", "DIETED"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
