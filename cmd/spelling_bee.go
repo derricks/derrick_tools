@@ -145,6 +145,8 @@ var spellingBeeSets = [][]string{
 	{"POINT", "PINTO", "PINOT", "PITON", "OPTION", "POTION"},
 	{"POINTING", "TOPING", "OPTING", "POTTING", "TOPPING"},
 	{"INTO", "NOTION"},
+	{"PAPPY", "YAPPY", "PAPAYA"},
+	{"MAHATMA", "MATH"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
