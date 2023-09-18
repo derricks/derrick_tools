@@ -147,6 +147,8 @@ var spellingBeeSets = [][]string{
 	{"INTO", "NOTION"},
 	{"PAPPY", "YAPPY", "PAPAYA"},
 	{"MAHATMA", "MATH"},
+	{"LOCAL", "COAL", "COLA", "CLOACA", "CALLALOO"},
+	{"NONLOCAL", "CANOLA", "COLCANNON"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
