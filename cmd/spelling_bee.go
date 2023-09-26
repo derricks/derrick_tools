@@ -151,6 +151,7 @@ var spellingBeeSets = [][]string{
 	{"NONLOCAL", "CANOLA", "COLCANNON"},
 	{"AUNT", "TAUNT", "TUNA"},
 	{"AFRO", "FORA", "FARRO"},
+	{"TONE", "NOTE", "NONET", "TENON", "TONNE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
