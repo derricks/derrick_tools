@@ -152,6 +152,7 @@ var spellingBeeSets = [][]string{
 	{"AUNT", "TAUNT", "TUNA"},
 	{"AFRO", "FORA", "FARRO"},
 	{"TONE", "NOTE", "NONET", "TENON", "TONNE"},
+	{"CALLED", "LACED", "DECAL", "CLADE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
