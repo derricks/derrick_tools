@@ -153,6 +153,14 @@ var spellingBeeSets = [][]string{
 	{"AFRO", "FORA", "FARRO"},
 	{"TONE", "NOTE", "NONET", "TENON", "TONNE"},
 	{"CALLED", "LACED", "DECAL", "CLADE"},
+	{"GIGGING", "GINNING", "INNING"},
+	{"TACTICAL", "LACTIC", "CATTAIL", "ITALIC"},
+	{"LAIC", "LILAC", "CILIA", "ILIAC", "LAICAL"},
+	{"CHICA", "CHIA", "CHAI"},
+	{"CHIT", "ITCH", "HITCH"},
+	{"ACME", "CAME", "MECCA", "MACE"},
+	{"ENACT", "CETACEAN", "ACCENT", "CANTEEN"},
+	{"TALLIT", "ALIT", "TAIL", "ATILT", "TALI"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
