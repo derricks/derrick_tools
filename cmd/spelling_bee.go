@@ -161,6 +161,7 @@ var spellingBeeSets = [][]string{
 	{"ACME", "CAME", "MECCA", "MACE"},
 	{"ENACT", "CETACEAN", "ACCENT", "CANTEEN"},
 	{"TALLIT", "ALIT", "TAIL", "ATILT", "TALI"},
+	{"PARROT", "RAPPORT", "RAPTOR", "PARATROOP", "TAPROOT"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
