@@ -189,6 +189,7 @@ var spellingBeeSets = [][]string{
 	{"MINCE", "EMINENCE", "IMMINENCE"},
 	{"GAIT", "AGITA", "TAIGA"},
 	{"GIRT", "GRIT", "TRIG"},
+	{"TACET", "ACETATE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
