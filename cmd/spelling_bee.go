@@ -190,6 +190,10 @@ var spellingBeeSets = [][]string{
 	{"GAIT", "AGITA", "TAIGA"},
 	{"GIRT", "GRIT", "TRIG"},
 	{"TACET", "ACETATE"},
+	{"POLO", "LOLLOP", "POOL", "LOOP", "POLL", "PLOP"},
+	{"ONLY", "LOONY", "NYLON"},
+	{"EELY", "YELL"},
+	{"PLOY", "POLYP"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
