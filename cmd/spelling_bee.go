@@ -194,6 +194,13 @@ var spellingBeeSets = [][]string{
 	{"ONLY", "LOONY", "NYLON"},
 	{"EELY", "YELL"},
 	{"PLOY", "POLYP"},
+	{"ROWAN", "NARROW"},
+	{"WRATH", "THWART", "ATHWART"},
+	{"WROTH", "THROW", "WORTH"},
+	{"TROT", "TORT", "ROTOR", "ROOT", "TORO"},
+	{"NARRATOR", "NOTATOR", "ANNOTATOR", "NONART"},
+	{"HORA", "HOORAH"},
+	{"TENTING", "IGNITE", "TEEING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
