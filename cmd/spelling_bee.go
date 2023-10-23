@@ -199,8 +199,18 @@ var spellingBeeSets = [][]string{
 	{"WROTH", "THROW", "WORTH"},
 	{"TROT", "TORT", "ROTOR", "ROOT", "TORO"},
 	{"NARRATOR", "NOTATOR", "ANNOTATOR", "NONART"},
-	{"HORA", "HOORAH"},
+	{"HORA", "HOORAH", "HOAR"},
 	{"TENTING", "IGNITE", "TEEING"},
+	{"TALC", "CATCALL"},
+	{"LATCH", "CATCHALL"},
+	{"HALL", "HALAL"},
+	{"CLAN", "CANAL"},
+	{"NATAL", "LANTANA"},
+	{"GOING", "ONGOING", "GONGING", "NOGGIN"},
+	{"ZONING", "IONIZING", "OOZING"},
+	{"ACTUAL", "TACTUAL"},
+	{"DOZING", "IODIZING"},
+	{"GOOD", "DOGGO"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
