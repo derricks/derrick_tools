@@ -211,6 +211,7 @@ var spellingBeeSets = [][]string{
 	{"ACTUAL", "TACTUAL"},
 	{"DOZING", "IODIZING"},
 	{"GOOD", "DOGGO"},
+	{"INDIGO", "DOING", "DOGGING", "DODGING", "NODDING", "DONNING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
