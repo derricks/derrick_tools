@@ -212,6 +212,14 @@ var spellingBeeSets = [][]string{
 	{"DOZING", "IODIZING"},
 	{"GOOD", "DOGGO"},
 	{"INDIGO", "DOING", "DOGGING", "DODGING", "NODDING", "DONNING"},
+	{"BAKE", "KEBAB"},
+	{"ABED", "BADE", "BEAD", "BEADED", "DABBED"},
+	{"BAKED", "BEAKED"},
+	{"EBBED", "BEDDED"},
+	{"BEAN", "BANE"},
+	{"NABBED", "BEANED", "BANDED", "BANNED"},
+	{"BAND", "BANDANA", "BANDANNA"},
+	{"HARM", "HARAM"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
