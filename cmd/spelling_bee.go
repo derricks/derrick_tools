@@ -236,6 +236,12 @@ var spellingBeeSets = [][]string{
 	{"HOOT", "TOOTH"},
 	{"FELL", "FLEE"},
 	{"COUNT", "COCONUT"},
+	{"ICILY", "CYCLIC"},
+	{"COLONIAL", "LACONIC", "CANONICAL", "CONICAL", "CANNOLI", "OILCAN"},
+	{"FEINT", "FIFTEEN", "FINITE", "INFINITE"},
+	{"EFFICIENT", "INFECT", "INEFFICIENT"},
+	{"BINDI", "BIND"},
+	{"BALLAD", "BALD"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
