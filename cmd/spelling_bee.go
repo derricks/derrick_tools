@@ -211,7 +211,7 @@ var spellingBeeSets = [][]string{
 	{"ACTUAL", "TACTUAL"},
 	{"DOZING", "IODIZING"},
 	{"GOOD", "DOGGO"},
-	{"INDIGO", "DOING", "DOGGING", "DODGING", "NODDING", "DONNING"},
+	{"INDIGO", "DINGO", "DOING", "DOGGING", "DODGING", "NODDING", "DONNING"},
 	{"BAKE", "KEBAB"},
 	{"ABED", "BADE", "BEAD", "BEADED", "DABBED"},
 	{"BAKED", "BEAKED"},
