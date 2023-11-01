@@ -242,6 +242,11 @@ var spellingBeeSets = [][]string{
 	{"EFFICIENT", "INFECT", "INEFFICIENT"},
 	{"BINDI", "BIND"},
 	{"BALLAD", "BALD"},
+	{"WING", "WINGING", "WIGGING", "WINNING", "WINING"},
+	{"WARNING", "WARRING"},
+	{"GAWPING", "PAWING"},
+	{"WRINGING", "WRING", "WIRING"},
+	{"LOYALLY", "ALLOY", "LOYAL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
