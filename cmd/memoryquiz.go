@@ -112,6 +112,7 @@ var memoryquizCmd = &cobra.Command{
 			areaToQuizFunction{"english royalty", quizEnglishRoyalty},
 			areaToQuizFunction{"grand crus", quizGrandCrus},
 			areaToQuizFunction{"bottles", quizWineBottles},
+			areaToQuizFunction{"ca-counties", quizCaCounties},
 		}
 
 		areaToQuiz := areaToQuizFuncs[rand.Intn(len(areaToQuizFuncs))]
