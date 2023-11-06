@@ -247,6 +247,17 @@ var spellingBeeSets = [][]string{
 	{"GAWPING", "PAWING"},
 	{"WRINGING", "WRING", "WIRING"},
 	{"LOYALLY", "ALLOY", "LOYAL"},
+	{"HAPPEN", "PEAHEN"},
+	{"HEADLAND", "HANDLE", "HANDHELD", "HANDLED"},
+	{"HANDED", "HENNAED"},
+	{"HAPPENED", "DAPHNE"},
+	{"COIL", "LOCI", "COLIC"},
+	{"VENULE", "UNLEVEL"},
+	{"VENUE", "UNEVEN"},
+	{"LOBO", "BOLO", "BOLL"},
+	{"BOOBOO", "BOOB"},
+	{"LOBE", "BOBBLE"},
+	{"HINT", "NINTH", "THIN"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
