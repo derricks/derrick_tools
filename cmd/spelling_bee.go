@@ -258,6 +258,13 @@ var spellingBeeSets = [][]string{
 	{"BOOBOO", "BOOB"},
 	{"LOBE", "BOBBLE"},
 	{"HINT", "NINTH", "THIN"},
+	{"THANE", "NEATH", "ETHANE"},
+	{"HEATED", "HATED", "HATTED", "DEATH"},
+	{"THEN", "TENTH"},
+	{"THEM", "METH", "THEME"},
+	{"MOMENT", "MEMENTO"},
+	{"MOTTO", "MOOT"},
+	{"MENTEE", "TENEMENT"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
