@@ -6,11 +6,11 @@ import (
 
 func TestConstellationsWithStars(t *testing.T) {
 	sampleConstellations := []constellation{
-		constellation{"Andromeda", "Princess of Ethiopia", []string{"Alpheratz", "Mirach", "Almach", "Sadiradra", "Nembus", "Titawin", "Keff al Salsalat", "Adhil", "Veritate"}},
-		constellation{"Antlia", "Air Pump", []string{"Macondo"}},
-		constellation{"Apus", "Bird of Paradise", []string{}},
-		constellation{"Aquarius", "Water Bearer", []string{"Some star"}},
-		constellation{"Aquila", "Eagle", []string{}},
+		constellation{1, "Andromeda", "Princess of Ethiopia", []string{"Alpheratz", "Mirach", "Almach", "Sadiradra", "Nembus", "Titawin", "Keff al Salsalat", "Adhil", "Veritate"}},
+		constellation{2, "Antlia", "Air Pump", []string{"Macondo"}},
+		constellation{3, "Apus", "Bird of Paradise", []string{}},
+		constellation{4, "Aquarius", "Water Bearer", []string{"Some star"}},
+		constellation{5, "Aquila", "Eagle", []string{}},
 	}
 
 	withStars := constellationsWithStars(sampleConstellations)
