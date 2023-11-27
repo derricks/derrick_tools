@@ -280,6 +280,14 @@ var spellingBeeSets = [][]string{
 	{"CAPABLE", "PEACEABLE"},
 	{"PLACE", "PALACE"},
 	{"CALLABLE", "CABLE"},
+	{"CARPI", "PRIAPIC"},
+	{"AGENT", "TANGENT", "TEENAGE", "NEGATE"},
+	{"ORDAIN", "ANDROID", "ANDIRON"},
+	{"DONOR", "RONDO"},
+	{"CAPTAIN", "CATNIP"},
+	{"CANNA", "CANCAN"},
+	{"CANTATA", "CANT"},
+	{"PANCETTA", "ACCEPTANCE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
