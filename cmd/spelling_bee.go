@@ -288,6 +288,8 @@ var spellingBeeSets = [][]string{
 	{"CANNA", "CANCAN"},
 	{"CANTATA", "CANT"},
 	{"PANCETTA", "ACCEPTANCE"},
+	{"CANDID", "CANID", "INDICIA", "INDICA"},
+	{"DACHA", "CHAD"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
