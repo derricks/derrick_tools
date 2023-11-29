@@ -290,6 +290,8 @@ var spellingBeeSets = [][]string{
 	{"PANCETTA", "ACCEPTANCE"},
 	{"CANDID", "CANID", "INDICIA", "INDICA"},
 	{"DACHA", "CHAD"},
+	{"RIBBING", "BRIBING", "BRINING", "BRINGING", "BRING"},
+	{"BRAGGING", "BARRAGING", "BARGING", "BARING", "GRABBING", "BARGAIN", "GARBING", "BARGAINING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
