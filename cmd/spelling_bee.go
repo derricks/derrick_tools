@@ -300,6 +300,13 @@ var spellingBeeSets = [][]string{
 	{"PINTAIL", "PLIANT", "PLANTAIN"},
 	{"INITIALLY", "LITANY", "NATALITY", "NATTILY"},
 	{"FELT", "LEFT", "FLEET", "FETTLE"},
+	{"VIED", "DIVE", "IVIED", "DIVED", "DIVVIED", "DIVIDED", "DIVIDE"},
+	{"HOBO", "BOHO", "BOOHOO"},
+	{"BOON", "NOOB", "BONBON", "BONOBO"},
+	{"BONNY", "BONY"},
+	{"TONIC", "CONCOCTION"},
+	{"OCTILLION", "COTILLION"},
+	{"CONFIT", "NONFICTION", "FICTION"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
