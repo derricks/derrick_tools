@@ -307,6 +307,8 @@ var spellingBeeSets = [][]string{
 	{"TONIC", "CONCOCTION"},
 	{"OCTILLION", "COTILLION"},
 	{"CONFIT", "NONFICTION", "FICTION"},
+	{"AHOY", "YAHOO"},
+	{"HALO", "ALOHA"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
