@@ -293,7 +293,7 @@ var spellingBeeSets = [][]string{
 	{"RIBBING", "BRIBING", "BRINING", "BRINGING", "BRING"},
 	{"BRAGGING", "BARRAGING", "BARGING", "BARING", "GRABBING", "BARGAIN", "GARBING", "BARGAINING"},
 	{"BANGING", "BANNING", "BAAING", "BAGGING", "GABBING"},
-	{"EPODE", "DOPE", "DOPED"},
+	{"EPODE", "DOPE", "DOPED", "POPPED", "POOPED"},
 	{"NODE", "ODEON", "DONE", "DONNED", "NODDED"},
 	{"BEFELL", "FEEBLE"},
 	{"BINNING", "BINGING", "GIBING"},
@@ -309,6 +309,19 @@ var spellingBeeSets = [][]string{
 	{"CONFIT", "NONFICTION", "FICTION"},
 	{"AHOY", "YAHOO"},
 	{"HALO", "ALOHA"},
+	{"GAMINE", "ENIGMA", "IMAGINE", "MEANING"},
+	{"MANAGE", "MANGE"},
+	{"LIEGE", "GIGGLE"},
+	{"NIGGLE", "NEGLIGEE", "LEGGING", "GELLING"},
+	{"GAMIN", "MANNING", "NAMING", "GAMING", "IMAGINING", "IMAGING", "AIMING", "MAIMING"},
+	{"NIGGLING", "GIGGLING", "GILLING", "LINING"},
+	{"HINGING", "NIGH"},
+	{"CHINNING", "CINCHING", "INCHING"},
+	{"APPETITE", "PEPITA"},
+	{"PITAPAT", "PITA"},
+	{"PENITENT", "TENPIN"},
+	{"PATENTEE", "PATENT", "PENNANT"},
+	{"ACCOUNTANT", "ACCOUNT", "TOUCAN"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
