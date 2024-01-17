@@ -346,6 +346,15 @@ var spellingBeeSets = [][]string{
 	{"CHANGE", "GANACHE"},
 	{"PALATIAL", "PLAIT", "TILAPIA"},
 	{"DOLED", "DOLE", "LOLLED", "DOLLED", "DOODLE", "DOODLED", "LODE"},
+	{"ROLLBAR", "LABOR"},
+	{"PEPPING", "PEEPING", "PEEING", "PIGPEN"},
+	{"PIKE", "KEPI"},
+	{"KEEN", "KNEE"},
+	{"BAOBAB", "BOBA"},
+	{"COBRA", "BARBACOA", "CAROB"},
+	{"BLACK", "BLACKBALL", "CALLBACK"},
+	{"BLAB", "BALL"},
+	{"DOWNWIND", "WINDOW", "WOODWIND"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
