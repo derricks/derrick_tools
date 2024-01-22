@@ -122,7 +122,7 @@ var spellingBeeSets = [][]string{
 	{"CUED", "DEDUCED", "DEUCE", "DEDUCE", "EDUCE", "EDUCED"},
 	{"TABLET", "TABLE", "BLEAT", "ABETTAL", "BALLET", "BATTLE", "BEATABLE", "ABLATE", "BELATE", "EATABLE"},
 	{"MARTIN", "MARTIAN", "MARTINI", "TAMARIN", "TRIMARAN"},
-	{"CLEAT", "CATTLE", "ECLAT"},
+	{"CLEAT", "CATTLE", "ECLAT", "ACETAL"},
 	{"LADLING", "LADING", "DIALING", "ADDLING"},
 	{"MONEY", "YEOMEN"},
 	{"GNOME", "GENOME"},
@@ -355,6 +355,14 @@ var spellingBeeSets = [][]string{
 	{"BLACK", "BLACKBALL", "CALLBACK"},
 	{"BLAB", "BALL"},
 	{"DOWNWIND", "WINDOW", "WOODWIND"},
+	{"DAILY", "DILLYDALLY"},
+	{"LADY", "DALLY"},
+	{"DYAD", "DADDY"},
+	{"EFFACE", "FACE", "CAFE"},
+	{"AGAPE", "PAGE", "GAPE"},
+	{"POGO", "GOOP"},
+	{"CUTTLE", "LETTUCE", "CUTLET"},
+	{"AFFECT", "FACET"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
