@@ -363,6 +363,10 @@ var spellingBeeSets = [][]string{
 	{"POGO", "GOOP"},
 	{"CUTTLE", "LETTUCE", "CUTLET"},
 	{"AFFECT", "FACET"},
+	{"FANNED", "DEAFEN", "DEAFENED"},
+	{"PHOTO", "HOTPOT"},
+	{"TOPIC", "OPTIC", "OCTOPI", "PICOT"},
+	{"PHOTOPIC", "PHOTIC"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
