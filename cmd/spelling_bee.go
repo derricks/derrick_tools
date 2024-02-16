@@ -371,6 +371,16 @@ var spellingBeeSets = [][]string{
 	{"CARPI", "PRIAPIC"},
 	{"EGAD", "ADAGE", "AGED", "GADDED", "GAGGED", "GAGED"},
 	{"GATED", "GADGET", "TAGGED"},
+	{"NOIR", "NORI", "IRON"},
+	{"TWIN", "NITWIT"},
+	{"TRAFFIC", "AIRCRAFT"},
+	{"TARIFF", "FRITTATA"},
+	{"ARID", "RADII", "RAID"},
+	{"ACRID", "CARDIAC"},
+	{"INITIATE", "INNATE"},
+	{"ARRIVAL", "RIVAL", "VIRAL"},
+	{"LIAR", "RAIL", "RIAL", "LIRA", "ARIL"},
+	{"FRIARY", "FAIRY"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
