@@ -85,7 +85,7 @@ var grandCrus = []grandCru{
 	grandCru{34, "Bienvenues-Bâtard-Montrachet", PULIGNY},
 	grandCru{35, "Chevalier-Bâtard-Montrachet", PULIGNY},
 	grandCru{36, "Montrachet", PULIGNY},
-	grandCru{37, "Criots-Bâtard-Montrachet", "Chassgne-Montrachet"},
+	grandCru{37, "Criots-Bâtard-Montrachet", "Chassagne-Montrachet"},
 }
 
 func quizGrandCrus(cmd *cobra.Command, args []string) {
