@@ -52,7 +52,7 @@ var spellingBeeSets = [][]string{
 	{"AWING", "GNAWING", "AWNING", "WAGING", "WAGGING", "WIGWAG", "WIGWAGGING", "WANING"},
 	{"CLEAN", "ENLACE", "LANCE", "CANCEL", "NACELLE"},
 	{"OWING", "WOOING", "GOWNING", "OWNING", "WOWING"},
-	{"GALE", "EAGLE", "LEGAL", "ALLEGE", "GAGGLE"},
+	{"GALE", "EAGLE", "LEGAL", "ALLEGE", "GAGGLE", "ALGAE"},
 	{"MEAN", "NAME", "ENEMA", "MANE", "AMEN"},
 	{"TEAM", "TEAMMATE", "MATTE", "MEAT", "META", "MATE"},
 	{"TRAP", "APPARAT", "RAPT", "APART", "PART", "TARP", "RATTRAP"},
@@ -297,7 +297,7 @@ var spellingBeeSets = [][]string{
 	{"NODE", "ODEON", "DONE", "DONNED", "NODDED"},
 	{"BEFELL", "FEEBLE"},
 	{"BINNING", "BINGING", "GIBING"},
-	{"PINTAIL", "PLIANT", "PLANTAIN"},
+	{"PINTAIL", "PLIANT", "PLANTAIN", "PLAINT"},
 	{"INITIALLY", "LITANY", "NATALITY", "NATTILY"},
 	{"FELT", "LEFT", "FLEET", "FETTLE"},
 	{"VIED", "DIVE", "IVIED", "DIVED", "DIVVIED", "DIVIDED", "DIVIDE"},
@@ -410,6 +410,14 @@ var spellingBeeSets = [][]string{
 	{"RACIAL", "RAILCAR"},
 	{"BOGGLING", "GOBLIN", "GOBBLING", "OBLIGING"},
 	{"NIBBLING", "BLING"},
+	{"EIDETIC", "EDICT", "CITED", "DECEIT", "DIETETIC"},
+	{"ENABLE", "BALEEN", "BEANBALL"},
+	{"ANGEL", "ANGEL", "GLEAN"},
+	{"BAGGLE", "BEAGLE", "BAGEL"},
+	{"NUDGE", "NUDGED", "DENGUE", "GUNNED"},
+	{"EIGHTEEN", "EIGHTEENTH", "TIGHTEN", "TIGHTENING", "HEIGHTEN", "HEIGHTENING", "NIGHTIE"},
+	{"VENAL", "LEAVEN", "NAVEL"},
+	{"MINDED", "MINED", "DENIM"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
