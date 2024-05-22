@@ -63,6 +63,21 @@ var footballTeams = []footballTeam{
 	{15, "Raiders", "Las Vegas", AFC_WEST},
 	{16, "Chargers", "Los Angeles", AFC_WEST},
 	{17, "Cowboys", "Dallas", NFC_EAST},
+	{18, "Giants", "New York", NFC_EAST},
+	{19, "Eagles", "Philadelphia", NFC_EAST},
+	{20, "Commanders", "Washington", NFC_EAST},
+	{21, "Bears", "Chicago", NFC_NORTH},
+	{22, "Lions", "Detroit", NFC_NORTH},
+	{23, "Packers", "Green Bay", NFC_NORTH},
+	{24, "Vikings", "Minnesota", NFC_NORTH},
+	{25, "Falcons", "Atlanta", NFC_SOUTH},
+	{26, "Panthers", "Carolina", NFC_SOUTH},
+	{27, "Saints", "New Orleans", NFC_SOUTH},
+	{28, "Buccaneers", "Tampa Bay", NFC_SOUTH},
+	{29, "Cardinals", "Arizona", NFC_WEST},
+	{30, "Rams", "Los Angeles", NFC_WEST},
+	{31, "49ers", "San Francisco", NFC_WEST},
+	{32, "Seahawks", "Seattle", NFC_WEST},
 }
 
 type footballQuestion func([]footballTeam) promptAndResponse
