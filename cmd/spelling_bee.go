@@ -420,7 +420,7 @@ var spellingBeeSets = [][]string{
 	{"MINDED", "MINED", "DENIM"},
 	{"RACY", "CARRY"},
 	{"ONCE", "CONE", "NONCE"},
-	{"CACHET", "TEACH", "CHEETAH", "CHEAT", "HATCHET"},
+	{"CACHET", "TEACH", "CHEETAH", "CHEAT", "HATCHET", "ATTACHE"},
 	{"LUBE", "BUBBLE", "BLUE"},
 	{"ENCHAIN", "ECHINACEA"},
 	{"LODGED", "DOGLEG", "DOGLEGGED", "LODGE"},
