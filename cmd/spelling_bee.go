@@ -347,7 +347,7 @@ var spellingBeeSets = [][]string{
 	{"PALATIAL", "PLAIT", "TILAPIA"},
 	{"DOLED", "DOLE", "LOLLED", "DOLLED", "DOODLE", "DOODLED", "LODE"},
 	{"ROLLBAR", "LABOR"},
-	{"PEPPING", "PEEPING", "PEEING", "PIGPEN"},
+	{"PEPPING", "PEEPING", "PEEING", "PIGPEN", "PENNING", "PEGGING"},
 	{"PIKE", "KEPI"},
 	{"KEEN", "KNEE"},
 	{"BAOBAB", "BOBA"},
@@ -404,7 +404,7 @@ var spellingBeeSets = [][]string{
 	{"MICROMINI", "MICRON", "MORONIC", "OMICRON"},
 	{"NORM", "MORON", "MORN"},
 	{"DELETE", "DELT", "DELETED"},
-	{"GATING", "TANNING", "GIANT", "INITIATING", "TAGGING", "TATTING"},
+	{"GATING", "TANNING", "GIANT", "INITIATING", "TAGGING", "TATTING", "AGITATING"},
 	{"IPECAC", "APIECE"},
 	{"PIED", "PIPED", "DIPPING"},
 	{"RACIAL", "RAILCAR"},
@@ -426,6 +426,15 @@ var spellingBeeSets = [][]string{
 	{"LODGED", "DOGLEG", "DOGLEGGED", "LODGE"},
 	{"INITIATION", "NATION", "ANOINT", "INTONATION", "NOTATION", "ANNOTATION"},
 	{"UNION", "NONUNION"},
+	{"ABBOT", "BOAT", "TABOO"},
+	{"BOAR", "ARBOR"},
+	{"ABORT", "TABOR"},
+	{"LOACH", "ALCOHOL"},
+	{"ACHOO", "COACH"},
+	{"OUTGO", "GOUT"},
+	{"GLOBAL", "BOOGALOO"},
+	{"GLINT", "GLINTING", "TILING"},
+	{"IGNITING", "TINTING", "TINGING"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
