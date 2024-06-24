@@ -435,6 +435,12 @@ var spellingBeeSets = [][]string{
 	{"GLOBAL", "BOOGALOO"},
 	{"GLINT", "GLINTING", "TILING"},
 	{"IGNITING", "TINTING", "TINGING"},
+	{"NONCOM", "COMMON"},
+	{"CHART", "CATARRH"},
+	{"GOTTA", "TOGA", "GOAT"},
+	{"MONOMANIA", "AMINO", "AMMONIA", "AMNIO"},
+	{"ANTONYM", "ANTONYMY", "ANATOMY"},
+	{"BATON", "NANOBOT"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
