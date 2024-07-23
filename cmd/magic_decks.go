@@ -55,6 +55,16 @@ var magicDecks = []magicDeck{
 	{"Cult of Rakdos", []color{MTG_BLACK, MTG_RED}},
 	{"Golgari Swarm", []color{MTG_BLACK, MTG_GREEN}},
 	{"Gruul Clans", []color{MTG_RED, MTG_GREEN}},
+	{"Bant", []color{MTG_WHITE, MTG_BLUE, MTG_GREEN}},
+	{"Esper", []color{MTG_WHITE, MTG_BLUE, MTG_BLACK}},
+	{"Naya", []color{MTG_WHITE, MTG_RED, MTG_GREEN}},
+	{"Abzan", []color{MTG_WHITE, MTG_BLACK, MTG_GREEN}},
+	{"Jeskai", []color{MTG_WHITE, MTG_BLUE, MTG_RED}},
+	{"Sultai", []color{MTG_BLUE, MTG_BLACK, MTG_GREEN}},
+	{"Jund", []color{MTG_BLACK, MTG_RED, MTG_GREEN}},
+	{"Grixis", []color{MTG_BLUE, MTG_BLACK, MTG_RED}},
+	{"Mardu", []color{MTG_WHITE, MTG_BLACK, MTG_RED}},
+	{"Temur", []color{MTG_BLUE, MTG_RED, MTG_GREEN}},
 }
 
 type quizMagicFunc func([]magicDeck) promptAndResponse
