@@ -54,7 +54,7 @@ var baseballTeams = []baseballTeam{
 	{18, "Mets", "New York"},
 	{19, "Yankees", "New York"},
 	{20, "Athletics", "Oakland"},
-	{21, "Phillies", "Philadelpha"},
+	{21, "Phillies", "Philadelphia"},
 	{22, "Pirates", "Pittsburgh"},
 	{23, "Padres", "San Diego"},
 	{24, "Giants", "San Francisco"},
