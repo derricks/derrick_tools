@@ -39,6 +39,10 @@ var httpCodes = []httpCode{
 	{200, "OK"},
 	{201, "Created"},
 	{202, "Accepted"},
+	{203, "Non-authoritative Information"},
+	{204, "No content"},
+	{205, "Reset content"},
+	{206, "Partial content"},
 }
 
 type httpCodeQuestion func([]httpCode) promptAndResponse
