@@ -20,13 +20,13 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var basketballCmd = &cobra.Command{
-	Use:   "basketball-teams",
-	Short: "Quiz US basketball teams",
-	Run:   quizBasketballTeams,
+var nbaCmd = &cobra.Command{
+	Use:   "nba-teams",
+	Short: "Quiz US nba teams",
+	Run:   quizNbaTeams,
 }
 
-type basketballTeam struct {
+type nbaTeam struct {
 	index int    `crossquery:"all"`
 	name  string `crossquery:"all"`
 	// some areas, such as New York, have more than one team
@@ -43,7 +43,7 @@ const (
 	NBA_SOUTHWEST = "Southwest"
 )
 
-var basketballTeams = []basketballTeam{
+var nbaTeams = []nbaTeam{
 	{1, "Celtics", "Boston", NBA_ATLANTIC},
 	{2, "Nets", "Brooklyn", NBA_ATLANTIC},
 	{3, "Knicks", "New York", NBA_ATLANTIC},
@@ -76,15 +76,15 @@ var basketballTeams = []basketballTeam{
 	{30, "Spurs", "San Antonio", NBA_SOUTHWEST},
 }
 
-func quizBasketballTeams(cmd *cobra.Command, args []string) {
-	promptAndCheckResponse(crossQueryBasketballTeamInfo(basketballTeams))
+func quizNbaTeams(cmd *cobra.Command, args []string) {
+	promptAndCheckResponse(crossQueryNbaTeamInfo(nbaTeams))
 }
 
-func crossQueryBasketballTeamInfo(teams []basketballTeam) promptAndResponse {
+func crossQueryNbaTeamInfo(teams []nbaTeam) promptAndResponse {
 	foundTeam := teams[rand.Intn(len(teams))]
-	return constructCrossQuery("basketball team", foundTeam)
+	return constructCrossQuery("NBA team", foundTeam)
 }
 
 func init() {
-	memoryquizCmd.AddCommand(basketballCmd)
+	memoryquizCmd.AddCommand(nbaCmd)
 }
