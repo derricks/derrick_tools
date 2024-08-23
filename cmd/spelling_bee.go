@@ -139,7 +139,7 @@ var spellingBeeSets = [][]string{
 	{"FETE", "EFFETE", "FEET", "TEFF"},
 	{"FLAT", "FATAL"},
 	{"BEING", "BEGGING", "BEGIN", "BINGEING", "BENIGN", "BINGE", "BEGINNING", "EBBING"},
-	{"TIDIED", "DIET", "TIDE", "TIED", "EDITED", "TIDED", "DIETED"},
+	{"TIDIED", "DIET", "TIDE", "TIED", "EDITED", "TIDED", "DIETED", "EDIT"},
 	{"MODEL", "LOOMED", "MODELED", "MOLDED"},
 	{"IGLOO", "GIGOLO"},
 	{"POINT", "PINTO", "PINOT", "PITON", "OPTION", "POTION"},
