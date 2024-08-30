@@ -33,14 +33,14 @@ type whosonfirst struct {
 }
 
 var whosOnFirstPlayers = []whosonfirst{
-	whosonfirst{"Today", "Catcher"},
-	whosonfirst{"Tomorrow", "Pitcher"},
-	whosonfirst{"Who", "First Base"},
-	whosonfirst{"What", "Second Base"},
-	whosonfirst{"Because", "Center Field"},
-	whosonfirst{"I Don't Care", "Shortstop"},
-	whosonfirst{"I Don't Know", "Third Base"},
-	whosonfirst{"Why", "Left Field"},
+	{"Today", "Catcher"},
+	{"Tomorrow", "Pitcher"},
+	{"Who", "First Base"},
+	{"What", "Second Base"},
+	{"Because", "Center Field"},
+	{"I Don't Care", "Shortstop"},
+	{"I Don't Know", "Third Base"},
+	{"Why", "Left Field"},
 }
 
 type whosonfirstQuiz func([]whosonfirst) promptAndResponse

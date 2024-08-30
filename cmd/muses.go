@@ -40,15 +40,15 @@ func (m muse) areasFormatted() string {
 }
 
 var muses = []muse{
-	muse{"Calliope", []string{"epic poetry"}},
-	muse{"Clio", []string{"history"}},
-	muse{"Euterpe", []string{"flutes", "music"}},
-	muse{"Thalia", []string{"pastoral poetry"}},
-	muse{"Melpomene", []string{"tragedy"}},
-	muse{"Terpsichore", []string{"dance"}},
-	muse{"Erato", []string{"love poetry"}},
-	muse{"Polyhymnia", []string{"sacred poetry"}},
-	muse{"Urania", []string{"astronomy"}},
+	{"Calliope", []string{"epic poetry"}},
+	{"Clio", []string{"history"}},
+	{"Euterpe", []string{"flutes", "music"}},
+	{"Thalia", []string{"pastoral poetry"}},
+	{"Melpomene", []string{"tragedy"}},
+	{"Terpsichore", []string{"dance"}},
+	{"Erato", []string{"love poetry"}},
+	{"Polyhymnia", []string{"sacred poetry"}},
+	{"Urania", []string{"astronomy"}},
 }
 
 type museQuiz func([]muse) promptAndResponse

@@ -32,19 +32,19 @@ type canadaRegion struct {
 }
 
 var canadianRegions = []canadaRegion{
-	canadaRegion{1, "Nunavut", "Iqaluit"},
-	canadaRegion{2, "Quebec", "Quebec City"},
-	canadaRegion{3, "Northwest Territory", "Yellowknife"},
-	canadaRegion{4, "Ontario", "Toronto"},
-	canadaRegion{5, "British Columbia", "Victoria"},
-	canadaRegion{6, "Alberta", "Edmonton"},
-	canadaRegion{7, "Saskatchewan", "Regina"},
-	canadaRegion{8, "Manitoba", "Winnipeg"},
-	canadaRegion{9, "Yukon", "Whitehorse"},
-	canadaRegion{10, "New Foundland and Labrador", "St. John's"},
-	canadaRegion{11, "New Brunswick", "Fredericton"},
-	canadaRegion{12, "Nova Scotia", "Halifax"},
-	canadaRegion{13, "Prince Edward Island", "Charlottetown"},
+	{1, "Nunavut", "Iqaluit"},
+	{2, "Quebec", "Quebec City"},
+	{3, "Northwest Territory", "Yellowknife"},
+	{4, "Ontario", "Toronto"},
+	{5, "British Columbia", "Victoria"},
+	{6, "Alberta", "Edmonton"},
+	{7, "Saskatchewan", "Regina"},
+	{8, "Manitoba", "Winnipeg"},
+	{9, "Yukon", "Whitehorse"},
+	{10, "New Foundland and Labrador", "St. John's"},
+	{11, "New Brunswick", "Fredericton"},
+	{12, "Nova Scotia", "Halifax"},
+	{13, "Prince Edward Island", "Charlottetown"},
 }
 
 type canadaQuestion func([]canadaRegion) promptAndResponse
