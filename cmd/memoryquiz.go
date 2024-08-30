@@ -127,6 +127,10 @@ var memoryquizCmd = &cobra.Command{
 	},
 }
 
+func randomItemFromSlice[S ~[]E, E interface{}](s S) E {
+	return s[rand.Intn(len(s))]
+}
+
 func init() {
 	rootCmd.AddCommand(memoryquizCmd)
 }

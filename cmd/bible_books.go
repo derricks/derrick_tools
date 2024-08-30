@@ -108,7 +108,7 @@ func quizKingJames(cmd *cobra.Command, args []string) {
 		quizBibleBookAfter,
 	}
 
-	function := funcs[rand.Intn(len(funcs))]
+	function := randomItemFromSlice(funcs)
 	promptAndCheckResponse(function(bibleBooks))
 }
 

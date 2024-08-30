@@ -124,7 +124,7 @@ func quizMonopoly(cmd *cobra.Command, args []string) {
 
 func quizMonopolyPropertiesByColor(monopolyBoard []monopolySquare) promptAndResponse {
 	colors := []string{PURPLE, LIGHT_BLUE, LIGHT_PURPLE, ORANGE, RED, YELLOW, GREEN, DARK_BLUE}
-	randomColor := colors[rand.Intn(len(colors))]
+	randomColor := randomItemFromSlice(colors)
 
 	properties := make([]string, 0)
 	for _, property := range monopolyBoard {

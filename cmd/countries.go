@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"math/rand"
 	"strconv"
 
 	"github.com/spf13/cobra"
@@ -275,26 +274,22 @@ func quizCountries(cmd *cobra.Command, args []string) {
 		quizCountryFromFlag,
 		quizCountryLandlocked,
 	}
-	function := quizFuncs[rand.Intn(len(quizFuncs))]
+	function := randomItemFromSlice(quizFuncs)
 	promptAndCheckResponse(function(countries))
 
 }
 
-func randomCountry(countries []countryInfo) countryInfo {
-	return countries[rand.Intn(len(countries))]
-}
-
 func crossQueryCountryInfo(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
+	country := randomItemFromSlice(countries)
 	return constructCrossQuery("country", country)
 }
 
 func quizWhichIsBigger(countries []countryInfo) promptAndResponse {
-	country1 := randomCountry(countries)
-	country2 := randomCountry(countries)
+	country1 := randomItemFromSlice(countries)
+	country2 := randomItemFromSlice(countries)
 
 	for country1.name == country2.name {
-		country2 = randomCountry(countries)
+		country2 = randomItemFromSlice(countries)
 	}
 
 	response := promptAndResponse{fmt.Sprintf("Which country is bigger: %s or %s?", country1.name, country2.name), ""}
@@ -308,11 +303,11 @@ func quizWhichIsBigger(countries []countryInfo) promptAndResponse {
 }
 
 func quizWhichIsSmaller(countries []countryInfo) promptAndResponse {
-	country1 := randomCountry(countries)
-	country2 := randomCountry(countries)
+	country1 := randomItemFromSlice(countries)
+	country2 := randomItemFromSlice(countries)
 
 	for country1.name == country2.name {
-		country2 = randomCountry(countries)
+		country2 = randomItemFromSlice(countries)
 	}
 
 	response := promptAndResponse{fmt.Sprintf("Which country is smaller: %s or %s?", country1.name, country2.name), ""}
@@ -326,12 +321,12 @@ func quizWhichIsSmaller(countries []countryInfo) promptAndResponse {
 }
 
 func quizCountryFromFlag(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
+	country := randomItemFromSlice(countries)
 	return promptAndResponse{fmt.Sprintf("Which country has this flag: %s", country.flagEmoji()), country.name}
 }
 
 func quizCountryLandlocked(countries []countryInfo) promptAndResponse {
-	country := randomCountry(countries)
+	country := randomItemFromSlice(countries)
 	return promptAndResponse{fmt.Sprintf("%s is landlocked: true or false?", country.name),
 		strconv.FormatBool(country.landlocked)}
 }

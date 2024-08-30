@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"math/rand"
-
 	"github.com/spf13/cobra"
 )
 
@@ -82,7 +80,7 @@ func quizShakespeare(cmd *cobra.Command, args []string) {
 		quizIndexOfShakespearePlay,
 	}
 
-	quiz := quizzes[rand.Intn(len(quizzes))]
+	quiz := randomItemFromSlice(quizzes)
 	promptAndCheckResponse(quiz(shakespearePlays))
 }
 

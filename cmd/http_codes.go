@@ -15,8 +15,6 @@ limitations under the License.
 package cmd
 
 import (
-	"math/rand"
-
 	"github.com/spf13/cobra"
 )
 
@@ -53,12 +51,12 @@ func quizHttpCodes(cmd *cobra.Command, args []string) {
 		crossQueryHttpCodeInfo,
 	}
 
-	function := promptFuncs[rand.Intn(len(promptFuncs))]
+	function := randomItemFromSlice(promptFuncs)
 	promptAndCheckResponse(function(httpCodes))
 }
 
 func crossQueryHttpCodeInfo(codes []httpCode) promptAndResponse {
-	foundCode := codes[rand.Intn(len(codes))]
+	foundCode := randomItemFromSlice(codes)
 	return constructCrossQuery("HTTP", foundCode)
 }
 

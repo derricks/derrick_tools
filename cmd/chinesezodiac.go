@@ -57,7 +57,7 @@ func quizChineseZodiacs(cmd *cobra.Command, args []string) {
 		quizChineseZodiacByYear,
 	}
 
-	quiz := quizzes[rand.Intn(len(quizzes))]
+	quiz := randomItemFromSlice(quizzes)
 	promptAndCheckResponse(quiz(chineseZodiac))
 }
 

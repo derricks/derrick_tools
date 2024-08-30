@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"math/rand"
-
 	"github.com/spf13/cobra"
 )
 
@@ -51,7 +49,7 @@ func quizCranialNerves(cmd *cobra.Command, args []string) {
 		quizCranialNerveIndexFromName,
 	}
 
-	quizFunction := nerveQuizzes[rand.Intn(len(nerveQuizzes))]
+	quizFunction := randomItemFromSlice(nerveQuizzes)
 	promptAndCheckResponse(quizFunction(cranialNerves))
 }
 

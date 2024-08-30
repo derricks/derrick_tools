@@ -142,19 +142,18 @@ func quizConstellations(cmd *cobra.Command, args []string) {
 		quizConstellationByStar,
 	}
 
-	quiz := quizzes[rand.Intn(len(quizzes))]
+	quiz := randomItemFromSlice(quizzes)
 	promptAndCheckResponse(quiz(constellations))
 }
 
 func crossQueryConstellationInfo(constellations []constellation) promptAndResponse {
-	constellation := randomConstellation(constellations)
+	constellation := randomItemFromSlice(constellations)
 	return constructCrossQuery("constellation", constellation)
 }
 
 func quizConstellationByOrder(constellations []constellation) promptAndResponse {
-	index := rand.Intn(len(constellations))
-	constellation := constellations[index]
-	return promptAndResponse{fmt.Sprintf("Which constellation is position %d?", index+1), constellation.name}
+	constellation := randomItemFromSlice(constellations)
+	return promptAndResponse{fmt.Sprintf("Which constellation is position %d?", constellation.alphabeticalOrder), constellation.name}
 }
 
 func quizConstellationCountByLetter(constellations []constellation) promptAndResponse {
@@ -173,15 +172,16 @@ func quizConstellationCountByLetter(constellations []constellation) promptAndRes
 func quizStarInConstellation(constellations []constellation) promptAndResponse {
 	// winnow down to just constellations that have stars
 	withStars := constellationsWithStars(constellations)
-	constellation := randomConstellation(withStars)
+	constellation := randomItemFromSlice(withStars)
 	starIndex := rand.Intn(len(constellation.stars))
-	return promptAndResponse{fmt.Sprintf("What is named star number %d in %s?", starIndex+1, constellation.name), constellation.stars[starIndex]}
+	star := constellation.stars[starIndex]
+	return promptAndResponse{fmt.Sprintf("What is named star number %d in %s?", starIndex+1, constellation.name), star}
 }
 
 func quizConstellationByStar(constellations []constellation) promptAndResponse {
 	withStars := constellationsWithStars(constellations)
-	constellation := randomConstellation(withStars)
-	star := constellation.stars[rand.Intn(len(constellation.stars))]
+	constellation := randomItemFromSlice(withStars)
+	star := randomItemFromSlice(constellation.stars)
 	return promptAndResponse{fmt.Sprintf("Which constellation contains %s?", star), constellation.name}
 }
 
@@ -195,10 +195,6 @@ func constellationsWithStars(constellations []constellation) []constellation {
 		}
 	}
 	return withStars
-}
-
-func randomConstellation(constellations []constellation) constellation {
-	return constellations[rand.Intn(len(constellations))]
 }
 
 func init() {

@@ -66,7 +66,7 @@ func quizGreekAlphabet(cmd *cobra.Command, args []string) {
 		quizLetterAfter,
 	}
 
-	function := funcs[rand.Intn(len(funcs))]
+	function := randomItemFromSlice(funcs)
 	promptAndCheckResponse(function(greekAlphabet))
 }
 

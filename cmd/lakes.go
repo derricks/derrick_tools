@@ -96,33 +96,29 @@ func quizLakes(cmd *cobra.Command, args []string) {
 		quizLakeInCountry,
 	}
 
-	quiz := quizzes[rand.Intn(len(quizzes))]
+	quiz := randomItemFromSlice(quizzes)
 	promptAndCheckResponse(quiz(lakes))
 }
 
-func randomLake(lakes []lakeInfo) lakeInfo {
-	return lakes[rand.Intn(len(lakes))]
-}
-
 func quizLakeBySizeRank(lakes []lakeInfo) promptAndResponse {
-	lake := randomLake(lakes)
+	lake := randomItemFromSlice(lakes)
 	return promptAndResponse{fmt.Sprintf("What is the name of the lake at position %d", lake.sizeOrder), lake.name}
 }
 
 func quizSizeByLake(lakes []lakeInfo) promptAndResponse {
-	lake := randomLake(lakes)
+	lake := randomItemFromSlice(lakes)
 	return promptAndResponse{fmt.Sprintf("What is the size rank of lake %s?", lake.name), strconv.Itoa(lake.sizeOrder)}
 }
 
 func quizLakeSalinity(lakes []lakeInfo) promptAndResponse {
-	lake := randomLake(lakes)
+	lake := randomItemFromSlice(lakes)
 	return promptAndResponse{fmt.Sprintf("%s is a saline lake, true or false?", lake.name), strconv.FormatBool(lake.isSaline)}
 }
 
 func quizLakeInCountry(lakes []lakeInfo) promptAndResponse {
-	lake1 := randomLake(lakes)
+	lake1 := randomItemFromSlice(lakes)
 	country := lake1.countries[rand.Intn(len(lake1.countries))]
-	lake2 := randomLake(lakes)
+	lake2 := randomItemFromSlice(lakes)
 	return promptAndResponse{fmt.Sprintf("Lake %s touches %s, true or false?", lake2.name, country), strconv.FormatBool(isStringInSlice(country, lake2.countries))}
 }
 

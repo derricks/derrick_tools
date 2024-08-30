@@ -60,7 +60,7 @@ func quizMuses(cmd *cobra.Command, args []string) {
 		quizAllMuses,
 	}
 
-	quiz := quizzes[rand.Intn(len(quizzes))]
+	quiz := randomItemFromSlice(quizzes)
 	promptAndCheckResponse(quiz(muses))
 }
 

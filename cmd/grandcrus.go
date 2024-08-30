@@ -99,7 +99,7 @@ func quizGrandCrus(cmd *cobra.Command, args []string) {
 }
 
 func quizVineyardsForVillage(crus []grandCru) promptAndResponse {
-	randomCru := crus[rand.Intn(len(crus))]
+	randomCru := randomItemFromSlice(crus)
 	village := randomCru.village
 	vineyardNames := []string{}
 	for _, cru := range crus {

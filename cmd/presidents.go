@@ -112,7 +112,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		}
 	}
 
-	function := promptFuncs[rand.Intn(len(promptFuncs))]
+	function := randomItemFromSlice(promptFuncs)
 	promptAndCheckResponse(function(presidents))
 }
 
@@ -121,7 +121,7 @@ var vicePresidentsOnly bool
 type presidentQuestion func([]president) promptAndResponse
 
 func crossQueryPresidentInfo(presidents []president) promptAndResponse {
-	president := randomPresident(presidents)
+	president := randomItemFromSlice(presidents)
 	return constructCrossQuery("president", president)
 }
 
@@ -172,19 +172,19 @@ func quizWhoWasPresidentWhen(presidents []president) promptAndResponse {
 }
 
 func quizVicePresidents(presidents []president) promptAndResponse {
-	president := randomPresident(presidents)
+	president := randomItemFromSlice(presidents)
 	for len(president.vicePresidents) == 0 {
-		president = randomPresident(presidents)
+		president = randomItemFromSlice(presidents)
 	}
 	return promptAndResponse{fmt.Sprintf("Who served as vice president under %s (separate names with commas)?", president.name), strings.Join(president.vicePresidents, ",")}
 }
 
 // the complicated logic here is because some vice presidents served under more than one president
 func quizPresidentsForVicePresident(presidents []president) promptAndResponse {
-	p := randomPresident(presidents)
+	p := randomItemFromSlice(presidents)
 	// not all presidents had vice presidents
 	for len(p.vicePresidents) == 0 {
-		p = randomPresident(presidents)
+		p = randomItemFromSlice(presidents)
 	}
 
 	vp := p.vicePresidents[rand.Intn(len(p.vicePresidents))]
@@ -199,10 +199,10 @@ func quizPresidentsForVicePresident(presidents []president) promptAndResponse {
 }
 
 func quizFirstLadiesFromPresident(presidents []president) promptAndResponse {
-	p := randomPresident(presidents)
+	p := randomItemFromSlice(presidents)
 	for len(p.firstLadies) == 0 {
 		// not a necessity now, but future-proofing
-		p = randomPresident(presidents)
+		p = randomItemFromSlice(presidents)
 	}
 	return promptAndResponse{fmt.Sprintf("Who were %s's First Ladies (join with commas)?", p.name), strings.Join(p.firstLadies, ",")}
 }
@@ -214,10 +214,6 @@ func vpServedUnderPres(vp string, pres president) bool {
 		}
 	}
 	return false
-}
-
-func randomPresident(presidents []president) president {
-	return presidents[rand.Intn(len(presidents))]
 }
 
 func init() {

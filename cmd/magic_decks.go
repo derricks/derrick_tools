@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"math/rand"
 	"strings"
 
 	"github.com/spf13/cobra"
@@ -75,18 +74,18 @@ func quizMagic(cmd *cobra.Command, args []string) {
 		quizColorsFromDeck,
 	}
 
-	function := funcs[rand.Intn(len(funcs))]
+	function := randomItemFromSlice(funcs)
 	promptAndCheckResponse(function(magicDecks))
 }
 
 func quizDeckFromColors(decks []magicDeck) promptAndResponse {
-	deck := randomDeck(decks)
+	deck := randomItemFromSlice(decks)
 	colorCombo := colorArrayToString(deck.colors)
 	return promptAndResponse{fmt.Sprintf("What is the deck name for %s", colorCombo), deck.name}
 }
 
 func quizColorsFromDeck(decks []magicDeck) promptAndResponse {
-	deck := randomDeck(decks)
+	deck := randomItemFromSlice(decks)
 	colors := colorArrayToString(deck.colors)
 	return promptAndResponse{fmt.Sprintf("What are the colors (WUBRG order) for %s", deck.name), colors}
 }
@@ -97,10 +96,6 @@ func colorArrayToString(deckColors []color) string {
 		colors = append(colors, string(color))
 	}
 	return strings.Join(colors, ",")
-}
-
-func randomDeck(decks []magicDeck) magicDeck {
-	return decks[rand.Intn(len(decks))]
 }
 
 func init() {

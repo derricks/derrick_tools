@@ -115,18 +115,14 @@ func quizEnglishRoyalty(cmd *cobra.Command, args []string) {
 		quizRoyalAfterAnother,
 	}
 
-	function := promptFuncs[rand.Intn(len(promptFuncs))]
+	function := randomItemFromSlice(promptFuncs)
 	promptAndCheckResponse(function(royals))
 }
 
 func crossQueryEnglishRoyal(royals []englishRoyal) promptAndResponse {
-	royal := randomRoyal(royals)
+	royal := randomItemFromSlice(royals)
 	return constructCrossQuery("English royal", royal)
 
-}
-
-func randomRoyal(royals []englishRoyal) englishRoyal {
-	return royals[rand.Intn(len(royals))]
 }
 
 func quizRoyalBySobriquet(royals []englishRoyal) promptAndResponse {
@@ -138,7 +134,7 @@ func quizRoyalBySobriquet(royals []englishRoyal) promptAndResponse {
 		}
 	}
 
-	quizRoyal := randomRoyal(sobriquetRoyals)
+	quizRoyal := randomItemFromSlice(sobriquetRoyals)
 	return promptAndResponse{fmt.Sprintf("Which English royal had the sobriquet %s?", quizRoyal.sobriquet), quizRoyal.name}
 }
 

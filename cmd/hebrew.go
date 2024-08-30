@@ -16,8 +16,6 @@ limitations under the License.
 package cmd
 
 import (
-	"math/rand"
-
 	"github.com/spf13/cobra"
 )
 
@@ -63,7 +61,7 @@ func quizHebrewAlphabet(cmd *cobra.Command, args []string) {
 		quizLetterAfter,
 	}
 
-	function := funcs[rand.Intn(len(funcs))]
+	function := randomItemFromSlice(funcs)
 	promptAndCheckResponse(function(hebrewAlphabet))
 }
 

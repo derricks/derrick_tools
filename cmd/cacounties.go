@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"math/rand"
 
 	"github.com/spf13/cobra"
 )
@@ -112,26 +111,22 @@ func quizCaCounties(cmd *cobra.Command, args []string) {
 		quizWhichCountyIsBigger,
 		quizWhichCountyIsSmaller,
 	}
-	function := quizFuncs[rand.Intn(len(quizFuncs))]
+	function := randomItemFromSlice(quizFuncs)
 	promptAndCheckResponse(function(caCounties))
 
 }
 
-func randomCounty(counties []countyInfo) countyInfo {
-	return counties[rand.Intn(len(counties))]
-}
-
 func crossQueryCaCountyInfo(counties []countyInfo) promptAndResponse {
-	county := randomCounty(counties)
+	county := randomItemFromSlice(counties)
 	return constructCrossQuery("CA county", county)
 }
 
 func quizWhichCountyIsBigger(counties []countyInfo) promptAndResponse {
-	county1 := randomCounty(counties)
-	county2 := randomCounty(counties)
+	county1 := randomItemFromSlice(counties)
+	county2 := randomItemFromSlice(counties)
 
 	for county1.name == county2.name {
-		county2 = randomCounty(counties)
+		county2 = randomItemFromSlice(counties)
 	}
 
 	response := promptAndResponse{fmt.Sprintf("Which county is bigger: %s or %s?", county1.name, county2.name), ""}
@@ -145,11 +140,11 @@ func quizWhichCountyIsBigger(counties []countyInfo) promptAndResponse {
 }
 
 func quizWhichCountyIsSmaller(counties []countyInfo) promptAndResponse {
-	county1 := randomCounty(counties)
-	county2 := randomCounty(counties)
+	county1 := randomItemFromSlice(counties)
+	county2 := randomItemFromSlice(counties)
 
 	for county1.name == county2.name {
-		county2 = randomCounty(counties)
+		county2 = randomItemFromSlice(counties)
 	}
 
 	response := promptAndResponse{fmt.Sprintf("Which county is smaller: %s or %s?", county1.name, county2.name), ""}

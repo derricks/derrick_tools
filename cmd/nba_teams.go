@@ -15,8 +15,6 @@ limitations under the License.
 package cmd
 
 import (
-	"math/rand"
-
 	"github.com/spf13/cobra"
 )
 
@@ -81,7 +79,7 @@ func quizNbaTeams(cmd *cobra.Command, args []string) {
 }
 
 func crossQueryNbaTeamInfo(teams []nbaTeam) promptAndResponse {
-	foundTeam := teams[rand.Intn(len(teams))]
+	foundTeam := randomItemFromSlice(teams)
 	return constructCrossQuery("NBA team", foundTeam)
 }
 
