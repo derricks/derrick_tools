@@ -25,7 +25,7 @@ var hebrewCalendarCmd = &cobra.Command{
 }
 
 type hebrewCalendar struct {
-	hebrewIndex    int    `crossquery:"all" crossqueryname:"index in the Hebrew Calendar"`
+	index          int    `crossquery:"all" crossqueryname:"index"`
 	hebrewMonth    string `crossquery:"all" crossqueryname:"Hebrew month"`
 	gregorianMonth string `crossquery:"all" crossqueryname:"Gregorian month"`
 }
