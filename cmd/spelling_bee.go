@@ -55,7 +55,7 @@ var spellingBeeSets = [][]string{
 	{"GALE", "EAGLE", "LEGAL", "ALLEGE", "GAGGLE", "ALGAE"},
 	{"MEAN", "NAME", "ENEMA", "MANE", "AMEN"},
 	{"TEAM", "TEAMMATE", "MATTE", "MEAT", "META", "MATE"},
-	{"TRAP", "APPARAT", "RAPT", "APART", "PART", "TARP", "RATTRAP"},
+	{"TRAP", "APPARAT", "RAPT", "APART", "PART", "TARP", "RATTRAP", "PRAT"},
 	{"PEND", "PENDED", "DEPEND", "DEPENDED", "DEEPEN", "DEEPENED", "PENNED"},
 	{"PACE", "APACE", "PEACE", "CAPE"},
 	{"PEAL", "APPLE", "PALE", "LAPEL", "LEAP", "APPEAL", "PAELLA", "APPELLEE", "PLEA"},
