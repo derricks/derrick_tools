@@ -469,6 +469,9 @@ var spellingBeeSets = [][]string{
 	{"TYPE", "PETTY"},
 	{"CLEF", "FLEECE"},
 	{"PATCH", "CAPTCHA"},
+	{"GIBE", "BEIGE", "BIGGIE"},
+	{"ELIGIBLE", "LEGIBLE", "BILGE", "ILLEGIBLE"},
+	{"TRITON", "ROTINI", "TORTINI"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
