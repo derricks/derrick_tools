@@ -37,10 +37,22 @@ var httpCodes = []httpCode{
 	{200, "OK"},
 	{201, "Created"},
 	{202, "Accepted"},
-	{203, "Non-authoritative Information"},
+	{203, "Non-authoritative information"},
 	{204, "No content"},
 	{205, "Reset content"},
 	{206, "Partial content"},
+	{207, "Multi-Status"},
+	{208, "Already Reported"},
+	{226, "IM Used"},
+	{300, "Multiple choices"},
+	{301, "Moved permanently"},
+	{302, "Found"},
+	{303, "See other"},
+	{304, "Not modified"},
+	{305, "Use proxy"},
+	{306, "Switch proxy"},
+	{307, "Temporary redirect"},
+	{308, "Permanent redirect"},
 }
 
 type httpCodeQuestion func([]httpCode) promptAndResponse
