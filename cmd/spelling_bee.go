@@ -409,7 +409,7 @@ var spellingBeeSets = [][]string{
 	{"PIED", "PIPED", "DIPPING"},
 	{"RACIAL", "RAILCAR"},
 	{"BOGGLING", "GOBLIN", "GOBBLING", "OBLIGING"},
-	{"NIBBLING", "BLING"},
+	{"NIBBLING", "BLING", "BILLING"},
 	{"EIDETIC", "EDICT", "CITED", "DECEIT", "DIETETIC"},
 	{"ENABLE", "BALEEN", "BEANBALL"},
 	{"ANGEL", "ANGLE", "GLEAN"},
