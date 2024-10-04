@@ -35,18 +35,18 @@ type chineseZodiacInfo struct {
 }
 
 var chineseZodiac = []chineseZodiacInfo{
-	chineseZodiacInfo{"rat", 1960},
-	chineseZodiacInfo{"ox", 1961},
-	chineseZodiacInfo{"tiger", 1962},
-	chineseZodiacInfo{"rabbit", 1963},
-	chineseZodiacInfo{"dragon", 1964},
-	chineseZodiacInfo{"snake", 1965},
-	chineseZodiacInfo{"horse", 1966},
-	chineseZodiacInfo{"goat", 1967},
-	chineseZodiacInfo{"monkey", 1968},
-	chineseZodiacInfo{"rooster", 1969},
-	chineseZodiacInfo{"dog", 1970},
-	chineseZodiacInfo{"pig", 1971},
+	{"rat", 1960},
+	{"ox", 1961},
+	{"tiger", 1962},
+	{"rabbit", 1963},
+	{"dragon", 1964},
+	{"snake", 1965},
+	{"horse", 1966},
+	{"goat", 1967},
+	{"monkey", 1968},
+	{"rooster", 1969},
+	{"dog", 1970},
+	{"pig", 1971},
 }
 
 type chineseZodiacQuiz func([]chineseZodiacInfo) promptAndResponse
