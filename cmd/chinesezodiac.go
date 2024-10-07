@@ -69,11 +69,7 @@ func quizChineseZodiacAnimalByIndex(zodiac []chineseZodiacInfo) promptAndRespons
 func quizChineseZodiacByYear(zodiac []chineseZodiacInfo) promptAndResponse {
 	yearOffset := rand.Intn(100)
 	targetYear := zodiac[0].referenceYear + yearOffset
-	animal := zodiac[0]
-	var i int
-	for i = 0; (targetYear-animal.referenceYear)%12 != 0; i++ {
-		animal = zodiac[i]
-	}
+	animal := zodiac[(targetYear-zodiac[0].referenceYear)%12]
 	return promptAndResponse{fmt.Sprintf("What is the chinese zodiac animal for %d?", targetYear), animal.animal}
 }
 
