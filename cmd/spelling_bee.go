@@ -472,6 +472,18 @@ var spellingBeeSets = [][]string{
 	{"GIBE", "BEIGE", "BIGGIE"},
 	{"ELIGIBLE", "LEGIBLE", "BILGE", "ILLEGIBLE"},
 	{"TRITON", "ROTINI", "TORTINI"},
+	{"YIELDED", "EYELID", "YIELD"},
+	{"IDEALLY", "DILLYDALLIED"},
+	{"ALLAYED", "DEADLY", "DELAYED", "DELAY"},
+	{"EDDY", "DYED", "EYED"},
+	{"DAMAGING", "DAMNING", "DAMMING"},
+	{"INLAID", "INLAND"},
+	{"VAIN", "AVIAN"},
+	{"ELEGY", "LEGGY"},
+	{"GLEE", "GELEE"},
+	{"THROATY", "HORTATORY"},
+	{"TORAH", "THROAT"},
+	{"WHOA", "WAHOO"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
