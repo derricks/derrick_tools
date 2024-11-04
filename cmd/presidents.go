@@ -58,7 +58,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		{15, "James Buchanan", 1857, []string{"John C. Breckinridge"}, []string{"Harriet Lane"}},
 		{16, "Abraham Lincoln", 1861, []string{"Hannibal Hamlin", "Andrew Johnson"}, []string{"Mary Lincoln"}},
 		{17, "Andrew Johnson", 1865, []string{}, []string{"Eliza Johnson", "Martha Johnson Patterson"}},
-		{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", ""}, []string{"Julia Grant"}},
+		{18, "Ulysses S. Grant", 1869, []string{"Schuyler Colfax", "Henry Wilson"}, []string{"Julia Grant"}},
 		{19, "Rutherford B. Hayes", 1877, []string{"William Wheeler"}, []string{"Lucy Hayes"}},
 		{20, "James Garfield", 1881, []string{"Chester A. Arthur"}, []string{"Lucretia Garfield"}},
 		{21, "Chester A. Arthur", 1881, []string{}, []string{"Ellen Arthur", "Mary Arthur McElroy"}},
