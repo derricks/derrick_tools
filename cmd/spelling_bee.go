@@ -484,6 +484,14 @@ var spellingBeeSets = [][]string{
 	{"THROATY", "HORTATORY"},
 	{"TORAH", "THROAT"},
 	{"WHOA", "WAHOO"},
+	{"DRONING", "GRIDIRON"},
+	{"TALON", "TONAL", "ATONAL"},
+	{"RANDOM", "MONODRAMA", "NONRANDOM"},
+	{"MOAN", "MAMMON"},
+	{"DRAMA", "ARMADA", "RAMADA", "DRAM"},
+	{"PLUME", "PEPLUM"},
+	{"UMPED", "DUMPED", "PUMPED"},
+	{"CLUE", "CELLULE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
