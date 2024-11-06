@@ -87,6 +87,7 @@ func quizPresidents(cmd *cobra.Command, args []string) {
 		{44, "Barack Obama", 2009, []string{"Joseph R. Biden"}, []string{"Michelle Obama"}},
 		{45, "Donald Trump", 2017, []string{"Mike Pence"}, []string{"Melania Trump"}},
 		{46, "Joseph R. Biden", 2021, []string{"Kamala Harris"}, []string{"Dr. Jill Biden"}},
+		{47, "Donald Trump", 2025, []string{"JD Vance"}, []string{"Melania Trump"}},
 	}
 
 	var promptFuncs []presidentQuestion
