@@ -42,6 +42,21 @@ var romanNames = []romanName{
 	{"Carlisle", "Luguvalium"},
 	{"Carmarthen", "Moridunum"},
 	{"Catterick", "Cataractonium"},
+	{"Chepstow", "Venta Silurum"},
+	{"Chester", "Deva Victrix"},
+	{"Chichester", "Noviomagus Reginorum"},
+	{"Cirencester", "Corinium Dobunnorum"},
+	{"Colchester", "Camulodunum"},
+	{"Conwy", "Canofium Deceangorum"},
+	{"Doncaster", "Danum"},
+	{"Dorchester", "Durnovaria"},
+	{"Durham", "Vinovia"},
+	{"Exeter", "Isca Dumnoniorum"},
+	{"Gloucester", "Glevum"},
+	{"Hereford", "Magnae Dobunnorum"},
+	{"Ilchester", "Lindinis"},
+	{"Leicester", "Ratae Corieltauvorum"},
+	{"Lichfield", "Letocetum"},
 }
 
 func quizRomanNames(cmd *cobra.Command, args []string) {
