@@ -57,6 +57,11 @@ var romanNames = []romanName{
 	{"Ilchester", "Lindinis"},
 	{"Leicester", "Ratae Corieltauvorum"},
 	{"Lichfield", "Letocetum"},
+	{"Lincoln", "Lindum Colonia"},
+	{"London", "Londinium"},
+	{"Manchester", "Mamucium"},
+	{"Monmouth", "Blestium"},
+	{"Norwich", "Venta Icenorum"},
 }
 
 func quizRomanNames(cmd *cobra.Command, args []string) {
