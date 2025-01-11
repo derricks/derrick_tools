@@ -492,6 +492,9 @@ var spellingBeeSets = [][]string{
 	{"PLUME", "PEPLUM"},
 	{"UMPED", "DUMPED", "PUMPED"},
 	{"CLUE", "CELLULE"},
+	{"METAL", "MALLET", "TAMALE"},
+	{"COMA", "CAMO", "COMMA"},
+	{"CLAIM", "ACCLAIM", "MALIC"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
