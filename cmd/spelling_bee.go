@@ -495,6 +495,11 @@ var spellingBeeSets = [][]string{
 	{"METAL", "MALLET", "TAMALE"},
 	{"COMA", "CAMO", "COMMA"},
 	{"CLAIM", "ACCLAIM", "MALIC"},
+	{"PULPIT", "UPLIT", "UPTILT", "TULIP"},
+	{"TWILL", "TWILIT"},
+	{"RUNNING", "URGING", "INURING", "RUING", "RUINING"},
+	{"AUGURING", "ARGUING"},
+	{"BRIDAL", "BILLIARD", "BIRADIAL"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
