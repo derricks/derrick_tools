@@ -45,6 +45,7 @@ var wnbaTeams = []wnbaTeam{
 	{10, "Mercury", "Phoenix"},
 	{11, "Storm", "Seattle"},
 	{12, "Mystics", "Washington"},
+	{13, "Valkyries", "Golden State"},
 }
 
 type wnbaQuestion func([]wnbaTeam) promptAndResponse
