@@ -500,6 +500,16 @@ var spellingBeeSets = [][]string{
 	{"RUNNING", "URGING", "INURING", "RUING", "RUINING"},
 	{"AUGURING", "ARGUING"},
 	{"BRIDAL", "BILLIARD", "BIRADIAL"},
+	{"LAMENT", "ELEMENTAL", "MENTAL", "MANTLE", "MANTEL"},
+	{"MANATEE", "EMANATE"},
+	{"MAGNATE", "NAMETAG", "MAGENTA", "MAGNET"},
+	{"MANGLE", "MELANGE"},
+	{"ARMLOAD", "MALODOR"},
+	{"CLAP", "ALPACA"},
+	{"PIRANHA", "HAIRPIN"},
+	{"TANGLE", "ENTANGLE", "ELEGANT"},
+	{"NIPPLE", "PIPELINE", "PENILE"},
+	{"PALLETE", "PALATE", "LEAPT", "PALLET", "PLATE", "PLATTE"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
