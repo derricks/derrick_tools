@@ -510,6 +510,9 @@ var spellingBeeSets = [][]string{
 	{"TANGLE", "ENTANGLE", "ELEGANT"},
 	{"NIPPLE", "PIPELINE", "PENILE"},
 	{"PALLETE", "PALATE", "LEAPT", "PALLET", "PLATE", "PLATTE"},
+	{"RICK", "CRICK"},
+	{"ACTIVE", "ACTIVATE"},
+	{"GRAB", "RAGBAG", "GARB"},
 }
 
 func quizSpellingBee(cmd *cobra.Command, args []string) {
